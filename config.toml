@@ -1,5 +1,5 @@
 baseurl = "https://www.example.com/"
-title = "Ferris Ellis' Blog"
+title = "FerrisEllis.com"
 author = "Ferris Ellis"
 canonifyurls = true
 languagecode = "en"
@@ -9,7 +9,9 @@ pygmentsstyle       = "trac"
 pygmentscodefences  = true
 
 [params]
-  sitename = "Ferris Ellis' Blog"
+  sitename = "FerrisEllis.com"
+  twitter_handle = "im_ferris"
+  github_handle  = "code-ape"
 
 [[menu.main]]
     name = "About"

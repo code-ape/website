@@ -23,6 +23,15 @@ case "$CMD" in
 		echo "Running: $cmd"
 		eval $cmd
 		;;
+	build_gh_pages)
+		HOST="code-ape.github.io"
+		PROTOCOL="https"
+		SITE_PATH="website"
+		PORT_WITH_COLON=""
+		cmd="hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		echo "Running: $cmd"
+		eval $cmd
+		;;
 	build_watch)
 		cmd="hugo -w -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
