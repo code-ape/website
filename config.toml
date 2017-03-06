@@ -1,0 +1,23 @@
+baseurl = "https://www.example.com/"
+title = "Ferris Ellis' Blog"
+author = "Ferris Ellis"
+canonifyurls = true
+languagecode = "en"
+theme = "black-and-light"
+
+pygmentsstyle       = "trac"
+pygmentscodefences  = true
+
+[params]
+  sitename = "Ferris Ellis' Blog"
+
+[[menu.main]]
+    name = "About"
+    url  = "/about"
+[[menu.main]]
+    name = "Projects"
+    url  = "/"
+[[menu.main]]
+    name = "Resume"
+    url  = "/"
+
