@@ -6,16 +6,6 @@
   <div id=sub-header>
     {{ .Date.Format (.Site.Params.dateform | default "January 3, 2006") }} · {{ .ReadingTime }} minute read
   </div>
-  <div id=sub-header>
-  {{$num_tags := len .Params.tags}}
-  {{ if eq 0 $num_tags }}
-    Tags: None 
-  {{ else }}
-    Tags: {{ range $index, $tag := .Params.tags }}
-    <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
-    {{ end }}
-  {{ end }}
-  </div>
 
   <div class="entry-content">
     {{ .TableOfContents }}

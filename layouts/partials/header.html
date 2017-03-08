@@ -7,7 +7,7 @@
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="no-referrer">
-    <base href="{{ .Site.BaseURL }}">
+    <!--<base href="{{ .Site.BaseURL }}"> -->
     {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
 
     <link rel="dns-prefetch" href="//fonts.googleapis.com/">
@@ -45,8 +45,14 @@
     <section id=nav>
       <h1><a href="/">{{ .Site.Params.sitename }}</a></h1>
       <ul>
+        {{ $section := .Section }}
         {{ range .Site.Menus.main }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ $name := .Name | lower }}
+          {{ if eq $name $section }}
+	  <li><u><a href="{{ .URL }}">{{ .Name }}</a></u></li>
+          {{ else }}
+	  <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
         {{ end }}
       </ul>
       <ul>

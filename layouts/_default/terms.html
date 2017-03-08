@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+
+<section id=content>
+  <h1>{{ .Data.Plural | humanize }}</h1>
+  <ul class=posts_listing>
+    {{ range .Data.Terms.ByCount }}
+      <li>
+        <h2><u><a href="{{ .Name | urlize }}">{{ .Name | humanize }}:
+        {{ len .WeightedPages }} post{{ if ne 1 (len .WeightedPages) }}s{{ end }}</a></u></h2>
+        <div id=date>
+        </div>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+
+{{ partial "footer.html" . }}
+

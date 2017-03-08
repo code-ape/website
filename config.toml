@@ -14,12 +14,16 @@ pygmentscodefences  = true
   github_handle  = "code-ape"
 
 [[menu.main]]
+    name = "Posts"
+    url  = "/posts"
+[[menu.main]]
     name = "About"
     url  = "/about"
 [[menu.main]]
     name = "Projects"
-    url  = "/"
-[[menu.main]]
-    name = "Resume"
-    url  = "/"
+    url  = "/projects"
 
+[taxonomies]
+tag = "tags"
+category = "categories"
+series = "series"

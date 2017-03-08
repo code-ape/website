@@ -1,12 +1,23 @@
 {{ partial "header.html" . }}
 
 <section id=content>
+  <h3 style="text-align:center;">(most recent posts and projects)</h3>
   <ul class=posts_listing>
-    {{ range .Data.Pages.ByPublishDate }}
+    {{ range $.Data.Pages.ByPublishDate }}
       <li>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <h2><a href="{{ .Permalink }}"><u>{{ .Section | singularize | humanize }}:</u> {{ .Title }}</a></h2>
         <div id=date>
-          <time>{{ .Date.Format (.Site.Params.dateform | default "January 1, 2006") }} | {{ .ReadingTime }} minute read</time>
+          <time>{{ .Date.Format ($.Site.Params.dateform | default "January 1, 2006") }} | {{ .ReadingTime }} minute read |
+           {{ $num_tags := len .Params.tags }}
+           {{ if eq 0 $num_tags }}
+             Tags: None
+           {{ else }}
+             Tags:
+             {{ range $index, $tag := .Params.tags }}
+               <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
+             {{ end }}
+           {{ end }}
+           </time>
         </div>
       </li>
     {{ end }}
