@@ -2,12 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://code-ape.github.io/website/about/</loc>
-    <lastmod>2017-03-06T14:18:01+00:00</lastmod>
+    <loc>http://ferrisellis.com/posts/rust-implementing-units-for-types/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://code-ape.github.io/website/</loc>
+    <loc>http://ferrisellis.com/about/</loc>
+    <lastmod>2017-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ferrisellis.com/projects/</loc>
+    <lastmod>2017-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ferrisellis.com/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ferrisellis.com/posts/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ferrisellis.com/tags/rust-language/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ferrisellis.com/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://ferrisellis.com/tags/type-systems/</loc>
+    <lastmod>2017-03-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
