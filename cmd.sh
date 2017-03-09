@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+set -e
 
 CMD="$1"
 
@@ -24,10 +25,14 @@ case "$CMD" in
 		eval $cmd
 		;;
 	build_gh_pages)
-		HOST="code-ape.github.io"
-		PROTOCOL="https"
-		SITE_PATH="website"
+		HOST="ferrisellis.com"
+		PROTOCOL="http"
+		SITE_PATH=""
 		PORT_WITH_COLON=""
+		#echo "Removing public/"
+		#rm -rf public || true 
+		#echo "Adding git worktree of gh-pages at public/"
+		#git worktree add public gh-pages
 		cmd="hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd

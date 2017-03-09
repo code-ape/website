@@ -5,13 +5,19 @@ canonifyurls = true
 languagecode = "en"
 theme = "black-and-light"
 
+
 pygmentsstyle       = "trac"
 pygmentscodefences  = true
+
+googleAnalytics = "UA-93318303-1"
+
 
 [params]
   sitename = "FerrisEllis.com"
   twitter_handle = "im_ferris"
   github_handle  = "code-ape"
+
+  dateform = "January 2, 2006"
 
 [[menu.main]]
     name = "Posts"

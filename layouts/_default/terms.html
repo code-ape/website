@@ -7,8 +7,6 @@
       <li>
         <h2><u><a href="{{ .Name | urlize }}">{{ .Name | humanize }}:
         {{ len .WeightedPages }} post{{ if ne 1 (len .WeightedPages) }}s{{ end }}</a></u></h2>
-        <div id=date>
-        </div>
       </li>
     {{ end }}
   </ul>

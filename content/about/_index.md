@@ -1,5 +1,5 @@
 +++
-date = "2017-03-06T14:18:01Z"
+date = "2017-03-06"
 title = "About FerrisEllis.com"
 
 +++

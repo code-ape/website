@@ -8,7 +8,7 @@
       <li>
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
         <div id=date>
-          <time>{{ .Date.Format (.Site.Params.dateform | default "January 1, 2006") }} | {{ .ReadingTime }} minute read</time>
+          <time>{{ .Date.Format .Site.Params.dateform }} | {{ .ReadingTime }} minute read</time>
         </div>
       </li>
     {{ end }}

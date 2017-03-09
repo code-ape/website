@@ -6,8 +6,23 @@
   <div id=sub-header>
     {{ .Date.Format .Site.Params.dateform }} · {{ .ReadingTime }} minute read
   </div>
+  <div id=sub-header>
+  {{$num_tags := len .Params.tags}}
+  {{ if eq 0 $num_tags }}
+    Tags: None 
+  {{ else }}
+    Tags: {{ range $index, $tag := .Params.tags }}
+    <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
+    {{ end }}
+  {{ end }}
+  </div>
 
   <div class="entry-content">
+    <p><strong>Summary: </strong><em>{{ .Params.summary }}</em></p>
+    {{ if isset .Params "repository" }} 
+    <p><strong>Repository <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>: </strong><a href="{{ .Params.repository }}">{{ .Params.repository }}</a></p>
+    {{ end }}
+    <p style="margin-bottom: 5px;"><strong>Table of contents</strong></p>
     {{ .TableOfContents }}
     {{ .Content }}
   </div>
