@@ -4,11 +4,11 @@ set -e
 
 CMD="$1"
 
-HOST="${HOST:-devbox}"
+HOST="${HOST:-localhost}"
 PROTOCOL="${PROTOCOL:-http}"
-SITE_PATH="${SITE_PATH:-public}"
+SITE_PATH="${SITE_PATH:-}"
 
-PORT="${PORT:-8000}"
+PORT="${PORT:-3000}"
 if [[ ! -z $PORT ]]; then
 	PORT_WITH_COLON=":$PORT"
 fi
@@ -29,10 +29,12 @@ case "$CMD" in
 		PROTOCOL="http"
 		SITE_PATH=""
 		PORT_WITH_COLON=""
-		#echo "Removing public/"
-		#rm -rf public || true 
-		#echo "Adding git worktree of gh-pages at public/"
-		#git worktree add public gh-pages
+		echo "Removing public/"
+		rm -rf public || true 
+		echo "Pruning git worktree"
+		git worktree prune
+		echo "Adding git worktree of gh-pages at public/"
+		git worktree add -B gh-pages public origin/gh-pages
 		cmd="hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
