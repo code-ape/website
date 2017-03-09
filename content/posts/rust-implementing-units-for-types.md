@@ -29,11 +29,11 @@ fn danger_of_freezing<T>(temp: T) -> bool
 }
 ```
 
-This pattern is highly useful for safely generalizing parameters on functions.
-One thing that is less than ideal about it, however, it is still requires explicit conversion.
-On top of this we there's no way for a single entity to represent all temperatures.
-Conversion calls are actually forming a new struct with a different value.
-What would be better is if you could use the units to give meaning to values but let all math not require conversion.
+This pattern is highly useful for safely generalizing inputs to functions.
+One thing that is less than ideal about it, however, is it still requires explicit conversion from the input to celcius.
+On top of this, there's no way for a single entity to represent all temperatures.
+This is important because conversions, like the one above, form a new struct with a different value and thus require work from the CPU.
+What would be better is if units could be used to give meaning to values while math done with those values was uniform and thus did not requiring unnecessary work from the CPU.
 Let me show what I mean by that.
 
 *If you're not familiar with the concept of newtype-pattern or the `From` and `Into` trait then I highly recommend reading [Schulz's article](https://github.com/jaheba/stuff/blob/master/communicating_intent.md) before continuing, 
