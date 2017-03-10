@@ -18,6 +18,7 @@ googleAnalytics = "UA-93318303-1"
   github_handle  = "code-ape"
 
   dateform = "January 2, 2006"
+  description = '''Posts and projects on software, technology, economics, etc.'''
 
 [[menu.main]]
     name = "Posts"
