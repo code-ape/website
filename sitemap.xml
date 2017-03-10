@@ -2,45 +2,45 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ferrisellis.com/posts/rust-implementing-units-for-types/</loc>
+    <loc>https://ferrisellis.com/posts/rust-implementing-units-for-types/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/about/</loc>
+    <loc>https://ferrisellis.com/about/</loc>
     <lastmod>2017-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/projects/</loc>
+    <loc>https://ferrisellis.com/projects/</loc>
     <lastmod>2017-03-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/</loc>
+    <loc>https://ferrisellis.com/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/posts/</loc>
+    <loc>https://ferrisellis.com/posts/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/tags/rust-language/</loc>
+    <loc>https://ferrisellis.com/tags/rust-language/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/tags/</loc>
+    <loc>https://ferrisellis.com/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://ferrisellis.com/tags/type-systems/</loc>
+    <loc>https://ferrisellis.com/tags/type-systems/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
