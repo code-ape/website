@@ -26,7 +26,7 @@ case "$CMD" in
 		;;
 	build_gh_pages)
 		HOST="ferrisellis.com"
-		PROTOCOL="http"
+		PROTOCOL="https"
 		SITE_PATH=""
 		PORT_WITH_COLON=""
 		echo "Removing public/"
