@@ -652,7 +652,7 @@ l1_meters = 0.01
 &lt;p&gt;As it turns out, by default &lt;code&gt;From&lt;/code&gt; is implemented for identical structs.
 This means we get &lt;code&gt;impl&amp;lt;T&amp;gt; From&amp;lt;Length&amp;lt;T&amp;gt; for Length&amp;lt;T&amp;gt;&lt;/code&gt; for free.
 The problem is that the compiler can&amp;rsquo;t differentiate between that implementation and when we use two different generics.
-I&amp;rsquo;m not familiar enough with the Rust compiler to say why this is exactly but I&amp;rsquo;m not the only one to have stumbled across this problem. User Kornel on &lt;a href=&#34;users.rust-lang.org&#34;&gt;users.rust-lang.org&lt;/a&gt; posted about this on 16 July 2016 (&lt;a href=&#34;https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427&#34;&gt;https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427&lt;/a&gt;).&lt;/p&gt;
+I&amp;rsquo;m not familiar enough with the Rust compiler to say why this is exactly but I&amp;rsquo;m not the only one to have stumbled across this problem. User Kornel on &lt;a href=&#34;http://users.rust-lang.org&#34;&gt;http://users.rust-lang.org&lt;/a&gt; posted about this on 16 July 2016 (&lt;a href=&#34;https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427&#34;&gt;https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;So this has been an issue for a while and probably will remain one for the near future.
 The question then is can how to achieve compiler assisted conversions to while still avoiding this conflict of &lt;code&gt;From&lt;/code&gt; implementations.&lt;/p&gt;

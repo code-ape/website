@@ -1115,7 +1115,7 @@ l1_meters = 0.01
 <p>As it turns out, by default <code>From</code> is implemented for identical structs.
 This means we get <code>impl&lt;T&gt; From&lt;Length&lt;T&gt; for Length&lt;T&gt;</code> for free.
 The problem is that the compiler can&rsquo;t differentiate between that implementation and when we use two different generics.
-I&rsquo;m not familiar enough with the Rust compiler to say why this is exactly but I&rsquo;m not the only one to have stumbled across this problem. User Kornel on <a href="users.rust-lang.org">users.rust-lang.org</a> posted about this on 16 July 2016 (<a href="https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427">https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427</a>).</p>
+I&rsquo;m not familiar enough with the Rust compiler to say why this is exactly but I&rsquo;m not the only one to have stumbled across this problem. User Kornel on <a href="http://users.rust-lang.org">http://users.rust-lang.org</a> posted about this on 16 July 2016 (<a href="https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427">https://users.rust-lang.org/t/conflicting-implementations-of-trait-std-convert-from/6427</a>).</p>
 
 <p>So this has been an issue for a while and probably will remain one for the near future.
 The question then is can how to achieve compiler assisted conversions to while still avoiding this conflict of <code>From</code> implementations.</p>
