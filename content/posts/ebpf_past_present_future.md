@@ -1,6 +1,6 @@
 +++
 title = "eBPF: Past, Present, and Future [DRAFT]"
-date = "2017-04-19"
+date = "2017-04-24"
 tags = ["eBPF", "BPF", "Networking", "Linux"] 
 
 summary = '''
@@ -10,9 +10,9 @@ TODO
 
 
 
-# eBPF, part 1 of 3
+# eBPF, part 1 of 5
 
-This article is the first in a three part series on eBPF.
+This article is the first in a five part series on eBPF.
 Each will build on the prior ones and progress from concepts and explanations towards examples and implementations.
 This will culminate in the last article which involves building a basic driver for eBPF in Rust.
 This first article will explore the eBPF's history, current state, and future trajectory.
@@ -125,7 +125,7 @@ A great summary of eBPF, when it was initially released, and its extensions over
 This is a relatively dense explanation of eBPF so it's worth walking through.
 Since this explanation encapsulates most all of eBPF, getting a base level understanding of it will make understanding uses of eBPF relatively easy to follow.
 
-### The Linux bpf syscall
+## The Linux bpf syscall
 
 The Linux `bpf` syscall, not to be confused with the FreeBSD syscall of the same name, does have [a man page](http://man7.org/linux/man-pages/man2/bpf.2.html).
 Sadly, however, it's vastly out of date for the time being.
@@ -151,7 +151,7 @@ The eBPF kernel side code that runs the virtual machine.
 Includes the `setsockopt` code used to manipulate eBPF filters.
 
 
-### eBPF commands
+## eBPF commands
 
 To begin with let's look at the ten commands for the `bpf` Linux syscall.
 Of those ten, six are listed in the man page: `BPF_PROG_LOAD`, `BPF_MAP_CREATE`, `BPF_MAP_LOOKUP_ELEM`, `BPF_MAP_UPDATE_ELEM`, `BPF_MAP_DELETE_ELEM`, and `BPF_MAP_GET_NEXT_KEY`.
@@ -211,7 +211,7 @@ This command thus only needs the file descriptor of what to pin and the path to 
 [^linux_4.4_release_notes]: Linux kernel 4.4 release notes: [https://kernelnewbies.org/Linux_4.4#head-20c20e63018e8fb916fd26476eda2512e2d96632](https://kernelnewbies.org/Linux_4.4#head-20c20e63018e8fb916fd26476eda2512e2d96632)
 
 Finally, we have the last two commands `BPF_PROG_ATTACH` and `BPF_PROG_DETACH`.
-These commands were actually just added with version 4.10 of the Linux kernel in February of 2017,  only two months ago, though they appear to have been written in November of 2016.[[^ebpf_attach_detach_commit]]
+These commands were actually just added with version 4.10 of the Linux kernel in February of 2017, only two months ago, though they appear to have been written in November of 2016.[[^ebpf_attach_detach_commit]]
 The version 4.10 release notes explain that this is used for attaching eBPF programs to cgroups.[[^linux_4.10_release_notes]]
 For those not familiar with cgroups, they're a Linux kernel feature used on processes for resource limiting and isolation.
 The primary use case for eBPF with cgroups is that filters can be used to accept or drop traffic either to or from processes of a cgroup.
@@ -224,7 +224,7 @@ This is evidence of the possible future of eBPF programs in the Linux kernel, a 
 [^linux_4.10_release_notes]: Linux 4.10 release notes: [https://kernelnewbies.org/Linux_4.10](https://kernelnewbies.org/Linux_4.10)
 
 
-### eBPF program types
+## eBPF program types
 
 There are currently 12 types of eBPF programs, which is a substantial number.
 Of these twelve, four are listed on the man page and only one has any real documentation.
@@ -251,34 +251,195 @@ enum bpf_prog_type {
 };
 ```
 
+### Socket filter
+
 The first valid option, `BPF_PROG_TYPE_SOCKET_FILTER`, is the easiest to understand as it is used for programs that do what BPF was originally designed to do: filter packets for user-space processing.
 These programs return either `-1`, to indicate the packet matches the filter, or `0`, to indicate the packet does not match the filter.
 It is important to remember that there are use cases where a user isn't interested in the raw packets but aggregate information on them.
 For such situations a `BPF_PROG_TYPE_SOCKET_FILTER` program can be used that always returns `0` but aggregates state into a eBPF-map which the user can retrieve at their discretion.
 
+### Kprobe
+
 Next there is the `BPF_PROG_TYPE_KPROBE` eBPF program type.
+To make sense of this, one first must understand what kprobes are.
 Kprobes are another feature of the Linux kernel and were first introduced into version 2.6.11 of the kernel by IBM in March 2005.[[^original_kprobe_commit]]
-At their core kprobes are somewhat technical, but in the end they allow for inspection of the kernel by tying a bit of custom instructions to a kernel instruction.
+Using kprobes is a fairly technical process, but their end result is they allow for inspection of the kernel by tying custom instructions to a kernel instruction for debug and tracing purposes.
 This allows for inspection of the kernels guts on anything from opening a socket to flushing a disk queue.
+Tools like SystemTap are built on top of kprobes and allow for shell scripts to debug kernel internal processes.[[^systemtap_reference]]
+For those interested in an example using these tools in the real world, ScyllaDB has an excellent blog post by Glauber Costa titled "Big latencies? It’s open season for kernel bug-hunting!".
+It involves using SystemTap with other tools to debug a bizarre latency when using ScyllaDB.
+The blog post can be found [at this link here](http://www.scylladb.com/2016/11/14/cfq-kernel-bug/).
 
 [^original_kprobe_commit]: The original commit appears to come from Ananth N Mavinakayanahalli of IBM and the message from it can be found in the kernel 2.6.11 change log: [https://www.kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.11](https://www.kernel.org/pub/linux/kernel/v2.6/ChangeLog-2.6.11)
+
+[^systemtap_reference]: Like kprobes, SystemTap was created by members of IBM as well. Source: [https://www.ibm.com/support/knowledgecenter/en/linuxonibm/liaai.systemTap/liaaisystapover.htm](https://www.ibm.com/support/knowledgecenter/en/linuxonibm/liaai.systemTap/liaaisystapover.htm)
+
+In eBPF, the `BPF_PROG_TYPE_KPROBE` program type is used to attach an eBPF function to a kernel event so that it is run every time the specific system event occurs.
+An number of examples using eBPF kprobe programs can be found in the BCC toolchain by IO Visor.
+This article will cover the BCC tool chain in more depth later on, but for the moment know that it allows for easy use of eBPF from Python and Lua.
+In the code for the `fileslower` tool, written in a mere 248 lines and [viewable on Github](https://github.com/iovisor/bcc/blob/78948e4aae6aa0d06806d452d193320936d59dc7/tools/fileslower.py), multiple kprobes are used to monitor calls to `__vfs_read()` and `__vfs_write()`.
+An example of using this tool has been reposted from [BCC's documentation](https://github.com/iovisor/bcc/blob/78948e4aae6aa0d06806d452d193320936d59dc7/tools/fileslower_example.txt) and shows the power of eBPF for low level debugging.
+
+```
+$ ./fileslower 
+Tracing sync read/writes slower than 10 ms
+TIME(s)  COMM           PID    D BYTES   LAT(ms) FILENAME
+ 0.000   randread.pl    4762   R 8192      12.70 data1
+ 8.850   randread.pl    4762   R 8192      11.26 data1
+12.852   randread.pl    4762   R 8192      10.43 data1
+```
+
+### Traffic Control Classifiers and Actions
+
+The `BPF_PROG_TYPE_SCHED_CLS` and `BPF_PROG_TYPE_SCHED_ACT` program types are for Linux traffic control (often abbreviated "tc") classifiers and actions respectively.
+Linux traffic control encompasses the system by which Linux processes network traffic into and out of the kernel.
+Traffic control is often used to for quality of service solutions, a basic example of which could be preferring latency sensitive traffic.
+The Linux traffic control system is highly capable and, perhaps as a result of this, complex.
+This article will not delve into the depths of Linux traffic control as an entire weekend could be spent simply reading on the subject.
+
+*For the curious and the thorough (with a weekend to kill), the most complete references I've found on the Linux traffic control system is ["Linux Advanced Routing & Traffic Control HOWTO" (sometimes called "LARTC") by Bert Hubert with many additional section authors](http://lartc.org/lartc.html).[[^LARTC_section_authors]]*
+
+[^LARTC_section_authors]: Section authors, listed in same order as in "Linux Advanced Routing & Traffic Control HOWTO", are Thomas Graf, Gregory Maxwell, Remco van Mook, Martijn van Oosterhout, Paul B Schroeder, Jasper Spaans, and Pedro Larroy.
+
+A massively condensed and simplified description of Linux traffic control is that traffic coming in on interfaces and sent out on interfaces must pass through traffic control which processes the traffic through a series of queues.
+These queues, their qualities, composition, overall affect on the traffic, and the tools used to interact with them is a large past of the complexity of Linux traffic control.
+However, the two concepts from traffic control which concern eBPF are classifiers and actions.
+
+Classifiers are used to match data frames that flow through traffic control and thus are sometimes referred to as "filters".[[^data_frames_vs_packets]]
+Actions are used to do things upon a filter match including mangling and redirecting traffic.
+This is highly powerful as it can be combined with eBPF-maps to allow traffic to be proxied in a highly efficient manner for whatever uses one can imagine.
+Information on the usage of eBPF classifiers and actions can be found in more detail on [traffic controls man page dedicated to eBPF](http://man7.org/linux/man-pages/man8/tc-bpf.8.html).
+
+[^data_frames_vs_packets]: Frames are the correct term for units of data sent in layer two of the OSI network model. However, some writings incorrectly refer to frames as "packets" even though packets are the units of data at layer three.
+
+*The history of Linux traffic control is not one that appears well documented and thus exists in varying, sparse, and often dated pieces.
+For those who read through other documentation, the term "policers" is often used instead of actions.
+As best I could find at the time of this writing, policers where replaced by actions, but this is not something I could find definitive information on.
+This article welcomes feedback and corrections on Linux traffic control.
+Such responses can be submitted, with evidence, as issues to the [Github repository for this website](https://github.com/code-ape/website).*
+
+
+### Tracepoints
+
+The Linux kernel also features tracepoints which can invoke an eBPF program if they are loaded as the `BPF_PROG_TYPE_TRACEPOINT` program type.
+Tracepoints are specific points in the Linux kernel which allow for code to be executed when code fires through the point, including visibility of the arguments.
+In this way they're very similar to kprobes except tracepoints are generally used for static tracing.
+When the kernel is compiled there are certain places which are coded as tracepoints so that probes can easily be attached in a reliable and safe way.
+Kprobes, conversely, can be attached to any point in the system call chain.
+Both have their uses and with static tracing being simpler, more stable, and more limited and dynamic tracing being more complex, less stable, and more reaching in its tracing ability.
+
+The ability to attach eBPF programs to Linux tracepoints was first introduced in Linux kernel version 4.7 which was released in July of 2016.
+The release notes for version 4.7 of the kernel include a [short summary on the addition of eBPF usage for tracepoints](https://kernelnewbies.org/Linux_4.7#head-33cca324387de62dcbbdc7b6a320df2bf4cdcf62) and also has a link to an [article by Jonathan Corbet on the matter](https://lwn.net/Articles/683504/).
+
+On of the most knowledgeable individuals on tracing is [Brendan Gregg](http://www.brendangregg.com), who works at Netflix as of writing.
+Gregg has authored [perf-tools](https://github.com/brendangregg/perf-tools) and written extensively on tracing with it, including [using eBPF tracepoint programs](http://www.brendangregg.com/perf.html#eBPF).
+Other reference to using eBPF tracepoint programs can be found in BCC's examples.
+This includes a [program that traces KVM calls](https://github.com/iovisor/bcc/blob/bd8370e8980c6457bef45cb20ab4752ccad679a5/examples/tracing/kvm_hypercall.py) and a [program that traces calls to `urandomread`](https://github.com/iovisor/bcc/blob/0c8c179fc1283600887efa46fe428022efc4151b/examples/tracing/urandomread.py)(which was contributed by Gregg).
+
+
+### XDP 
+
+Express Data Path, abbreviated as XDP, is a recent effort to allow eBPF processing of packets as low down in the network stack as possible and thus as fast and efficient as possible.
+It was introduced in Linux kernel version 4.8, released in October 2016, and is thus only five months old as of writing.
+There doesn't appear to be a well documented history on XDP and thus understanding its intended purpose can be a bit confusing.
+Some [presentations on XDP](https://people.netfilter.org/hawk/presentations/xdp2016/xdp_intro_and_use_cases_sep2016.pdf) say that it was created to compete with the Data Plane Development Kit (DPDK).
+
+Whether intentional or not, XDP is designed to achieve a similar result to DPDK and thus it's worth explaining what DPDK is.
+DPDK is a Linux Foundation Project designed to do extremely efficient networking from user-space by bypassing the kernel and talking directly to the Network Interface Controller (abbreviated as NIC, this is generally the physical network card).
+This has allowed use of Linux for high speed and high throughput network devices.
+One example of the capabilities of DPDK is CloudRouter which, as of version 3.0, is able achieve a max throughput of 650Gbps when run on beefy hardware (validity of that number for real world applications is questionable as the benchmark details aren't included).[[^cloud_router_benchmark]]
+It is also worth noting that the scope of uses for DPDK are larger than those of XDP.
+DPDK can be used in non-networking service cases, such as ScyllaDB, to achieve high throughput and low latency for services.[[^scylladb_dpdk]]
+
+[^cloud_router_benchmark]: Post from CloudRouter's blog on the release and benchmark: [https://cloudrouter.org/cloudrouter/2016/03/29/cloudrouter-3.0-released.html](https://cloudrouter.org/cloudrouter/2016/03/29/cloudrouter-3.0-released.html)
+
+[^scylladb_dpdk]: Benchmarks from ScyllaDB using HTTPD: [https://github.com/scylladb/seastar/wiki/HTTPD-benchmark](https://github.com/scylladb/seastar/wiki/HTTPD-benchmark)
+
+
+XDP takes a similar approach to DPDK by also processing data directly from the NIC.
+However, instead of processing it with a user-space program, XDP uses eBPF programs to process the raw packets.
+The main benefits of XDP, as listed in the [initial release notes for it](https://kernelnewbies.org/Linux_4.8#head-fd53c4b82c689a2639ff3092603be428213f8770), are:
+
+1. **XDP is designed for high performance.** It uses known techniques and applies selective constraints to achieve performance goals.
+1. **XDP is also designed for programmability.** New functionality can be implemented on the fly without needing kernel modification.
+1. **XDP is not kernel bypass.** It is an integrated fast path in the kernel stack.
+1. **XDP does not replace the TCP/IP stack.** It augments the stack and works in concert.
+1. **XDP does not require any specialized hardware.** It espouses the less is more principle for networking hardware.
+
+Currently XDP allows for one of three actions on the frames it processes: pass it up to the network stack, drop it so that it never makes it to the network stack, or bounce it back to the NIC for transmission onto the network.
+XDP can also edit the content of frames, thus allowing it to act as a proxy to either entities on the machine or else where on the network.
+As you may have guessed, using XDP to edit frames is why bouncing them back out on the NIC makes any sense.
+Currently this has limited usability as there is no way to take a frame received on one interface and send it out another.
+However, some use cases do fit inside these constraints such as [using XDP for a decentralized load balancer solution](http://prototype-kernel.readthedocs.io/en/latest/networking/XDP/use-cases/xdp_use_case_load_balancer.html).
+
+The most common use case of XDP, as of writing, is for dropping traffic in an extremely rapid and efficient manner.
+This is a critical need for mitigating denial of service attacks (DOS attacks) and XDP has been benchmarked at dropping 20 million packets a second which equates to approximately 28Gbps of traffic. 
+
+
+[Tom Herbert "We're, in some sense, building a hammer. We'll say how it's used."](https://youtu.be/lpJk_HcCLnQ?t=1m06s)
+
+
+Hardware offload: https://netdevconf.org/1.2/session.html?jakub-kicinski
+
+https://jvns.ca/blog/2017/04/07/xdp-bpf-tutorial/
+
+
+### Perf events
+
+Linux has yet another benchmarking system for measuring hardware and it's referred to, by the somewhat generic name of, "performance monitoring".
+The eBPF program type `BPF_PROG_TYPE_PERF_EVENT` allows for eBPF to be run as a handler to data from the performance monitoring system.
+Performance monitoring works, in short, by either sampling one out of a configurable number of a targeted event or sampling on a set time interval.
+Performance monitoring can be used to monitor things like CPU cache miss ratio, page faults, and mis-predicted branch instructions.
+
+A short writeup on using eBPF for performance monitoring including why eBPF is an improvement over old approaches can be found on, perhaps unsurprisingly, [on Brendan Gregg's blog](http://www.brendangregg.com/blog/2016-10-21/linux-efficient-profiler.html).
+For something more code oriented and simply in intentions, the [BCC repository has a tool called `llcstat`](https://github.com/iovisor/bcc/blob/0a34d1e6f83a1f25952ab308b2df60d7a2a5447b/tools/llcstat.py) which samples CPU cache references and misses.
+And finally, for a more detailed look into performance monitoring, the [man page for `perf_event_open`](http://man7.org/linux/man-pages/man2/perf_event_open.2.html) details all the possible ways that they can be used.
+
+
+
+### Cgroups
+
+As mentioned in the [eBPF Commands section](#ebpf-commands) of this article, eBPF can be used to both filter network traffic in and out of processes from a cgroup and allow control over which device sockets are attached to when opened from a cgroup.
+The program types `BPF_PROG_TYPE_CGROUP_SKB` and `BPF_PROG_TYPE_CGROUP_SOCK` are used for program that do this traffic filtering and device assignment respectively.
+
+As mentioned previously, these were both added in the most recent version of the Linux kernel, 4.10, only two months ago as of writing.
+Thus documentation on them is scarce, the only notable piece of it at the moment is an [article written by Jonathan Corbet in August of 2016](https://lwn.net/Articles/698073/) which talks about the efforts to determine the best solution for filtering network traffic of cgroups.
+
+
+### Light-Weight Tunnels
+
+This leave the final, rather cryptic, eBPF program types of `BPF_PROG_TYPE_LWT_IN`, `BPF_PROG_TYPE_LWT_OUT`, and `BPF_PROG_TYPE_LWT_XMIT`.
+The non-obvious meanings of the names isn't surprising as these program types were also added in the most recent version of the Linux kernel, 4.10, only two months ago as of writing.
+More surprisingly, however, is any information about them dead ends rapidly.
+The release notes for Linux 4.10 have all of five words to say about the matter, "BPF for lightweight tunnel encapsulation", followed by links to two commits which where authored by Thomas Graff and committed by David S. Miller.
+The first of these commits offers a short description for the new eBPF program types with no real context and second just adds tests for the additions from the first.
+
+The commit message of the new eBPF code, written by Graff, states that these three eBPF program types correspond to the "LWT hooks" of `dst_input()`, `dst_output()`, and `lwtunnel_xmit()`.
+It goes on to say that all eBPF "programs receive an skb with L3 headers attached" and that they may either choose to propagate the frame up the routing chain or drop it and return an `EPERM` error (no explanation for what on earth an "operation not permitted" error means in this context).
+Finally, eBPF `BPF_PROG_TYPE_LWT_XMIT` programs can "modify packet content as well as prepending an L2 header via a newly introduced helper bpf_skb_change_head()".
+
+While Graff's commit message does explain how the new eBPF program types work by relating them the light-weight tunnels, it does nothing to help us understand what light-weight tunnels are.
+Searching for articles or writings on "LWT" or "light-weight tunnels" in Linux yields essentially nothing.
+The only thing I was able to find after a half hour of searching was a single presentation by Roopa Prabhu of Cumulus Networks from February 2016 on MPLS with Linux.
+This in turn uses the phrase `lwtunnel` for referring to light-weight tunnels and upon searching the Linux kernel I finally got a hit in the `net/core/` directory from [a file called `lwtunnel.c`](https://github.com/torvalds/linux/blob/v4.10/net/core/lwtunnel.c).
+
 
 PICKUP_HERE
 
 * `BPF_PROG_TYPE_UNSPEC`: Reserved as an invalid program type
-* `BPF_PROG_TYPE_SOCKET_FILTER`: Declares the filter should receive packets from a socket.
-* `BPF_PROG_TYPE_KPROBE`: Declares the filter should receive packets from a krpobe ([intro article on kprobes can be found here](https://lwn.net/Articles/132196/)).
+* `BPF_PROG_TYPE_SOCKET_FILTER`: Declares the filter should receive frames from a socket.
+* `BPF_PROG_TYPE_KPROBE`: Declares the filter should receive data from a krpobe ([intro article on kprobes can be found here](https://lwn.net/Articles/132196/)).
 * `BPF_PROG_TYPE_SCHED_CLS`: 
 * `BPF_PROG_TYPE_SCHED_ACT`: 
 
 
 
-### tc ???
-
-# XDP and Smart NICs: The Future
+# Kernel-Space Programs and Smart NICs: The Future
 
 While XDP is another topic I will cover in the future, it is also one worth at least touching on as it is strongly tied to eBPF.
 
+
+http://netdevconf.org/1.2/session.html?jakub-kicinski
 
 # eBPF tool-chains
 
@@ -328,6 +489,19 @@ This is in part due to the rapid progress being done on it and in part due to th
 However, Quentin Monnet of 6WIND has put together the undisputed best compilation of resources related to eBPF that I have seen.
 This compilation, which he countines to update, can be found [on his blog here](https://qmonnet.github.io/whirl-offload/2016/09/01/dive-into-bpf/).
 
+The BCC project also maintains a convenient list of eBPF features including the kernel version they were released with and the commit that added them to the kernel. [Link here](https://github.com/iovisor/bcc/blob/master/docs/kernel-versions.md).
 
+
+* http://wiki.linuxwall.info/doku.php/en:ressources:dossiers:networking:traffic_control
+* http://tldp.org/HOWTO/Traffic-Control-HOWTO/index.html
+* https://wiki.archlinux.org/index.php/Advanced_traffic_control
+* http://lartc.org/howto/lartc.adv-filter.policing.html#AEN1393
+* http://lartc.org/howto/lartc.netfilter.html
+* http://man7.org/linux/man-pages/man8/tc-bpf.8.html
+
+DPDK:
+
+* https://blog.selectel.com/introduction-dpdk-architecture-principles/
+* https://www.privateinternetaccess.com/blog/2016/01/linux-networking-stack-from-the-ground-up-part-1/
 
 
