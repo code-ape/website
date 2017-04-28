@@ -1,13 +1,21 @@
 +++
 title = "eBPF, part 2: Deep Dive [DRAFT]"
-date = "2017-04-24"
+date = "2017-04-26"
 tags = ["eBPF", "BPF", "Networking", "Linux"] 
+draft = true
 
 summary = '''
 TODO
 '''
 +++
 
+# LWT NOTES
+
+The goal is to allow for stateful and stateless tunnel/encap to be performed without requiring every single state to be represented with a net_device
+
+There are two variations, MPLS without a net_device at all and VXLAN with a master device to derive config but the majority of state being configured through metdata, either in a route/dst or via BPF/OVS
+
+-Thomas Graf
 
 # eBPF, part 2
 
@@ -435,3 +443,18 @@ This other is a short script that tests using eBPF for light-weight tunneling vi
 It is located in [`samples/bpf/test_tunnel_bpf.sh`](https://github.com/torvalds/linux/blob/v4.10/samples/bpf/test_tunnel_bpf.sh).
 
 
+-------------
+
+Traffic control:
+
+* http://wiki.linuxwall.info/doku.php/en:ressources:dossiers:networking:traffic_control
+* http://tldp.org/HOWTO/Traffic-Control-HOWTO/index.html
+* https://wiki.archlinux.org/index.php/Advanced_traffic_control
+* http://lartc.org/howto/lartc.adv-filter.policing.html#AEN1393
+* http://lartc.org/howto/lartc.netfilter.html
+* http://man7.org/linux/man-pages/man8/tc-bpf.8.html
+
+DPDK:
+
+* https://blog.selectel.com/introduction-dpdk-architecture-principles/
+* https://www.privateinternetaccess.com/blog/2016/01/linux-networking-stack-from-the-ground-up-part-1/

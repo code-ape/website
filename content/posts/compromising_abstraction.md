@@ -2,6 +2,7 @@
 title = "Compromising Abstraction [DRAFT]"
 date = "2017-04-19"
 tags = ["abstraction", "philosophy", "design"] 
+draft = true
 
 summary = '''
 TODO
