@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on FerrisEllis.com</title>
+    <link>https://ferrisellis.com/tags/</link>
+    <description>Recent content in Tags on FerrisEllis.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bpf</title>
+      <link>https://ferrisellis.com/tags/bpf/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/bpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chronology</title>
+      <link>https://ferrisellis.com/tags/chronology/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/chronology/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ebpf</title>
+      <link>https://ferrisellis.com/tags/ebpf/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/ebpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://ferrisellis.com/tags/linux/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Networking</title>
+      <link>https://ferrisellis.com/tags/networking/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rust Language</title>
+      <link>https://ferrisellis.com/tags/rust-language/</link>
+      <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/rust-language/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Type Systems</title>
+      <link>https://ferrisellis.com/tags/type-systems/</link>
+      <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/type-systems/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
