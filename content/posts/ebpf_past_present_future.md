@@ -28,7 +28,7 @@ As with many software projects, eBPF can appear odd and spastic without the cont
 The Extended Berkley Packet Filter, or eBPF for short, is difficult to explain and understand in its entirety.
 This is partially due to how different it is from prior efforts to solve the problems eBPF solves.
 Arguably, however, the biggest reason is its name.
-When someone first learns of eBPF they likely don't know what BFP is or what it means for it to be "extended".
+When someone first learns of eBPF they likely don't know what BPF is or what it means for it to be "extended".
 The world "Berkely" also isn't helpful apart from referring to Berkley, California, USA.
 The only words in eBPF's name likely to have meaning to someone seeing them for the first time are "packet filter".
 This gives no indication of the many things eBPF can be used for other than network filtering.
@@ -124,7 +124,7 @@ First, that BPF was approximately two years old when their paper was published.
 This is noteworthy because it shows the development of BPF was a gradual one, something that continues with the technologies that succeeded it.
 Second, it mentions tcpdump as the most widely used program which utilizes BPF at the time of writing.[[^tcpdump_author]]
 This means tcpdump, one of the most widely used network debugging tools today, has used BPF technology for at least 24 years!
-I mention this because no other writing seems to about how long the family of BPF technologies have been in use.
+I mention this because no other writing seems to specify about how long the family of BPF technologies have been in use.
 When McCanne and Jacobson's paper was published, BPF wasn't a nifty idea with a alpha level implementation.
 It had been tested and used for two years and already found its way into multiple tools.
 
