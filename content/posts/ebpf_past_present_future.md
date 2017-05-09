@@ -1,6 +1,8 @@
 +++
 title = "eBPF, part 1: Past, Present, and Future"
 date = "2017-04-28"
+version = 2
+revision_date = "2017-05-03"
 tags = ["eBPF", "BPF", "Networking", "Linux", "Chronology"] 
 
 summary = '''
@@ -36,7 +38,7 @@ Though, the Linux community didn't realized how far eBPF would spread when it wa
 
 At its core eBPF is a highly efficient virtual machine that lives in the kernel.
 Its original purpose, efficient network frame filtering, made this virtual machine, and thus eBPF, an ideal engine for processing events in general.
-Because of this fact, there are currently twelve different types of eBPF programs, as of writing, with many of them serving purposes unrelated to networking.
+Because of this fact, there are currently twelve different types of eBPF programs, as of this writing, with many of them serving purposes unrelated to networking.
 
 This article, "eBPF: Past, Present, and Future", will walk through the history of BPF (eBPF's predecessor), the current state of eBPF, and what the future may hold for it.
 In doing so this article aims to allow a reader, who has no familiarity with eBPF and intermediate familiarity with Linux, to have a firm grasp on the concepts and uses of eBPF along with providing a strong context for how it came to be what it is.
@@ -124,7 +126,7 @@ First, that BPF was approximately two years old when their paper was published.
 This is noteworthy because it shows the development of BPF was a gradual one, something that continues with the technologies that succeeded it.
 Second, it mentions tcpdump as the most widely used program which utilizes BPF at the time of writing.[[^tcpdump_author]]
 This means tcpdump, one of the most widely used network debugging tools today, has used BPF technology for at least 24 years!
-I mention this because no other writing seems to specify about how long the family of BPF technologies have been in use.
+I mention this because no other writing seems mention how long the family of BPF technologies have been in use.
 When McCanne and Jacobson's paper was published, BPF wasn't a nifty idea with a alpha level implementation.
 It had been tested and used for two years and already found its way into multiple tools.
 
@@ -137,7 +139,7 @@ For those who are interested, McCanne and Jacobson's paper is only 11 pages and 
 
 # eBPF and Linux: The Present
 
-When Linux kernel version 3.18 was released in December 2014 it included the first implementation of extended BPF (eBPF).
+When Linux kernel version 3.18 was released in December 2014 it included the first implementation of extended BPF (eBPF).[[^first_ebpf_in_linux]]
 What eBPF offers, in short, is an in kernel virtual machine, like BPF, but with a few crucial improvements.
 One, eBPF is more efficient than the original BPF virtual machine, thanks to JIT compiling of the eBPF code.
 Two, it is designed for general event processing within the kernel.
@@ -146,6 +148,9 @@ And three, it includes efficient global data stores which eBPF calls "maps".
 This allowed state to persist between events and thus be aggregated for uses including statistics and context aware behavior.
 It's worth noting that since eBPF's creation there are many types of data stores, not all of which are maps.
 However, the term "map" has stuck for referring to the different data store types and this article makes a compromise by referring to them as "eBPF-maps".
+
+[^first_ebpf_in_linux]: It is true that eBPF first appeared in Linux kernel 3.18, but there is some minor historical context missing from that statement. What was released in Linux kernel 3.18 was the `bpf` syscall. However, the work building up to that, including the JIT compiler, first started appearing with kernel version 3.15.
+
 
 With these abilities, kernel developers have rapidly utilized eBPF in a variety of kernel systems.
 In less than two and a half years these uses have grown to include network monitoring, network traffic manipulation, and system monitoring.
@@ -174,10 +179,10 @@ For those looking for more information in the mean time, please see the [Further
 2. **Loading the program into the kernel and creating necessary eBPF-maps.**
 This is done using the `bpf` syscall in Linux.
 This syscall allows for the byte code to be loaded along with a declaration of the the type of eBPF program that's being loaded.
-As of writing eBPF has program types for usage as a socket filter, kprobe handler, traffic control scheduler, traffic controller action, tracepoint handler, Express Data Path (XDP), performance monitor, cgroup restriction, and light weight tunnel.
-The syscall also is used for the instantiation eBPF-maps used by the eBPF programs.
+As of this writing, eBPF has program types for usage as a socket filter, kprobe handler, traffic control scheduler, traffic control action, tracepoint handler, eXpress Data Path (XDP), performance monitor, cgroup restriction, and light weight tunnel.
+The syscall is also used for initializing eBPF-maps.
 This series will explain the options and implementation detail of this syscall in its second installment, which hasn't been posted yet.
-The third installment work through using current Linux tools, mainly `tc` and `ip` from iproute2, for this purpose and ones following that will work through the low level operations of this in detail.
+The third installment works through using current Linux tools, mainly `tc` and `ip` from iproute2, for this purpose and ones following that will work through the low level operations of this in detail.
 For those looking for more information in the mean time, please see the [Further Reading section]({{< ref "#further-reading" >}}) of this article.
 
 3. **Attaching the loaded program to a system.**
@@ -191,7 +196,7 @@ Future articles will go into this in more detail and I will link to them in this
 In the mean time, know that the current tooling does provide a lot of assistance in using eBPF, even if it may feel contrary to the experience of using them.
 Like many things in Linux, it is perhaps nicer to use eBPF from inside the kernel than from outside of it with no assistance from other tooling.
 It is important to remember that the generality of eBPF is both what has lead to its amazing flexibility and the complexity of its use.
-For those who look to build new functionality around eBPF, the current Linux kernel providers more of a framework than an out of the box solution.[[^kernel_developer_note]]
+For those who look to build new functionality around eBPF, the current Linux kernel provides more of a framework than an out of the box solution.[[^kernel_developer_note]]
 
 [^kernel_developer_note]: Then again, if you're a Linux kernel developer looking to utilize eBPF, you probably already knew that.
 
@@ -210,11 +215,11 @@ This is because there are really two futures in question: the future of uses for
 The immediate future of eBPF's uses probably has the most certainty.
 It's highly likely that the trend of using eBPF for safe, efficient, event handling inside the Linux kernel will continue.
 Because eBPF is defined by the simple virtual machine it runs on, there is also the potential for eBPF to be used in places other than the Linux kernel.
-The most interesting example of this, as of writing, is with Smart NICs.
+The most interesting example of this, as of this writing, is with Smart NICs.
 
 Smart NICs are network cards which allow processing of network traffic, to varying degrees, to be offloaded to the NICs themselves.
 This idea has been around since the early 2000's, when some NICs started supporting offloading of checksum and segmentation, but only more recently has this been used for partial or full data plane offload.
-This new bread of Smart NICs goes by multiple names, including Intelligent Server Adapters, but generally feature programmable functionality and a large amount of memory for storing state.
+This new breed of Smart NICs goes by multiple names, including Intelligent Server Adapters, but generally feature programmable functionality and a large amount of memory for storing state.
 One example of this is Netronome's Agilio CX line of SmartNICs which currently feature 10Gbps to 40Gbps ports paired with an ARM11 processor, 2GB of DDR3 RAM, and over a hundred specialized processing cores.[[^netronome_cx]]
 
 [^netronome_cx]: Specs of the CX line can be found here: [https://www.netronome.com/products/agilio-cx/](https://www.netronome.com/products/agilio-cx/)
@@ -228,7 +233,7 @@ As Viljoen goes on to point out, each SmartNIC has 72 to 120 of these FPCs, givi
 [^netronome_ebpf_math]: Worlfram Alpha math, (3e6 * 1500 bytes / second) * 120: [https://www.wolframalpha.com/input/?i=(3e6+*+1500+bytes+%2F+second)+*+120](https://www.wolframalpha.com/input/?i=(3e6+*+1500+bytes+%2F+second)+*+120)
 
 
-Finally there is to the future of eBPF as a technology.
+Finally there is the future of eBPF as a technology.
 Due to eBPF's restrictive and simple implementation it offers a highly portable and performant way to process events.
 More than that, however, eBPF forces a change in how problems are solved.
 It removed objects and stateful code, instead opting for just functions and efficient data structures to store state.
@@ -236,16 +241,16 @@ This paradigm vastly shrinks the possibilities of a program's design, but in doi
 Thus eBPF can be used synchronously, asynchronously, in parallel, distributed (depending on the coordination needs with the data store), and all other manner of program designs. 
 Given this fact, I'd argue that a more fitting name for eBPF would be the Functional Virtual Machine, or FVM for short.
 
-The biggest technological change that eBPF may usher in for future software is due to something that is easily forgotten about eBPF: it does JIT compilation of its bytes code into machine code for kernel space execution!
-This means that the massive cost that the kernel forces on user-space programs due to hardware isolation, a drop in performance somewhere between 25% to 33%, is avoided by eBPF.[[^deconstructing_process_isolation]]
-This means the that a current program could run up to 50% faster by being run on an kernel-space virtual machine![[^user_space_speedup_math]]
+The biggest technological change that eBPF may usher in for future software is due to something that is easily forgotten about eBPF: it does JIT compilation of its bytes code into machine code for kernel-space execution!
+Because of this, the massive cost that the kernel forces on user-space programs due to hardware isolation, a drop in performance somewhere between 25% to 33%, is avoided by eBPF.[[^deconstructing_process_isolation]]
+This means that a user program could run up to 50% faster by being run on an kernel-space virtual machine![[^user_space_speedup_math]]
 This idea, in fact, isn't a new one.
 In 2014, Gary Bernhardt gave an amusing and fascinating talk at PyCon titled ["The Birth and Death of Javascript"](https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript).
 In it Bernhardt references this same statistic on hardware isolation cost as he explains how, in a fictitious future, the majority of all software runs on an in-kernel Javascipt virtual machine.
 In such a future, software portability is far less of a problem because software isn't compiled to a hardware architecture but to Javascript.
 He even goes on to say that an implementation of a Document Object Model (DOM), the data store in a browser that holds the state of a web-page for rendering, has also been moved into the kernel where it now runs the windowing system.
 This is quite similar in concept to eBPF-maps, which could be theoretically used for something like this in the future.
-While it is light hearted in some ways, there's no denying that Bernhardt's presentation is built upon sound facts and may be right about a future where computer program isolation of is done by a kernel-space virtual machine, not hardware.
+While it is light hearted in some ways, there's no denying that Bernhardt's presentation is built upon sound facts and may be right about a future where computer program isolation is done by a kernel-space virtual machine, not hardware.
 We'll simply have to wait to see if eBPF becomes the champion of that change.
 
 
