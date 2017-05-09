@@ -4,7 +4,7 @@ date = "2017-04-28"
 tags = ["eBPF", "BPF", "Networking", "Linux", "Chronology"] 
 
 summary = '''
-The Extended Berkley Packet Filter, or eBPF, has rapidly been adopted into a number of Linux kernel systems since its introduction into the Linux kernel in late 2014.
+The Extended Berkeley Packet Filter, or eBPF, has rapidly been adopted into a number of Linux kernel systems since its introduction into the Linux kernel in late 2014.
 Understanding eBPF, however, can be difficult as many try to explain it via a use of eBPF as opposed to its design.
 Indeed eBPF's name indicates that it is for packet filtering even though it now has uses which have nothing to do with networking.
 This article will walk through eBPF's past, present, and future to offer context on how eBPF came to be what it is and what it is likely to become as development on it continues.
@@ -25,11 +25,11 @@ As with many software projects, eBPF can appear odd and spastic without the cont
 
 # Intro
 
-The Extended Berkley Packet Filter, or eBPF for short, is difficult to explain and understand in its entirety.
+The Extended Berkeley Packet Filter, or eBPF for short, is difficult to explain and understand in its entirety.
 This is partially due to how different it is from prior efforts to solve the problems eBPF solves.
 Arguably, however, the biggest reason is its name.
 When someone first learns of eBPF they likely don't know what BPF is or what it means for it to be "extended".
-The world "Berkely" also isn't helpful apart from referring to Berkley, California, USA.
+The world "Berkely" also isn't helpful apart from referring to Berkeley, California, USA.
 The only words in eBPF's name likely to have meaning to someone seeing them for the first time are "packet filter".
 This gives no indication of the many things eBPF can be used for other than network filtering.
 Though, the Linux community didn't realized how far eBPF would spread when it was named.
@@ -54,7 +54,7 @@ This is not intentional but a result of spending over 40 hours with this content
 If any part of this article needs more explanation or clarification please submit an issue to the [Github repository for this website](https://github.com/code-ape/website) stating what needs more information.
 1. **Terms.**
 This article favors using technically correct terms over commonly used ones that are incorrect.
-One example of this is that the Berkley Packet Filter, despite its name, filters network frames, not packets.
+One example of this is that the Berkeley Packet Filter, despite its name, filters network frames, not packets.
 The subsection below, titled [Terms](#terms), lists all terms which may be misrepresented, for one reason or another, along with their explicit meaning in the scope of this article.
 1. **Corrections.**
 In writing this article I attempted to research, find, and cite as much evidence as possible for what is written here.
@@ -64,8 +64,8 @@ Feedback can be submitted, with respective evidence, as issues to the [Github re
 
 ## Terms
 
-* **BPF:** The Berkley Packet Filter, found in FreeBSD.
-* **eBPF:** The Extended Berkley Packet Filter, found in Linux.
+* **BPF:** The Berkeley Packet Filter, found in FreeBSD.
+* **eBPF:** The Extended Berkeley Packet Filter, found in Linux.
 * **eBPF-map:** General term for all different types of data stores available in eBPF. The documentation of eBPF refers to all eBPF data store types as "maps" even though there are multiple types, some of which are not maps. Thus this article uses the term eBPF-map to clearly designate the data store types of eBPF while not making it totally disconnected from eBPF's own documentation.
 * **Network Frame:** Unit of data for the [link layer (layer 2)](https://en.wikipedia.org/wiki/Data_link_layer) of the [OSI network model](https://en.wikipedia.org/wiki/OSI_model). Example: Ethernet.
 * **Network Packet:** Unit of data for the [network layer (layer 3)](https://en.wikipedia.org/wiki/Network_layer) of the [OSI network model](https://en.wikipedia.org/wiki/OSI_model). Example: IPv4
