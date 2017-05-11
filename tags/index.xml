@@ -6,7 +6,7 @@
     <description>Recent content in Tags on FerrisEllis.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 28 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ferrisellis.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Bpf</title>
       <link>https://ferrisellis.com/tags/bpf/</link>
-      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/bpf/</guid>
       <description></description>
@@ -30,9 +30,18 @@
     </item>
     
     <item>
+      <title>Data Structures</title>
+      <link>https://ferrisellis.com/tags/data-structures/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/data-structures/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Ebpf</title>
       <link>https://ferrisellis.com/tags/ebpf/</link>
-      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/ebpf/</guid>
       <description></description>
@@ -41,7 +50,7 @@
     <item>
       <title>Linux</title>
       <link>https://ferrisellis.com/tags/linux/</link>
-      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/linux/</guid>
       <description></description>
@@ -50,7 +59,7 @@
     <item>
       <title>Networking</title>
       <link>https://ferrisellis.com/tags/networking/</link>
-      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/networking/</guid>
       <description></description>

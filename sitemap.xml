@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ferrisellis.com/posts/ebpf_syscall_and_maps/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/posts/ebpf_past_present_future/</loc>
     <lastmod>2017-04-28T00:00:00+00:00</lastmod>
   </url>
@@ -23,7 +28,7 @@
   
   <url>
     <loc>https://ferrisellis.com/tags/bpf/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -39,32 +44,38 @@
   </url>
   
   <url>
+    <loc>https://ferrisellis.com/tags/data-structures/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/tags/ebpf/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ferrisellis.com/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ferrisellis.com/tags/linux/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ferrisellis.com/tags/networking/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ferrisellis.com/posts/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -81,7 +92,7 @@
   
   <url>
     <loc>https://ferrisellis.com/tags/</loc>
-    <lastmod>2017-04-28T00:00:00+00:00</lastmod>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

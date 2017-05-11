@@ -84,6 +84,21 @@ ga('send', 'pageview');
     padding: 4px;
   }
 
+  h1 code {
+    font-size: 24px;
+    padding: inherit;
+  }
+
+  h2 code {
+    font-size: 20px;
+    padding: inherit;
+  }
+
+  h3 code {
+    font-size: 18px;
+    padding: inherit;
+  }
+
   pre {
     margin-top: 0;
     margin-bottom: 16px;
@@ -458,6 +473,7 @@ Because of this Rust, being a systems language, also has no concept of it.
 But just because the computer runtime has no concept of length or units of length doesn&#39;t mean we can&#39;t teach them to the compiler.
 In this article I&#39;ll walk through using a generic struct to represent the concept of a length, extend that length to allow any units, and show how to create a system to cleanly and safely do arithmetic with lengths.
 </em></p>
+    
      
     <p><strong>Repository <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>: </strong><a href="https://github.com/code-ape/rust_length_arithmetic_example">https://github.com/code-ape/rust_length_arithmetic_example</a></p>
     

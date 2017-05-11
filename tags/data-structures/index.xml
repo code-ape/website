@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Structures on FerrisEllis.com</title>
+    <link>https://ferrisellis.com/tags/data-structures/</link>
+    <description>Recent content in Data Structures on FerrisEllis.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/data-structures/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>eBPF, part 2: Syscall and Map Types</title>
+      <link>https://ferrisellis.com/posts/ebpf_syscall_and_maps/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/posts/ebpf_syscall_and_maps/</guid>
+      <description>eBPF, part 2 This article is the second in a series on eBPF. It builds upon the previous article, &amp;ldquo;eBPF, part 1: Past, Present, and Future&amp;rdquo;, by diving into the core of using eBPF: the Linux bpf syscall. In doing so this article hopes to offer a completely fleshed out depiction of the core machinery one must use for utilizing eBPF.
+This article also references future articles that will be written for this series.</description>
+    </item>
+    
+  </channel>
+</rss>
