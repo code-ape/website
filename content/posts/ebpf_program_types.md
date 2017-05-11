@@ -1,8 +1,8 @@
 +++
 title = "eBPF, part 3: Program types [DRAFT]"
-date = "2017-05-07"
+date = "2017-05-15"
 tags = ["eBPF", "BPF", "Networking", "Linux"] 
-draft = false
+draft = true
 
 summary = '''
 TODO
@@ -16,6 +16,8 @@ This article is the second in a series on eBPF.
 It builds upon the previous article, ["eBPF, part 1: Past, Present, and Future"]({{< ref "ebpf_past_present_future.md" >}}), by diving into the depths of eBPF's current functionality.
 In doing so I hope to offer a completely fleshed out depiction of what eBPF can do with strong context to the systems which use it.
 As I mentioned in the prior article, eBPF has rapidly been integrated into many Linux kernel components.
+Due to this sprawling state of eBPF, this article is fairly lengthly and reads like a compendium at parts.
+
 Due to this sprawling state of eBPF, this article is fairly lengthly and reads like a compendium at parts.
 
 

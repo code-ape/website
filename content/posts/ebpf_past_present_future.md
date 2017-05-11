@@ -2,6 +2,7 @@
 title = "eBPF, part 1: Past, Present, and Future"
 date = "2017-04-28"
 version = 2
+version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/ebpf_past_present_future/index.html"
 revision_date = "2017-05-03"
 tags = ["eBPF", "BPF", "Networking", "Linux", "Chronology"] 
 
@@ -174,22 +175,22 @@ However, the eBPF virtual machine's design is well documented and the code for i
 Thus, for [*the initiated*](/images/but_we_are_initiated.jpeg), it is entirely possible to either craft the register code for an eBPF program by hand or write a custom compiler for eBPF.
 Because of eBPF's extremely simple design all functions for an eBPF program, other than the entry point function, must be inlined for LLVM to compile it.
 This series will work through this in more detail with it's third installment which hasn't been posted yet.
-For those looking for more information in the mean time, please see the [Further Reading section]({{< ref "#further-reading" >}}) of this article.
+For those looking for more information in the mean time, please see the [Further Reading section](#further-reading") of this article.
 
 2. **Loading the program into the kernel and creating necessary eBPF-maps.**
 This is done using the `bpf` syscall in Linux.
 This syscall allows for the byte code to be loaded along with a declaration of the the type of eBPF program that's being loaded.
 As of this writing, eBPF has program types for usage as a socket filter, kprobe handler, traffic control scheduler, traffic control action, tracepoint handler, eXpress Data Path (XDP), performance monitor, cgroup restriction, and light weight tunnel.
 The syscall is also used for initializing eBPF-maps.
-This series will explain the options and implementation detail of this syscall in its second installment, which hasn't been posted yet.
+This series second installment explains the options and implementation detail of this syscall with the article ["eBPF part 2: Syscall and Map Types"]({{< ref "ebpf_syscall_and_maps.md" >}}).
 The third installment works through using current Linux tools, mainly `tc` and `ip` from iproute2, for this purpose and ones following that will work through the low level operations of this in detail.
-For those looking for more information in the mean time, please see the [Further Reading section]({{< ref "#further-reading" >}}) of this article.
+For those looking for more information in the mean time, please see the [Further Reading section](#further-reading) of this article.
 
 3. **Attaching the loaded program to a system.**
 Because the different uses of eBPF are for different systems in the Linux kernel, each of the eBPF program types has a different procedure for attaching to its corresponding system.
 When the program is attached it becomes active and starts filtering, analyzing, or capturing information, depending on what it was created to do.
 From here user-space programs can administer running eBPF program including reading state from their eBPF-maps and, if the program is constructed in such a way, manipulating the eBPF map to alter the behavior of the program.
-For those looking for more information in the mean time, please see the [Further Reading section]({{< ref "#further-reading" >}}) of this article.
+For those looking for more information in the mean time, please see the [Further Reading section](#further-reading) of this article.
 
 These three steps are simple in concept but highly nuanced in their utilization.
 Future articles will go into this in more detail and I will link to them in this article when they are done.
@@ -274,5 +275,4 @@ This compilation, which he continues to update, can be found [as a post on his b
 3. The Cilium project maintains a thorough [reference guide on eBPF and XDP on their documentation site](http://docs.cilium.io/en/latest/bpf/).
 A brief writeup on the intentions of the reference guide can be found in a [blog post on Cilium's website](https://www.cilium.io/blog/2017/4/24/launch-of-bpf-xdp-documentation).
 
-Stay tuned for part two of this series on eBPF.
-It should be up in the next week.
+For those looking to continue reading this series, please check out the next installment, ["eBPF part 2: Syscall and Map Types"]({{< ref "ebpf_syscall_and_maps.md" >}})

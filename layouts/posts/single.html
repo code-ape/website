@@ -19,6 +19,11 @@
 
   <div class="entry-content">
     <p><strong>Summary: </strong><em>{{ .Params.summary }}</em></p>
+    {{ if isset .Params "version" }} 
+    {{ if gt .Params.version 1 }} 
+    <p><strong>Revision: </strong>{{ sub (int .Params.version) 1 }}, view <a href="{{ .Params.version_history}}">history here</a>.</p>
+    {{ end }}
+    {{ end }}
     {{ if isset .Params "repository" }} 
     <p><strong>Repository <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>: </strong><a href="{{ .Params.repository }}">{{ .Params.repository }}</a></p>
     {{ end }}
