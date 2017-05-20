@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project Management on FerrisEllis.com</title>
+    <link>https://ferrisellis.com/tags/project-management/</link>
+    <description>Recent content in Project Management on FerrisEllis.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 20 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Remote Project Lead: Thoughts and Learnings</title>
+      <link>https://ferrisellis.com/posts/project_lead_thoughts/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/posts/project_lead_thoughts/</guid>
+      <description>This article is written in present tense and first person to provide a more engaging narrative to the reader. However, all statements and claims are made with the time reference to when this was published. Thus &amp;ldquo;today&amp;rdquo; is May 16, 2017.
+Special thanks to my colleague Gary Berger for providing feedback on this article.
+Intro Project management, leadership, working remotely, team organization, and client relationship management are all topics which have been written about, at length.</description>
+    </item>
+    
+  </channel>
+</rss>

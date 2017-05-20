@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+    <meta name="description" content="Posts and projects on software, technology, economics, etc.">
+
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93318303-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+
+    <title>
+      
+      
+         Remote Project Lead: Thoughts and Learnings 
+      
+    </title>
+    <link rel="canonical" href="https://ferrisellis.com/posts/project_lead_thoughts/">
+    
+    <link rel="stylesheet" href="https://ferrisellis.com//font-awesome.min.css">
+    <style> 
+        @font-face {
+            font-family: sansation;
+	    src: url(https://ferrisellis.com//fontawesome-webfont.woff);
+        }
+    </style> 
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+  }
+
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  h1 code {
+    font-size: 24px;
+    padding: inherit;
+  }
+
+  h2 code {
+    font-size: 20px;
+    padding: inherit;
+  }
+
+  h3 code {
+    font-size: 18px;
+    padding: inherit;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3 {
+    font-family:"Old Standard TT",serif;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:20px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    <link rel="shortcut icon" href="https://ferrisellis.com/favicon.ico">
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="https://ferrisellis.com/">FerrisEllis.com</a></h1>
+      <ul>
+        
+        
+          
+          
+	  <li><a href="https://ferrisellis.com/about">About</a></li>
+          
+        
+          
+          
+	  <li><u><a href="https://ferrisellis.com/posts">Posts</a></u></li>
+          
+        
+          
+          
+	  <li><a href="https://ferrisellis.com/projects">Projects</a></li>
+          
+        
+      </ul>
+      <ul>
+          <li style="padding: 0 10px;">
+              <a href="https://twitter.com/im_ferris">
+                  <i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+	      </a>
+          </li>
+          <li style="padding: 0 10px;">
+              <a href="https://github.com/code-ape">
+                  <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+	      </a>
+          </li>
+      </ul>
+    </section>
+
+
+<article id=content>
+  <h1> Remote Project Lead: Thoughts and Learnings </h1>
+
+  <div id=sub-header>
+    May 20, 2017 · 10 minute read
+  </div>
+  <div id=sub-header>
+  
+  
+    Tags: 
+    <u><a href="https://ferrisellis.com/tags/project-management">Project Management</a></u>,
+    
+    <u><a href="https://ferrisellis.com/tags/remote-work">Remote Work</a></u>
+    
+  
+  </div>
+
+  <div class="entry-content">
+    <p><strong>Summary: </strong><em>Remotely running a project with a distributed team can be challenging.
+When that team is mostly from the client who you&#39;re doing said project for, it can increase those challenges.
+This article shares a few niche lessons I&#39;ve learned from being in such a position.
+</em></p>
+     
+    
+    
+    
+    <p style="margin-bottom: 5px;"><strong>Table of contents</strong></p>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#know-what-you-do-actions-and-accomplishments">Know what you do: Actions and Accomplishments</a></li>
+<li><a href="#leading-ownership-roles-versus-tasks">Leading Ownership: Roles versus Tasks</a></li>
+<li><a href="#friends-with-hidden-faces-personalities-and-context">Friends with Hidden Faces: Personalities and Context</a></li>
+<li><a href="#closing-comments">Closing Comments</a></li>
+</ul>
+</nav>
+    
+
+<p><em>This article is written in present tense and first person to provide a more engaging narrative to the reader. However, all statements and claims are made with the time reference to when this was published. Thus &ldquo;today&rdquo; is May 16, 2017.</em></p>
+
+<p><em>Special thanks to my colleague <a href="http://firstclassfunc.com/">Gary Berger</a> for providing feedback on this article.</em></p>
+
+<h1 id="intro">Intro</h1>
+
+<p>Project management, leadership, working remotely, team organization, and client relationship management are all topics which have been written about, at length.
+However, their combination, as far as I can tell, hasn&rsquo;t been.
+This is likely for good reason.
+Claiming that one&rsquo;s work falls into the category of <em>remote-leadership-of-client-project-teams</em> is, at best, a bizarre way to communicate you have a niche job and, at worst, likely to leave people wondering if you actually have a job.</p>
+
+<p>However, that is a large part of my job.
+I do actually have one, for the record, and it involves working remotely as part of a small professional services team which helps clients address complex problems.
+We often are involved from the very beginning to end of problems, through the full <em>problem-lifecycle</em>, from identifying the problem to solution delivery and long term servicing of those solutions.
+The experience of doing this is many things, it&rsquo;s challenging, it&rsquo;s always changing, occasionally it&rsquo;s sleep depriving, but it&rsquo;s rewarding, and it&rsquo;s often fun.
+However, it can also be delicate and complex.
+A lot of things have to come together in just the right way for <em>remote-leadership-of-client-project-teams</em> to work smoothly.
+This article is my attempt to share some of my knowledge and wisdom for what is required to do this.
+It&rsquo;s far from anything that would be termed &ldquo;complete&rdquo; and likely wrong by some opinions.
+Never-the-less, I hope that those who stumble across it in their wandering of the Internet find it useful.</p>
+
+<h1 id="know-what-you-do-actions-and-accomplishments">Know what you do: Actions and Accomplishments</h1>
+
+<p>The question &ldquo;So what do you do?&rdquo; is something I, along with most of humanity, get asked a lot.
+I have a variety of answers for this which vary in their degrees of detail.
+The simplest one, for those clearly not interested in pursuing an answer much larger than their five syllable question, is &ldquo;professional services&rdquo;.
+On the flip side, when speaking with people who are actually interested and possess a strong technical background, articulating what I &ldquo;do&rdquo; isn&rsquo;t as straight forward.</p>
+
+<p>Expressing the details of what I do is challenging because the concept of what someone &ldquo;does&rdquo; has more nuance than most people credit it with.
+Contrast it with the equally terse question of &ldquo;where are you going?&rdquo;.
+For such a question, both of these are equally valid answers: &ldquo;to the tea shop&rdquo; and &ldquo;on a walk&rdquo;.
+What&rsquo;s curious is that these answers aren&rsquo;t incompatible, one can absolutely go on a walk to the tea shop, but that&rsquo;s not always possible with multiple options for an answer.
+The options of &ldquo;to the tea shop&rdquo; and &ldquo;to my house&rdquo; aren&rsquo;t compatible.[<sup class="footnote-ref" id="fnref:living-in-a-tea-shop"><a rel="footnote" href="#fn:living-in-a-tea-shop">1</a></sup>]
+This is because, as you&rsquo;ve probably picked up on by now, when referring to changing location there is both the means of transportation and the location you&rsquo;ll arrive at; the journey and the destination; action and accomplishment.</p>
+
+<p>I encourage people to think about what they &ldquo;do&rdquo; in this way; to think about the means they have to achieve outcomes and what outcomes they can achieve.
+Part of my title says &ldquo;software engineer&rdquo;,  this is a means of an outcome.
+One of the outcomes I often achieve with those means are systems that operate at business level logic, exposing consistent and reliable operations with strong guarantees.
+These systems are generally abstractions over multiple unreliable systems which exist in a technical domain, such as system protocols.
+The value of such a solution is that it greatly reduces resource demands, often of skilled employee hours, to manage, maintain, and manually maneuver these unreliable technical systems in accordance with business needs.
+<strong>That is far move valuable and distinct that the fact that I can &ldquo;engineer software&rdquo;.</strong></p>
+
+<p>Clients need solutions and solutions are accomplishments.
+But, there can be many roads to a destination and project deadlines often require an efficient one; a keen path; well honed actions.
+Be sure to communicate and represent both of these aspects of yourself.
+What you can do and how you can do it.
+Actions and Accomplishments.</p>
+
+<h1 id="leading-ownership-roles-versus-tasks">Leading Ownership: Roles versus Tasks</h1>
+
+<p>When working remotely with a clients team, it can be more difficult to manage the project you&rsquo;re working on than a &ldquo;normal&rdquo; project.[<sup class="footnote-ref" id="fnref:normal-project"><a rel="footnote" href="#fn:normal-project">2</a></sup>]
+This stems from two facts: one, that you get far less interaction with the team than if everyone were working together in an office and, two, because you have little to no visibility of happenings outside of the single project you&rsquo;ve been hired to do.
+Thus issues can occur, often times with little warning from your perspective.
+An entire project could become road blocked because a client team member is slow to complete a task only they can do.
+Or, perhaps worse, a road block may occur because no one on the client team is willing to do a task even though it has been discussed since early on in the project.</p>
+
+<p>A project&rsquo;s progress can slow for a number of reasons, some of which have no one to directly blame.
+Managing such issues is part science, part art.[<sup class="footnote-ref" id="fnref:arcane-magic"><a rel="footnote" href="#fn:arcane-magic">3</a></sup>]
+Culture, psychology, individual motives, and deep seated fears are just a few of the forces at play in a team dynamic.
+Whole books can, and have, been written on the topic.
+Project frameworks, such as Agile, attempt to give structure to projects which remove many causes of project stalling.
+However, what I want to focus on is a specific component of project structuring: ownership.
+To explain this, let&rsquo;s start with one of the undesirable scenarios mentioned at the beginning of this section: no one being willing to take on a task.
+This often results in either <em>(option 1)</em> an overseer of the client team demands (<a href="https://ferrisellis.com/images/voluntold_meme.jpeg">&ldquo;volun-tells&rdquo;</a>) a team member to do the task, resulting in an angry and overworked team member, or <em>(option 2)</em> project progress stalls for some number of days while the deadline doesn&rsquo;t budge an inch resulting in the overseer of the project being unhappy with someone, maybe you.</p>
+
+<p>Neither of the above options is a good one.
+Thus the ideal solution to such a problem, when possible, is to prevent it.
+The best means I&rsquo;ve found to prevent this is having agreed upon &ldquo;roles&rdquo; for for a project.
+This should be done at the beginning of a project, when you plot the project&rsquo;s initial road map.
+The reason and value of doing this is it establishes a long standing expectation which both parties agree to.
+This is a far better way to build exceptions compared to tasks.
+Tasks, being small units of work, leave only a short window to be completed and thus can overload a team member&rsquo;s already full schedule with no warning.
+People are far more likely to push back on tasks because, understandably, it is asking for an immediate commitment which may conflict with others they&rsquo;ve already made.
+On the flip side, getting someone to agree to fulfill a role means they must accept the role&rsquo;s long term expectations of their time and availability.[<sup class="footnote-ref" id="fnref:role-example"><a rel="footnote" href="#fn:role-example">4</a></sup>]</p>
+
+<p>The concept of &ldquo;roles over tasks&rdquo; is a lose one that depends a lot on the project and team.
+But it should prevent some instances the unfavorable situation mentioned above.
+<strong>Plus, outcomes tend to be better when people agree to responsibility willingly as they are being accountable for their own word, not someone else&rsquo;s demands.</strong>
+This doesn&rsquo;t always happen, but when it does it&rsquo;s the best means of team member motivation I&rsquo;ve seen.
+At the very least, roles establish the use of long time windows for expectations which are generally more fair and easy to manage for all parties involved.</p>
+
+<h1 id="friends-with-hidden-faces-personalities-and-context">Friends with Hidden Faces: Personalities and Context</h1>
+
+<p>There are many words that can be used to describe a team, I think one of the most important is synergy.[<sup class="footnote-ref" id="fnref:synergy-definition"><a rel="footnote" href="#fn:synergy-definition">5</a></sup>][<sup class="footnote-ref" id="fnref:synergy-example"><a rel="footnote" href="#fn:synergy-example">6</a></sup>]
+Teams efficiency can be synergistic for a variety of reasons.
+Many articles on creating team synergy focuses on frequent positive interaction, communication, building bonds, and building common shared experiences.
+All of this, usually, involves spending time with team members &ldquo;face-to-face&rdquo;, which isn&rsquo;t so easy when working remotely with client teams.</p>
+
+<p>When working remotely with a client team there are basically two things that dictate how many times, if ever, you actually interact face-to-face: in person interactions during the project for &ldquo;on-site&rdquo; meetings and whether people use their webcam during remote meetings.
+Generally, for my job, I am on site at the beginning of a project where I meet the majority, but rarely all, of the client team in person.
+And then, after that, I&rsquo;m unlikely to get any more face-to-face interaction as no one ever turns on their webcam.
+Thus I get between approximately 16 and zero hours of actual &ldquo;face time&rdquo; with any member of a client team during the span of a project.
+That&rsquo;s not a lot of time for a project that could last, for example, 3 months.</p>
+
+<p>But building connects with team members is important.
+Doing so adds context to the people of the team, it helps makes working with one another more enjoyable and also helps individuals understand the personalities of their team members.
+And, when your interactions with a team consists primarily of emails, Slack messages, and voice calls, a team member&rsquo;s connection to their team mates goes a long way towards how engaged they are going to be.
+<strong>So be sure to spend a bit of time and effort getting to know the people on your team.</strong></p>
+
+<p>I&rsquo;m well aware of how cliché the concept of &ldquo;getting to know the people on your team&rdquo; is.
+This likely isn&rsquo;t new information for you, dear reader.
+But it is something that&rsquo;s easy to lose sight of and forget about, especially for a remote team!
+So, ask yourself if you can name five topics a specific team member is passionate about which have nothing to do with work.
+Strike up conversations with people just to say hi and see how they&rsquo;re doing.
+Obviously this is all super contextual to the person (that is the point of this section), but it can go a long way towards having a happier and more productive team.</p>
+
+<h1 id="closing-comments">Closing Comments</h1>
+
+<p>I hope these thoughts prove useful in some way.
+For any corrections to this article please post an issue on this <a href="https://github.com/code-ape/website/">website&rsquo;s Github repository</a>.
+If you have any comments or thoughts you&rsquo;d like to share please send them to the email address specified on the <a href="https://ferrisellis.com/about">About page</a> of this site.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:living-in-a-tea-shop">Unless of course you live in a tea shop. Which sounds amazing!
+ <a class="footnote-return" href="#fnref:living-in-a-tea-shop"><sup>[return]</sup></a></li>
+<li id="fn:normal-project">A normal project being one that involves people from your own company in an environment where you all interact face to face.
+ <a class="footnote-return" href="#fnref:normal-project"><sup>[return]</sup></a></li>
+<li id="fn:arcane-magic">And, sometimes, it&rsquo;s part arcane magic.
+ <a class="footnote-return" href="#fnref:arcane-magic"><sup>[return]</sup></a></li>
+<li id="fn:role-example">To offer an example, suppose your client has a complex monitoring system which the solution is suppose to integrate with. Then by stating, at the beginning of the project, that you need a specialist for the monitoring system who can devote 8 hours a week to this project communicates multiple things. One, that you will not figuring out the clients systems by trial and error, which could eat up tons of project time, but instead it is the client&rsquo;s responsibility to provide you with resources who can assist in such matters. Two, that whoever is placed in the position is aware of the expectations of their time and availability.
+ <a class="footnote-return" href="#fnref:role-example"><sup>[return]</sup></a></li>
+<li id="fn:synergy-definition">Synergy, as defined by <a href="http://www.wordnik.com/words/synergy">The American Heritage Dictionary of the English Language, 4th Edition</a>, is <em>&ldquo;The interaction of two or more agents or forces so that their combined effect is greater than the sum of their individual effects&rdquo;</em> or, in short, the effect of combined components achieving more than the sum of their individual capability.
+ <a class="footnote-return" href="#fnref:synergy-definition"><sup>[return]</sup></a></li>
+<li id="fn:synergy-example">An example of synergy would be that together three team members could do a certain project in 2.5 weeks while, individual, each team members would take 10 weeks on their own to do the same project. Thus the team can do ~21 projects a year while, if they each worked individually, they could only do ~16 projects a year. Thus the capability of the team is 33% more than the combined capability of its members.
+ <a class="footnote-return" href="#fnref:synergy-example"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+    <br>
+    <a href="#nav">Return to top</a>
+    <p style="text-align: center;"><em>
+      For those wishing to share feedback or comments with me on this article please refer to <a href="https://ferrisellis.com/about#contact">the Contact section on the About page</a>.
+    </em></p>
+  </div>
+
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="https://ferrisellis.com/posts/ebpf_syscall_and_maps/">&laquo; eBPF, part 2: Syscall and Map Types</a>
+    
+    
+  </div>
+</article>
+
+</body>
+</html>
+
+
+
