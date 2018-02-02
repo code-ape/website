@@ -19,6 +19,11 @@ case "$CMD" in
 		echo "Running: $cmd"
 		eval $cmd
 		;;
+	serve_drafts)
+		cmd="hugo server -w -D --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
+		echo "Running: $cmd"
+		eval $cmd
+		;;
 	build)
 		cmd="hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"

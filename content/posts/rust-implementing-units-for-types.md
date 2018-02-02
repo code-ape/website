@@ -11,6 +11,9 @@ In this article I'll walk through using a generic struct to represent the concep
 '''
 
 repository = "https://github.com/code-ape/rust_length_arithmetic_example"
+
+version = 3
+version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/rust-implementing-units-for-types/index.html"
 +++
 
 Recently [Jasper Schulz](https://github.com/jaheba) wrote an excellent short article titled *[Communicating Intent](https://github.com/jaheba/stuff/blob/master/communicating_intent.md)*.
@@ -633,7 +636,7 @@ fn main() {
 }
 ```
 
-The Rust's compiler get's unhappy.
+The Rust's compiler gets unhappy.
 
 ```rust
 rustc 1.15.1 (021bd294c 2017-02-08)

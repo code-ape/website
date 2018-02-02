@@ -20,7 +20,8 @@ Ferris
 
 # Myself
 
-Professionally, I currently do work for Brocade Communications Systems as a software engineer for their professional services organization.
+Professionally, I could be catagoized as a software engineer.
+But practically, I would simply say I think really hard about difficult problems. 
 Some of my past personal projects include conceiving TEDxEHC and being one of the head organizers for its first event in 2016.
 
 If you're looking for more information about me please contact me as described below.

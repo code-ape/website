@@ -84,7 +84,7 @@ In the paper, McCanne and Jacobson describe the BSD Packet Filter, or BPF for sh
 What BPF did so differently than its predecessors, such as the CMU/Stanford Packet Filter (CSPF), was to use a well thought out memory model and then expose it through an efficient virtual machine inside the kernel.
 By this, BPF filters can do traffic filtering in an efficient manner while still maintaining a boundary between the filter code and the kernel.
 
-In their paper, McCanne and Jacobson's offer to following diagram to help visualize this.
+In their paper, McCanne and Jacobson's offer the following diagram to help visualize this.
 Importantly, BPF employs a buffer between the filter and user-space to avoid having to make the expensive context switch between user-space and kernel-space for every packet the filter matches on.
 
 ![bpf_layout_diagram](/images/bpf_layout_diagram.png "BPF layout diagram from McCanne and Jacobson's paper.")

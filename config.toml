@@ -6,8 +6,9 @@ languagecode = "en"
 theme = "black-and-light"
 
 
-pygmentsstyle       = "trac"
-pygmentscodefences  = true
+pygmentsStyle       = "trac"
+#pygmentsUseClasses  = true
+pygmentsCodefences  = true
 
 [params]
   sitename = "FerrisEllis.com"
