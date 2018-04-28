@@ -196,7 +196,7 @@ This article will use the term "eBPF-map" to refer to the all of these different
 
 Creating a map only requires the type of eBPF-map desired, the size of a key, the size of a value, the maximum number of entries, and whether or not to pre-allocate the map in memory.
 
-Again, the Linux `bpf` syscall does offer an [example of a function in C](http://man7.org/linux/man-pages/man2/bpf.2.html) which does this.
+Again, the Linux `bpf` syscall man page does offer an [example of a function in C](http://man7.org/linux/man-pages/man2/bpf.2.html) which does this.
 Though this example isn't helpful in providing context for how to create some eBPF-map types.
 The clearest example of this is for eBPF-map types that are arrays where it seems counter-intuitive to specify the key size.
 The creation and lookup of the eBPF-map types will be covered in their respective sections later on in this article.
