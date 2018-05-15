@@ -7,7 +7,11 @@
       <li>
         <h2><a href="{{ .Permalink }}"><u>{{ .Section | singularize | humanize }}:</u> {{ .Title }}</a></h2>
         <div id=date>
+          {{ if (isset .Params "talk_length_minutes" )}}
+          <time>{{ .Date.Format $.Site.Params.dateform }} | {{ .Params.talk_length_minutes }} minute talk |
+          {{ else }}
           <time>{{ .Date.Format $.Site.Params.dateform }} | {{ .ReadingTime }} minute read |
+          {{ end }}
            {{ $num_tags := len .Params.tags }}
            {{ if eq 0 $num_tags }}
              Tags: None

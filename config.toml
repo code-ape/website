@@ -1,4 +1,4 @@
-baseurl = "https://www.example.com/"
+baseurl = "https://ferrisellis.com/"
 title = "FerrisEllis.com"
 author = "Ferris Ellis"
 canonifyurls = true
@@ -28,8 +28,11 @@ pygmentsCodefences  = true
 [[menu.main]]
     name = "Projects"
     url  = "/projects"
+[[menu.main]]
+    name = "Talks"
+    url  = "/talks"
 
 [taxonomies]
 tag = "tags"
-category = "categories"
-series = "series"
+#category = "categories"
+#series = "series"

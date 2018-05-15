@@ -2,6 +2,9 @@
 
 set -e
 
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+repo_dir="$(dirname $script_dir)"
+
 CMD="$1"
 
 HOST="${HOST:-localhost}"
@@ -13,19 +16,21 @@ if [[ ! -z $PORT ]]; then
 	PORT_WITH_COLON=":$PORT"
 fi
 
+cd "$repo_dir"
+
 case "$CMD" in
 	serve)
-		cmd="hugo server -w --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
+		cmd="./bin/hugo server -w --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	serve_drafts)
-		cmd="hugo server -w -D --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
+		cmd="./bin/hugo server -w -D --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build)
-		cmd="hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="./bin/hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
@@ -40,17 +45,17 @@ case "$CMD" in
 		git worktree prune
 		echo "Adding git worktree of gh-pages at public/"
 		git worktree add -B gh-pages public origin/gh-pages
-		cmd="hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="./bin/hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_watch)
-		cmd="hugo -w -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="./bin/hugo -w -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_watch_drafts)
-		cmd="hugo -w -D -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="./bin/hugo -w -D -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
