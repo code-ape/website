@@ -439,6 +439,11 @@ ga('send', 'pageview');
 	  <li><a href="https://ferrisellis.com/projects">Projects</a></li>
           
         
+          
+          
+	  <li><a href="https://ferrisellis.com/talks">Talks</a></li>
+          
+        
       </ul>
       <ul>
           <li style="padding: 0 10px;">
@@ -591,7 +596,7 @@ Importantly, BPF employs a buffer between the filter and user-space to avoid hav
 <li>It must be general. The instruction set should be rich enough to handle unforeseen uses.</li>
 <li>Packet data references should be minimized.</li>
 <li>Decoding an instruction should consist of a single C switch statement.</li>
-<li>The abstract machine registers[<sup class="footnote-ref" id="fnref:abstract-machine"><a rel="footnote" href="#fn:abstract-machine">1</a></sup>] should reside in physical registers.</li>
+<li>The abstract machine registers[<sup class="footnote-ref" id="fnref:abstract-machine"><a href="#fn:abstract-machine">1</a></sup>] should reside in physical registers.</li>
 </ol>
 </blockquote>
 
@@ -608,25 +613,25 @@ L2: ret #0                      // if comparison is false, return 0
 
 <p>Using only 4 virtual machine instructions, BPF is able to offer a highly useful IP packet filter!
 To make a point about just how efficient this design was, the original BPF implementation was able to reject a packet with a minimum of <strong>only 184 CPU instructions</strong>.
-This is the instruction count from the beginning to the end of the <code>bpf_tap</code> call meaning it measures both the work done by the BPF implementation plus the rejection filter.[<sup class="footnote-ref" id="fnref:instruction-count"><a rel="footnote" href="#fn:instruction-count">2</a></sup>]
-By this, BPF gave a processor comparable to those found in new graphing calculators the ability to process a theoretical max of 2.6 Gbps of network traffic through a safe kernel virtual machine.[<sup class="footnote-ref" id="fnref:max-drop-rate"><a rel="footnote" href="#fn:max-drop-rate">3</a></sup>]
+This is the instruction count from the beginning to the end of the <code>bpf_tap</code> call meaning it measures both the work done by the BPF implementation plus the rejection filter.[<sup class="footnote-ref" id="fnref:instruction-count"><a href="#fn:instruction-count">2</a></sup>]
+By this, BPF gave a processor comparable to those found in new graphing calculators the ability to process a theoretical max of 2.6 Gbps of network traffic through a safe kernel virtual machine.[<sup class="footnote-ref" id="fnref:max-drop-rate"><a href="#fn:max-drop-rate">3</a></sup>]
 The efficiency of this can be emphasized by comparing it to context switching performance.
-On a SPARCstation 2, the hardware used by McCanne and Jacobson to do these measurements, doing a context switch could take anywhere between 2,840 instructions and 16,000+ instructions (equivalent 71 microseconds and 400+ microseconds), depending on the number of processes competing for resources and size of contexts being swapped.[<sup class="footnote-ref" id="fnref:sparcstation2-context-switching"><a rel="footnote" href="#fn:sparcstation2-context-switching">4</a></sup>]</p>
+On a SPARCstation 2, the hardware used by McCanne and Jacobson to do these measurements, doing a context switch could take anywhere between 2,840 instructions and 16,000+ instructions (equivalent 71 microseconds and 400+ microseconds), depending on the number of processes competing for resources and size of contexts being swapped.[<sup class="footnote-ref" id="fnref:sparcstation2-context-switching"><a href="#fn:sparcstation2-context-switching">4</a></sup>]</p>
 
 <p>Finally, it&rsquo;s worth noting two things at the end of McCanne and Jacobson&rsquo;s paper.
 First, that BPF was approximately two years old when their paper was published.
 This is noteworthy because it shows the development of BPF was a gradual one, something that continues with the technologies that succeeded it.
-Second, it mentions tcpdump as the most widely used program which utilizes BPF at the time of writing.[<sup class="footnote-ref" id="fnref:tcpdump-author"><a rel="footnote" href="#fn:tcpdump-author">5</a></sup>]
+Second, it mentions tcpdump as the most widely used program which utilizes BPF at the time of writing.[<sup class="footnote-ref" id="fnref:tcpdump-author"><a href="#fn:tcpdump-author">5</a></sup>]
 This means tcpdump, one of the most widely used network debugging tools today, has used BPF technology for at least 24 years!
 I mention this because no other writing seems mention how long the family of BPF technologies have been in use.
 When McCanne and Jacobson&rsquo;s paper was published, BPF wasn&rsquo;t a nifty idea with a alpha level implementation.
 It had been tested and used for two years and already found its way into multiple tools.</p>
 
-<p>For those who are interested, McCanne and Jacobson&rsquo;s paper is only 11 pages and a worthwhile read. A scan of the original paper can be found <a href="https://ferrisellis.com/pdfs/The BSD Packet Filter - A New Architecture for User-level Packet Capture, McCanne &amp; Jacobson, scan.pdf">here</a> and a PDF rendering of the draft can be found <a href="https://ferrisellis.com/pdfs/The BSD Packet Filter - A New Architecture for User-level Packet Capture, McCanne &amp; Jacobson, draft.pdf">here</a>.[<sup class="footnote-ref" id="fnref:ebpf-paper-scan"><a rel="footnote" href="#fn:ebpf-paper-scan">6</a></sup>][<sup class="footnote-ref" id="fnref:ebpf-paper-draft"><a rel="footnote" href="#fn:ebpf-paper-draft">7</a></sup>]</p>
+<p>For those who are interested, McCanne and Jacobson&rsquo;s paper is only 11 pages and a worthwhile read. A scan of the original paper can be found <a href="https://ferrisellis.com/pdfs/The BSD Packet Filter - A New Architecture for User-level Packet Capture, McCanne &amp; Jacobson, scan.pdf">here</a> and a PDF rendering of the draft can be found <a href="https://ferrisellis.com/pdfs/The BSD Packet Filter - A New Architecture for User-level Packet Capture, McCanne &amp; Jacobson, draft.pdf">here</a>.[<sup class="footnote-ref" id="fnref:ebpf-paper-scan"><a href="#fn:ebpf-paper-scan">6</a></sup>][<sup class="footnote-ref" id="fnref:ebpf-paper-draft"><a href="#fn:ebpf-paper-draft">7</a></sup>]</p>
 
 <h1 id="ebpf-and-linux-the-present">eBPF and Linux: The Present</h1>
 
-<p>When Linux kernel version 3.18 was released in December 2014 it included the first implementation of extended BPF (eBPF).[<sup class="footnote-ref" id="fnref:first-ebpf-in-linux"><a rel="footnote" href="#fn:first-ebpf-in-linux">8</a></sup>]
+<p>When Linux kernel version 3.18 was released in December 2014 it included the first implementation of extended BPF (eBPF).[<sup class="footnote-ref" id="fnref:first-ebpf-in-linux"><a href="#fn:first-ebpf-in-linux">8</a></sup>]
 What eBPF offers, in short, is an in kernel virtual machine, like BPF, but with a few crucial improvements.
 One, eBPF is more efficient than the original BPF virtual machine, thanks to JIT compiling of the eBPF code.
 Two, it is designed for general event processing within the kernel.
@@ -644,7 +649,7 @@ Thus eBPF programs can be be used to switch network traffic, measure delays on d
 The Linux community has a habit of referring to eBPF as simply &ldquo;BPF&rdquo;.
 Official documentation will usually reference eBPF as &ldquo;eBPF&rdquo; when speaking about it at a &ldquo;high level&rdquo;, away from the code.
 However, many implementation level naming conventions and pieces of documentation refer to it as &ldquo;BPF&rdquo;.
-To clear up any confusion before continuing, as of this article&rsquo;s writing Linux only has eBPF and thus any references to BPF are really references to eBPF.[<sup class="footnote-ref" id="fnref:bpf-in-linux"><a rel="footnote" href="#fn:bpf-in-linux">9</a></sup>]
+To clear up any confusion before continuing, as of this article&rsquo;s writing Linux only has eBPF and thus any references to BPF are really references to eBPF.[<sup class="footnote-ref" id="fnref:bpf-in-linux"><a href="#fn:bpf-in-linux">9</a></sup>]
 Some documentation related to Linux also uses &ldquo;cBPF&rdquo;, short for &ldquo;classic BPF&rdquo;, to refer to BPF and make the distinction between the two more clear.</p>
 
 <p>The quickest way to understand the highlights of eBPF&rsquo;s current implementation is to walk through what is required to use eBPF.
@@ -680,7 +685,7 @@ Future articles will go into this in more detail and I will link to them in this
 In the mean time, know that the current tooling does provide a lot of assistance in using eBPF, even if it may feel contrary to the experience of using them.
 Like many things in Linux, it is perhaps nicer to use eBPF from inside the kernel than from outside of it with no assistance from other tooling.
 It is important to remember that the generality of eBPF is both what has lead to its amazing flexibility and the complexity of its use.
-For those who look to build new functionality around eBPF, the current Linux kernel provides more of a framework than an out of the box solution.[<sup class="footnote-ref" id="fnref:kernel-developer-note"><a rel="footnote" href="#fn:kernel-developer-note">10</a></sup>]</p>
+For those who look to build new functionality around eBPF, the current Linux kernel provides more of a framework than an out of the box solution.[<sup class="footnote-ref" id="fnref:kernel-developer-note"><a href="#fn:kernel-developer-note">10</a></sup>]</p>
 
 <p>To do a quick recap, eBPF has only been in the Linux kernel since 2014 but has already worked its way into a number of different uses in the kernel for efficient event processing.
 Thanks to eBPF-maps, programs written in eBPF can maintain state and thus aggregate information across events plus have dynamic behavior.
@@ -701,13 +706,13 @@ The most interesting example of this, as of this writing, is with Smart NICs.</p
 <p>Smart NICs are network cards which allow processing of network traffic, to varying degrees, to be offloaded to the NICs themselves.
 This idea has been around since the early 2000&rsquo;s, when some NICs started supporting offloading of checksum and segmentation, but only more recently has this been used for partial or full data plane offload.
 This new breed of Smart NICs goes by multiple names, including Intelligent Server Adapters, but generally feature programmable functionality and a large amount of memory for storing state.
-One example of this is Netronome&rsquo;s Agilio CX line of SmartNICs which currently feature 10Gbps to 40Gbps ports paired with an ARM11 processor, 2GB of DDR3 RAM, and over a hundred specialized processing cores.[<sup class="footnote-ref" id="fnref:netronome-cx"><a rel="footnote" href="#fn:netronome-cx">11</a></sup>]</p>
+One example of this is Netronome&rsquo;s Agilio CX line of SmartNICs which currently feature 10Gbps to 40Gbps ports paired with an ARM11 processor, 2GB of DDR3 RAM, and over a hundred specialized processing cores.[<sup class="footnote-ref" id="fnref:netronome-cx"><a href="#fn:netronome-cx">11</a></sup>]</p>
 
 <p>Because of the large amount of processing power in them, recent Smart NICs have become a target for eBPF.
 With this, they pose a prime method for a variety of uses, including mitigating DoS attacks and providing dynamic network routing, switching, load balancing, etc.
 At the NetDev 1.2 conference in October 2016, Jakub Kicinski and Nic Viljoen of Netronome gave a presentation titled <a href="http://netdevconf.org/1.2/session.html?jakub-kicinski">&ldquo;eBPF/XDP hardware offload to SmartNICs&rdquo;</a>.
 In it Nic Viljoen states some very rough and early benchmarks of achieving 3 million packets per second for each FPC on a Netronome SmartNIC.
-As Viljoen goes on to point out, each SmartNIC has 72 to 120 of these FPCs, giving a hypothetical, though likely unrealistic, max eBPF throughput of 4.3 Tbps![<sup class="footnote-ref" id="fnref:netronome-ebpf-math"><a rel="footnote" href="#fn:netronome-ebpf-math">12</a></sup>]</p>
+As Viljoen goes on to point out, each SmartNIC has 72 to 120 of these FPCs, giving a hypothetical, though likely unrealistic, max eBPF throughput of 4.3 Tbps![<sup class="footnote-ref" id="fnref:netronome-ebpf-math"><a href="#fn:netronome-ebpf-math">12</a></sup>]</p>
 
 <p>Finally there is the future of eBPF as a technology.
 Due to eBPF&rsquo;s restrictive and simple implementation it offers a highly portable and performant way to process events.
@@ -718,8 +723,8 @@ Thus eBPF can be used synchronously, asynchronously, in parallel, distributed (d
 Given this fact, I&rsquo;d argue that a more fitting name for eBPF would be the Functional Virtual Machine, or FVM for short.</p>
 
 <p>The biggest technological change that eBPF may usher in for future software is due to something that is easily forgotten about eBPF: it does JIT compilation of its bytes code into machine code for kernel-space execution!
-Because of this, the massive cost that the kernel forces on user-space programs due to hardware isolation, a drop in performance somewhere between 25% to 33%, is avoided by eBPF.[<sup class="footnote-ref" id="fnref:deconstructing-process-isolation"><a rel="footnote" href="#fn:deconstructing-process-isolation">13</a></sup>]
-This means that a user program could run up to 50% faster by being run on an kernel-space virtual machine![<sup class="footnote-ref" id="fnref:user-space-speedup-math"><a rel="footnote" href="#fn:user-space-speedup-math">14</a></sup>]
+Because of this, the massive cost that the kernel forces on user-space programs due to hardware isolation, a drop in performance somewhere between 25% to 33%, is avoided by eBPF.[<sup class="footnote-ref" id="fnref:deconstructing-process-isolation"><a href="#fn:deconstructing-process-isolation">13</a></sup>]
+This means that a user program could run up to 50% faster by being run on an kernel-space virtual machine![<sup class="footnote-ref" id="fnref:user-space-speedup-math"><a href="#fn:user-space-speedup-math">14</a></sup>]
 This idea, in fact, isn&rsquo;t a new one.
 In 2014, Gary Bernhardt gave an amusing and fascinating talk at PyCon titled <a href="https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript">&ldquo;The Birth and Death of Javascript&rdquo;</a>.
 In it Bernhardt references this same statistic on hardware isolation cost as he explains how, in a fictitious future, the majority of all software runs on an in-kernel Javascipt virtual machine.

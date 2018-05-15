@@ -439,6 +439,11 @@ ga('send', 'pageview');
 	  <li><a href="https://ferrisellis.com/projects">Projects</a></li>
           
         
+          
+          
+	  <li><a href="https://ferrisellis.com/talks">Talks</a></li>
+          
+        
       </ul>
       <ul>
           <li style="padding: 0 10px;">
@@ -516,8 +521,7 @@ This allows the actual conversion logic to be easily handled by the compiler.</p
 </span><span style="color:#bbb"></span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>celsius<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>Celsius::from(temp);<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>...<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>This pattern is highly useful for safely generalizing inputs to functions.
 One thing that is less than ideal about it, however, is it still requires explicit conversion from the input to celcius.
 On top of this, there&rsquo;s no way for a single entity to represent all temperatures.
@@ -534,8 +538,7 @@ you can also find information on the the topics from official Rust documentation
 If we set aside the concept of units for a moment then we can do this very easily.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">circumference</span>(r: <span style="color:#458;font-weight:bold">f64</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#458;font-weight:bold">f64</span> {<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#099">2</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span>r<span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span>std::<span style="color:#458;font-weight:bold">f64</span>::consts::PI<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>The problem with this is if you want to find the circumference of a circle with the radius in meters then you are entirely responsible for the unit conversions on the inputs and using the answer correctly.
 This becomes even messier when you calculate the hypotenuse of a triangle where the width and height could be different units.
 This simply is not the Rust way of doing things, we&rsquo;re manually attempting to manage something our program should guarantee.</p>
@@ -550,8 +553,7 @@ Let&rsquo;s assume for this example that we&rsquo;re using meters as our standar
 </span><span style="color:#bbb"></span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">circumference</span><span style="font-weight:bold">&lt;</span>R<span style="font-weight:bold">&gt;</span>(r: <span style="color:#458;font-weight:bold">R</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#458;font-weight:bold">Meters</span><span style="color:#bbb"> </span><span style="font-weight:bold">where</span><span style="color:#bbb"> </span>R: <span style="color:#999">Into</span><span style="font-weight:bold">&lt;</span>Meters<span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>radius<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>Meters::from(r);<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>Meters(<span style="color:#099">2</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span>r.<span style="color:#099">0</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span>std::<span style="color:#458;font-weight:bold">f64</span>::consts::PI)<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>If we&rsquo;re only working in meters then this works well.
 Someone who later uses this and wants to use units of feet just need to write the <code>From</code> trait for the conversion from feet to meters and vice versa.</p>
 
@@ -591,8 +593,7 @@ We&rsquo;ll implement this generic struct with the name <code>Length</code>.</p>
 </span><span style="color:#bbb"></span><span style="font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">Length</span><span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span>{<span style="color:#bbb">
 </span><span style="color:#bbb">	</span>val: <span style="color:#458;font-weight:bold">i64</span>,<span style="color:#bbb">
 </span><span style="color:#bbb">	</span>...<span style="color:#bbb">
-</span><span style="color:#bbb"></span>};</code></pre>
-</div>
+</span><span style="color:#bbb"></span>};</code></pre></div>
 <p>Before proceeding to the generic trait we&rsquo;ll use with the <code>Length</code> struct I&rsquo;d like to pause to look at why I&rsquo;ve implemented the Length struct this way.</p>
 
 <p>To start with, you can see I&rsquo;ve choose to use an integer (<code>i64</code>) for the length instead of a floating point number (<code>f64</code>).
@@ -617,8 +618,7 @@ If we use an <code>i64</code> to represent this it puts our upper bound of dista
 </span><span style="color:#bbb"></span><span style="font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">Length</span><span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span>{<span style="color:#bbb">
 </span><span style="color:#bbb">	</span>nm: <span style="color:#458;font-weight:bold">i64</span>,<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">// nanometers
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span>...<span style="color:#bbb">
-</span><span style="color:#bbb"></span>};</code></pre>
-</div>
+</span><span style="color:#bbb"></span>};</code></pre></div>
 <p>This, however, doesn&rsquo;t allow us to express the units of meters and millimeters.
 To add information to the <code>Length</code> struct we must add units using the <code>T</code> in <code>Length&lt;T&gt;</code>.
 But we don&rsquo;t want to allow just any type, it makes no sense to have <code>Length&lt;Box&lt;None&gt;&gt;</code>.
@@ -627,8 +627,7 @@ So to limit what we can express the lengths of we need to use a trait, which we&
 </span><span style="color:#998;font-style:italic"></span><span style="font-weight:bold">trait</span><span style="color:#bbb"> </span>LengthUnit: <span style="color:#999">Copy</span> {<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">singular_name</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#999">String</span>;<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">// unit name, singular
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">num_nm_in_unit</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#458;font-weight:bold">i64</span>;<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">// number of nanometers in unit
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <p>This makes more sense as we can relate all units to our base unit of nano meters using <code>num_nm_in_unit</code> and also evaluate their names when needed using <code>singular_name</code>.
 It is worth pointing out that using Rust Nightly this can be done more easily with <a href="https://doc.rust-lang.org/book/associated-constants.html">associated constants</a>, but this way will achieve the same result and work on Rust stable.</p>
 
@@ -644,8 +643,7 @@ The super short explanation is that PhantomData is for these situations of assoc
 </span><span style="color:#bbb"></span><span style="font-weight:bold">struct</span> <span style="color:#458;font-weight:bold">Length</span><span style="font-weight:bold">&lt;</span>T: <span style="color:#458;font-weight:bold">LengthUnit</span><span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>nm: <span style="color:#458;font-weight:bold">i64</span>,<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>unit: <span style="color:#458;font-weight:bold">PhantomData</span><span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>This accomplishing being able to have many different variants of length while only using one struct.
 But this is not helpful unless we actually have some units that implement it.</p>
 
@@ -661,12 +659,11 @@ But this is not helpful unless we actually have some units that implement it.</p
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">singular_name</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#999">String</span> {<span style="color:#bbb"> </span><span style="color:#b84">&#34;meter&#34;</span>.to_string()<span style="color:#bbb"> </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#999;font-weight:bold">#[inline(always)]</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">num_nm_in_unit</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#458;font-weight:bold">i64</span> {<span style="color:#bbb"> </span><span style="color:#099">1_000_000_000</span><span style="color:#bbb"> </span>}<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">// billion nanometers in a meter
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <p>As you can see all this does is store constants in functions.
 This is why the <code>#[inline(always)]</code> attribute is applied to them.
 Using it avoids having the compiler treat the functions as functions in the machine code which makes them a tiny bit more efficient for the computer.
-Also, for those who may want to use this pattern with to hold more complex information, it is possible for these constants to be built using references to other constants.<sup class="footnote-ref" id="fnref:picometers"><a rel="footnote" href="#fn:picometers">1</a></sup></p>
+Also, for those who may want to use this pattern with to hold more complex information, it is possible for these constants to be built using references to other constants.<sup class="footnote-ref" id="fnref:picometers"><a href="#fn:picometers">1</a></sup></p>
 
 <p>For the sake of having two units to work with I&rsquo;ll also implement millimeters.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#998;font-style:italic">// derive needed for Length to have same traits available
@@ -678,8 +675,7 @@ Also, for those who may want to use this pattern with to hold more complex infor
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">singular_name</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#999">String</span> {<span style="color:#bbb"> </span><span style="color:#b84">&#34;millimeter&#34;</span>.to_string()<span style="color:#bbb"> </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#999;font-weight:bold">#[inline(always)]</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">num_nm_in_unit</span>()<span style="color:#bbb"> </span>-&gt; <span style="color:#458;font-weight:bold">i64</span> {<span style="color:#bbb"> </span><span style="color:#099">1_000_000</span><span style="color:#bbb"> </span>}<span style="color:#bbb"> </span><span style="color:#998;font-style:italic">// million nanometers in a millimeter
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <p>As with much of the code in this article this process could easily be made into a macro.
 In fact if you look into the <a href="https://github.com/code-ape/rust_length_arithmetic_example">Github repo</a> for this article you&rsquo;ll see that I have <a href="https://github.com/code-ape/rust_length_arithmetic_example/blob/master/example.rs#L20">made this into a macro for convenience</a>.
 References to the example repository can only be found at the beginning and end of this article.</p>
@@ -695,8 +691,7 @@ References to the example repository can only be found at the beginning and end 
 </span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// prints the following:
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l1 = Length { nm: 1000000000, unit: PhantomData }
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l2 = Length { nm: 1000000, unit: PhantomData }
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <p>This shows all the code thus far is solid but that debug print isn&rsquo;t actually that helpful.
 What would be better is to printing our length in a more friendly way.
 Let&rsquo;s write a quick implementation of <code>std::fmt::Display</code> to do this!</p>
@@ -718,8 +713,7 @@ Let&rsquo;s write a quick implementation of <code>std::fmt::Display</code> to do
 </span><span style="color:#bbb">               </span>T::singular_name(),<span style="color:#bbb">
 </span><span style="color:#bbb">               </span>name_plural_s)<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>Now our test program give a proper output!</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">	</span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>l1<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>Length<span style="font-weight:bold">&lt;</span>Meters<span style="font-weight:bold">&gt;</span>{nm: <span style="color:#099">1_000_000_000</span>,<span style="color:#bbb"> </span>unit: <span style="color:#458;font-weight:bold">PhantomData</span>}<span style="color:#bbb">
@@ -729,8 +723,7 @@ Let&rsquo;s write a quick implementation of <code>std::fmt::Display</code> to do
 </span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// prints the following:
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l1 = 1 meter
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l2 = 1 millimeter
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <h1 id="converting-numbers-to-lengths">Converting numbers to Lengths</h1>
 
 <p>Thus far I haven&rsquo;t created an easy way to take a number with a unit and get a length.
@@ -749,8 +742,7 @@ Two simple implementations of <code>From</code> solve this problem allowing conv
 </span><span style="color:#bbb">         </span><span style="color:#998;font-style:italic">// non-ideal but un-avoidable with standard numbers
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">         </span>((l.nm<span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#458;font-weight:bold">f64</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">/</span><span style="color:#bbb"> </span>(T::num_nm_in_unit()<span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#458;font-weight:bold">f64</span>))<span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span><span style="color:#458;font-weight:bold">i64</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>That was easy but implementing <code>From</code> for multiple number types is a bit boring and wasteful.
 Instead here&rsquo;s an easy way to do this via a macro.
 I&rsquo;ve stuck to only implementing <code>i64</code> and <code>f64</code> as unsigned integers will lose the the sign of our length and smaller bit sized numbers could possibly overflow.</p>
@@ -773,8 +765,7 @@ I&rsquo;ve stuck to only implementing <code>i64</code> and <code>f64</code> as u
 </span><span style="color:#bbb"></span>}<span style="color:#bbb">
 </span><span style="color:#bbb">
 </span><span style="color:#bbb"></span>ImplFromLengthUnit<span style="font-weight:bold">!</span>(<span style="color:#458;font-weight:bold">i64</span>);<span style="color:#bbb">
-</span><span style="color:#bbb"></span>ImplFromLengthUnit<span style="font-weight:bold">!</span>(<span style="color:#458;font-weight:bold">f64</span>);</code></pre>
-</div>
+</span><span style="color:#bbb"></span>ImplFromLengthUnit<span style="font-weight:bold">!</span>(<span style="color:#458;font-weight:bold">f64</span>);</code></pre></div>
 <h1 id="testing-the-program-so-far-2-3">Testing the program so far (<sup>2</sup>&frasl;<sub>3</sub>)</h1>
 
 <p>With the ability to use <code>into</code> and <code>from</code> for creating lengths from numbers we can make our prior code more readable.</p>
@@ -783,8 +774,7 @@ I&rsquo;ve stuck to only implementing <code>i64</code> and <code>f64</code> as u
 </span><span style="color:#bbb">	</span>println<span style="font-weight:bold">!</span>(<span style="color:#b84">&#34;l1 = {}&#34;</span>,<span style="color:#bbb"> </span>l1);<span style="color:#bbb">
 </span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// prints the following:
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l1 = 1 meter
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <p>For sheer usability we can make a <code>meters!</code> and <code>millimeters!</code> macro to clean this up even more.
 This isn&rsquo;t necessary for our code to work but does give a similar feel to what we can do with a macro like <code>vec!</code>.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">macro_rules<span style="font-weight:bold">!</span><span style="color:#bbb"> </span>meters<span style="color:#bbb"> </span>{<span style="color:#bbb">
@@ -792,8 +782,7 @@ This isn&rsquo;t necessary for our code to work but does give a similar feel to 
 </span><span style="color:#bbb"></span>}<span style="color:#bbb">
 </span><span style="color:#bbb"></span>macro_rules<span style="font-weight:bold">!</span><span style="color:#bbb"> </span>millimeters<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>(<span style="color:#999;font-weight:bold">$num</span>:<span style="color:#458;font-weight:bold">expr</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">=&gt;</span><span style="color:#bbb"> </span>(Length::<span style="font-weight:bold">&lt;</span>Millimeters<span style="font-weight:bold">&gt;</span>::from(<span style="color:#999;font-weight:bold">$num</span>));<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>And with this we finally have a clean two line main function.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">	</span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>l1<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>meters<span style="font-weight:bold">!</span>(<span style="color:#099">1</span>);<span style="color:#bbb">
@@ -803,8 +792,7 @@ This isn&rsquo;t necessary for our code to work but does give a similar feel to 
 </span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// prints the following:
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l1 = 1 meter
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">	</span><span style="color:#998;font-style:italic">// l2 = 1 millimeter
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <h1 id="implementing-std-ops-math-for-lengths">Implementing std::ops math for lengths</h1>
 
 <p>Of course having <code>Length</code>s isn&rsquo;t very useful without the ability to do arithmetic with them.
@@ -920,8 +908,7 @@ Casting to floats in this way, from the length&rsquo;s <code>i64</code> values, 
 </span><span style="color:#bbb"></span>}<span style="color:#bbb">
 </span><span style="color:#bbb">
 </span><span style="color:#bbb"></span>ImplMulandDivLengthAndNum<span style="font-weight:bold">!</span>(<span style="color:#458;font-weight:bold">i64</span>);<span style="color:#bbb">
-</span><span style="color:#bbb"></span>ImplMulandDivLengthAndNum<span style="font-weight:bold">!</span>(<span style="color:#458;font-weight:bold">f64</span>);</code></pre>
-</div>
+</span><span style="color:#bbb"></span>ImplMulandDivLengthAndNum<span style="font-weight:bold">!</span>(<span style="color:#458;font-weight:bold">f64</span>);</code></pre></div>
 <p>That&rsquo;s a lot of code and highly repetitive code at that, even with the <code>ImplMulandDivLengthAndNum</code> macro.
 It is necessary code though and considering this essentially defines a custom algebra I find it to be plesantly concise.
 While on the topic of implementing operation traits, there is one other set of operation we should implement: comparisons.</p>
@@ -942,8 +929,7 @@ This means that comparing two different lengths is just <code>self.nm.cmp(&amp;o
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">partial_cmp</span>(<span style="font-weight:bold">&amp;</span>self,<span style="color:#bbb"> </span>other: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Length</span><span style="font-weight:bold">&lt;</span>T2<span style="font-weight:bold">&gt;</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#999">Option</span><span style="font-weight:bold">&lt;</span>Ordering<span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">        </span><span style="color:#999">Some</span>(self.nm.cmp(<span style="font-weight:bold">&amp;</span>other.nm))<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>You will also notice that there was not need to implement <code>Eq</code> or <code>Ord</code> as they were derived them with the declaration of <code>Length</code> previously.
 It&rsquo;s worth noting that the reason those traits can be derived is because those traits operate on exactly equivalent types (for example: comparing <code>Length&lt;Meters&gt;</code> and <code>Length&lt;Meters&gt;</code>).
 The above code also won&rsquo;t work if <code>Eq</code> and <code>PartialEq</code> weren&rsquo;t derived for all declarations of units, such as <code>Meters</code>.
@@ -956,8 +942,7 @@ Since we have math implemented between <code>Length</code>s and <code>i64</code>
 We can even use Rust&rsquo;s internal constant of pi so we don&rsquo;t have to worry about using our own which wouldn&rsquo;t be consistent with usage of pi elsewhere in the Rust ecosystem.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">circumference</span><span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span>(r: <span style="color:#458;font-weight:bold">Length</span><span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span>)<span style="color:#bbb"> </span>-&gt; <span style="color:#458;font-weight:bold">Length</span><span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="font-weight:bold">where</span><span style="color:#bbb"> </span>T: <span style="color:#458;font-weight:bold">LengthUnit</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="color:#099">2</span><span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span>r<span style="color:#bbb"> </span><span style="font-weight:bold">*</span><span style="color:#bbb"> </span>std::<span style="color:#458;font-weight:bold">f64</span>::consts::PI<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>It&rsquo;s worth noting that this &ldquo;morphs&rdquo; what math looks like normally in Rust.
 Generally only operations between matching number types are allowed but here an integer, a float, and a length are all use together in one statement.
 This is because after each operation between a <code>Length</code> and a <code>i64</code> or <code>f64</code> the result is a <code>Length</code>.
@@ -986,8 +971,7 @@ Here is a short demonstration of this.</p>
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">// circumference(radius = 10 meters) = 62.831853071 meters
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">// c1 &gt; l1 : true
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">// l1 / l2 = 1000
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <p>Look at that beautifully clean arithmetic with automatic units and safety!
 In fact, if you want to verify that this will stop you from doing something that we haven&rsquo;t designed, you can try multiplying the lengths <code>l1</code> and <code>l2</code> together.
 The compiler will kindly inform you that we can&rsquo;t do this with our system.</p>
@@ -1002,8 +986,7 @@ The compiler will kindly inform you that we can&rsquo;t do this with our system.
     <span style="font-weight:bold">=</span><span style="color:#bbb"> </span>help:   <span style="font-weight:bold">&lt;</span>Length<span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span>std::ops::Mul<span style="font-weight:bold">&lt;</span><span style="color:#458;font-weight:bold">i64</span><span style="font-weight:bold">&gt;&gt;</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>help:   <span style="font-weight:bold">&lt;</span>Length<span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span>std::ops::Mul<span style="font-weight:bold">&lt;</span><span style="color:#458;font-weight:bold">f64</span><span style="font-weight:bold">&gt;&gt;</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>error: <span style="color:#458;font-weight:bold">aborting</span><span style="color:#bbb"> </span>due<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span>error</code></pre>
-</div>
+</span><span style="color:#bbb"></span>error: <span style="color:#458;font-weight:bold">aborting</span><span style="color:#bbb"> </span>due<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span>error</code></pre></div>
 <p>Now it is possible to write a program using arithmetic on lengths with confidence that nothing can happen that voildates the laws of physics.
 So a function that takes two lengths and should return a length instead dividing the first length by the second then the compiler will error since that would return a number instead of a length.
 You can try it for yourself if you want.</p>
@@ -1012,8 +995,7 @@ You can try it for yourself if you want.</p>
 </span><span style="color:#bbb">          </span>T2: <span style="color:#458;font-weight:bold">LengthUnit</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>n1<span style="color:#bbb"> </span><span style="font-weight:bold">/</span><span style="color:#bbb"> </span>n2<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>This will cause the Rust compiler to give us the following error.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">rustc<span style="color:#bbb"> </span><span style="color:#099">1.15.1</span><span style="color:#bbb"> </span>(<span style="color:#099">021</span>bd294c<span style="color:#bbb"> </span><span style="color:#099">2017</span><span style="font-weight:bold">-</span><span style="color:#099">02</span><span style="font-weight:bold">-</span><span style="color:#099">08</span>)<span style="color:#bbb">
 </span><span style="color:#bbb"></span>error[E0308]: <span style="color:#458;font-weight:bold">mismatched</span><span style="color:#bbb"> </span>types<span style="color:#bbb">
@@ -1023,8 +1005,7 @@ You can try it for yourself if you want.</p>
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">|</span><span style="color:#bbb">     </span><span style="font-weight:bold">^^^^^^^</span><span style="color:#bbb"> </span>expected<span style="color:#bbb"> </span><span style="font-weight:bold">struct</span> <span style="color:#a61717;background-color:#e3d2d2">`</span>Length<span style="color:#a61717;background-color:#e3d2d2">`</span>,<span style="color:#bbb"> </span>found<span style="color:#bbb"> </span><span style="color:#458;font-weight:bold">f64</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">|</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>note: <span style="color:#458;font-weight:bold">expected</span><span style="color:#bbb"> </span><span style="font-weight:bold">type</span> <span style="color:#a61717;background-color:#e3d2d2">`</span>Length<span style="font-weight:bold">&lt;</span>T1<span style="font-weight:bold">&gt;</span><span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#bbb">
-</span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>note:    <span style="color:#458;font-weight:bold">found</span><span style="color:#bbb"> </span><span style="font-weight:bold">type</span> <span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#458;font-weight:bold">f64</span><span style="color:#a61717;background-color:#e3d2d2">`</span></code></pre>
-</div>
+</span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>note:    <span style="color:#458;font-weight:bold">found</span><span style="color:#bbb"> </span><span style="font-weight:bold">type</span> <span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#458;font-weight:bold">f64</span><span style="color:#a61717;background-color:#e3d2d2">`</span></code></pre></div>
 <h1 id="the-problem-with-generic-conversions">The problem with generic conversions</h1>
 
 <p>The final piece of crucial functionality for this demo program is to get numbers out of the system in the desired units of the user.
@@ -1036,8 +1017,7 @@ However there is a problem with doing this.</p>
 </span><span style="color:#bbb">    </span>println<span style="font-weight:bold">!</span>(<span style="color:#b84">&#34;l1 = {}&#34;</span>,<span style="color:#bbb"> </span>l1);<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>println<span style="font-weight:bold">!</span>(<span style="color:#b84">&#34;l1_meters = {}&#34;</span>,<span style="color:#bbb"> </span>l1_meters);<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>The Rust&rsquo;s compiler gets unhappy.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">rustc<span style="color:#bbb"> </span><span style="color:#099">1.15.1</span><span style="color:#bbb"> </span>(<span style="color:#099">021</span>bd294c<span style="color:#bbb"> </span><span style="color:#099">2017</span><span style="font-weight:bold">-</span><span style="color:#099">02</span><span style="font-weight:bold">-</span><span style="color:#099">08</span>)<span style="color:#bbb">
 </span><span style="color:#bbb"></span>error[E0277]: <span style="color:#458;font-weight:bold">the</span><span style="color:#bbb"> </span><span style="font-weight:bold">trait</span><span style="color:#bbb"> </span>bound<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">`</span>Length<span style="font-weight:bold">&lt;</span>Meters<span style="font-weight:bold">&gt;</span>: <span style="color:#458;font-weight:bold">std</span>::convert::<span style="color:#999">From</span><span style="font-weight:bold">&lt;</span>Length<span style="font-weight:bold">&lt;</span>Millimeters<span style="font-weight:bold">&gt;&gt;</span><span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#bbb"> </span>is<span style="color:#bbb"> </span>not<span style="color:#bbb"> </span>satisfied<span style="color:#bbb">
@@ -1054,8 +1034,7 @@ However there is a problem with doing this.</p>
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>help:   <span style="font-weight:bold">&lt;</span>Length<span style="font-weight:bold">&lt;</span>T<span style="font-weight:bold">&gt;</span><span style="color:#bbb"> </span><span style="font-weight:bold">as</span><span style="color:#bbb"> </span>std::convert::<span style="color:#999">From</span><span style="font-weight:bold">&lt;</span><span style="color:#458;font-weight:bold">f64</span><span style="font-weight:bold">&gt;&gt;</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>note: <span style="color:#458;font-weight:bold">required</span><span style="color:#bbb"> </span>by<span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">`</span>std::convert::<span style="color:#999">From</span>::from<span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>error: <span style="color:#458;font-weight:bold">aborting</span><span style="color:#bbb"> </span>due<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span>error</code></pre>
-</div>
+</span><span style="color:#bbb"></span>error: <span style="color:#458;font-weight:bold">aborting</span><span style="color:#bbb"> </span>due<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span>error</code></pre></div>
 <p>As you can see, the compiler doesn&rsquo;t know how to go from <code>Length&lt;Meters&gt;</code> to <code>Length&lt;Millimeters&gt;</code>.
 It shows the the bottom of the error that it only knows how to convert types of <code>i64</code> or <code>f64</code>.</p>
 
@@ -1071,8 +1050,7 @@ Since <code>Length</code> is a generic struct all that should be needed is an im
 </span><span style="color:#bbb">            </span>unit: <span style="color:#458;font-weight:bold">PhantomData</span>,<span style="color:#bbb">
 </span><span style="color:#bbb">        </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>As it turns out, however, there is a problem with this&hellip;</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust">rustc<span style="color:#bbb"> </span><span style="color:#099">1.15.1</span><span style="color:#bbb"> </span>(<span style="color:#099">021</span>bd294c<span style="color:#bbb"> </span><span style="color:#099">2017</span><span style="font-weight:bold">-</span><span style="color:#099">02</span><span style="font-weight:bold">-</span><span style="color:#099">08</span>)<span style="color:#bbb">
 </span><span style="color:#bbb"></span>error[E0119]: <span style="color:#458;font-weight:bold">conflicting</span><span style="color:#bbb"> </span>implementations<span style="color:#bbb"> </span>of<span style="color:#bbb"> </span><span style="font-weight:bold">trait</span><span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">`</span>std::convert::<span style="color:#999">From</span><span style="font-weight:bold">&lt;</span>Length<span style="font-weight:bold">&lt;</span>_<span style="font-weight:bold">&gt;&gt;</span><span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#bbb"> </span><span style="font-weight:bold">for</span><span style="color:#bbb"> </span><span style="font-weight:bold">type</span> <span style="color:#a61717;background-color:#e3d2d2">`</span>Length<span style="font-weight:bold">&lt;</span>_<span style="font-weight:bold">&gt;</span><span style="color:#a61717;background-color:#e3d2d2">`</span>:
@@ -1083,8 +1061,7 @@ Since <code>Length</code> is a generic struct all that should be needed is an im
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">|</span><span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>note: <span style="color:#458;font-weight:bold">conflicting</span><span style="color:#bbb"> </span>implementation<span style="color:#bbb"> </span><span style="font-weight:bold">in</span><span style="color:#bbb"> </span><span style="font-weight:bold">crate</span><span style="color:#bbb"> </span><span style="color:#a61717;background-color:#e3d2d2">`</span>core<span style="color:#a61717;background-color:#e3d2d2">`</span><span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>error: <span style="color:#458;font-weight:bold">aborting</span><span style="color:#bbb"> </span>due<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span>error</code></pre>
-</div>
+</span><span style="color:#bbb"></span>error: <span style="color:#458;font-weight:bold">aborting</span><span style="color:#bbb"> </span>due<span style="color:#bbb"> </span>to<span style="color:#bbb"> </span>previous<span style="color:#bbb"> </span>error</code></pre></div>
 <p>The Rust compiler is stating that this implementation of <code>From</code> conflict with one in <code>core</code>.
 For those of you who are unfamiliar with this sort of message, this is implying that <code>From</code> has already been implemented somewhere deep in the Rust language.
 Except it definitely hasn&rsquo;t.
@@ -1100,8 +1077,7 @@ This isn&rsquo;t what we want to do long term, but we&rsquo;ll try it to see wha
 </span><span style="color:#bbb">            </span>unit: <span style="color:#458;font-weight:bold">PhantomData</span>,<span style="color:#bbb">
 </span><span style="color:#bbb">        </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>And now the compiler is happy as we get the following output.</p>
 
 <pre><code>l1 = 10 millimeters
@@ -1131,8 +1107,7 @@ This means we can do <code>impl&lt;'a T1,T2&gt; From&lt;&amp;'a Length&lt;T1&gt;
 </span><span style="color:#bbb">            </span>unit: <span style="color:#458;font-weight:bold">PhantomData</span>,<span style="color:#bbb">
 </span><span style="color:#bbb">        </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>}<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>Now our original program works. But it&rsquo;s a bit less clean due to the strange reference needed in the conversion.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>l1<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>millimeters<span style="font-weight:bold">!</span>(<span style="color:#099">10</span>);<span style="color:#bbb">
@@ -1140,8 +1115,7 @@ This means we can do <code>impl&lt;'a T1,T2&gt; From&lt;&amp;'a Length&lt;T1&gt;
 </span><span style="color:#bbb">    </span>println<span style="font-weight:bold">!</span>(<span style="color:#b84">&#34;l1 = {}&#34;</span>,<span style="color:#bbb"> </span>l1);<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>println<span style="font-weight:bold">!</span>(<span style="color:#b84">&#34;l1_meters = {}&#34;</span>,<span style="color:#bbb"> </span>l1_meters);<span style="color:#bbb">
 </span><span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>This bothers me, perhaps more than it should.
 But it is definitely an unnecessary thing to ask a user to do.
 On top of that, since <code>Length</code> implements <code>Copy</code> it is counter intuitive for a to reference it for conversions.</p>
@@ -1152,8 +1126,7 @@ On top of that, since <code>Length</code> implements <code>Copy</code> it is cou
 </span><span style="color:#bbb"></span>}<span style="color:#bbb">
 </span><span style="color:#bbb"></span>macro_rules<span style="font-weight:bold">!</span><span style="color:#bbb"> </span>millimeters<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>(<span style="color:#999;font-weight:bold">$num</span>:<span style="color:#458;font-weight:bold">expr</span>)<span style="color:#bbb"> </span><span style="font-weight:bold">=&gt;</span><span style="color:#bbb"> </span>(Length::<span style="font-weight:bold">&lt;</span>Millimeters<span style="font-weight:bold">&gt;</span>::from(<span style="font-weight:bold">&amp;</span><span style="color:#999;font-weight:bold">$num</span>));<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>I&rsquo;m also aware that this action, taking a reference of a 64 bit value that implements <code>Copy</code>, is counter productive from the standpoint of CPU operations.
 However, I&rsquo;m trusting that the compiler is smart enough to optimize this away.</p>
 
@@ -1184,14 +1157,13 @@ Fortunately this can be fixed by just adding that implementation into the <code>
 </span><span style="color:#bbb">            </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">        </span>}<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>};<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>And with that all the code is done and all uses of units with lengths can be written as cleanly as possible.</p>
 
 <h1 id="the-final-clean-safe-code">The final, clean, safe code</h1>
 
 <p>It&rsquo;s been a decent amount of work to get here, but it was well worth the effort.
-In just under 200 lines of code<sup class="footnote-ref" id="fnref:tokei-count"><a rel="footnote" href="#fn:tokei-count">2</a></sup> we have a complete system that allows us to do the following calculations with complete safety and piece of mind with little to no extra runtime cost!</p>
+In just under 200 lines of code<sup class="footnote-ref" id="fnref:tokei-count"><a href="#fn:tokei-count">2</a></sup> we have a complete system that allows us to do the following calculations with complete safety and piece of mind with little to no extra runtime cost!</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">main</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>l1<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>millimeters<span style="font-weight:bold">!</span>(<span style="color:#099">10</span>);<span style="color:#bbb">
 </span><span style="color:#bbb">    </span><span style="font-weight:bold">let</span><span style="color:#bbb"> </span>l2<span style="color:#bbb"> </span><span style="font-weight:bold">=</span><span style="color:#bbb"> </span>meters<span style="font-weight:bold">!</span>(<span style="color:#099">5</span>);<span style="color:#bbb">
@@ -1214,15 +1186,14 @@ In just under 200 lines of code<sup class="footnote-ref" id="fnref:tokei-count">
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">// circumference(radius = 10 millimeters) = 62.831853 millimeters
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">// l3 &gt; l2 : true
 </span><span style="color:#998;font-style:italic"></span><span style="color:#bbb">    </span><span style="color:#998;font-style:italic">// l3 / l2 = 1.01
-</span><span style="color:#998;font-style:italic"></span>}</code></pre>
-</div>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 <h1 id="closing-thoughts">Closing thoughts</h1>
 
 <p>Rust&rsquo;s type system offers a lot of flexibility to express what you want to achieve with your data.
 However, it isn&rsquo;t always obvious how to leverage that type system to represent constraints that are outside the scope software or hardware, such as units of measurement.
 I will fully admit that the system I&rsquo;ve worked through in this article wasn&rsquo;t obvious when I first created it (it&rsquo;s initial incarnation was for binding unum contexts to values).
 I came to use this pattern after feeling frustrated with constant conversions and the unnecessary code that they required.
-Hopefully this article will allow others to find a more elegant and safe way to bind contexts of varying units to data and easily move between them without extra code or performance costs.<sup class="footnote-ref" id="fnref:performance-size"><a rel="footnote" href="#fn:performance-size">3</a></sup></p>
+Hopefully this article will allow others to find a more elegant and safe way to bind contexts of varying units to data and easily move between them without extra code or performance costs.<sup class="footnote-ref" id="fnref:performance-size"><a href="#fn:performance-size">3</a></sup></p>
 
 <p>The Github repo with the complete example can be found here: <a href="https://github.com/code-ape/rust_length_arithmetic_example">https://github.com/code-ape/rust_length_arithmetic_example</a>.</p>
 <div class="footnotes">

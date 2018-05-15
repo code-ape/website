@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://ferrisellis.com/talks/unums_strange_loop_2017/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/posts/project_lead_thoughts/</loc>
     <lastmod>2017-05-20T00:00:00+00:00</lastmod>
   </url>
@@ -38,13 +43,13 @@
   </url>
   
   <url>
-    <loc>https://ferrisellis.com/tags/bpf/</loc>
-    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://ferrisellis.com/talks/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ferrisellis.com/categories/</loc>
+    <loc>https://ferrisellis.com/tags/bpf/</loc>
+    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -115,11 +120,6 @@
   </url>
   
   <url>
-    <loc>https://ferrisellis.com/series/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://ferrisellis.com/tags/software-development/</loc>
     <lastmod>2018-02-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -134,6 +134,12 @@
   <url>
     <loc>https://ferrisellis.com/tags/type-systems/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ferrisellis.com/tags/unums/</loc>
+    <lastmod>2017-09-28T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

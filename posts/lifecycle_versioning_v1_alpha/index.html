@@ -439,6 +439,11 @@ ga('send', 'pageview');
 	  <li><a href="https://ferrisellis.com/projects">Projects</a></li>
           
         
+          
+          
+	  <li><a href="https://ferrisellis.com/talks">Talks</a></li>
+          
+        
       </ul>
       <ul>
           <li style="padding: 0 10px;">
@@ -517,7 +522,7 @@ ga('send', 'pageview');
 
 <h1 id="introduction">Introduction</h1>
 
-<p>In the world of software projects, code lives a lifecycle. It is developed, released, packaged, used, and finally decommissioned<sup class="footnote-ref" id="fnref:decommissioned"><a rel="footnote" href="#fn:decommissioned">1</a></sup>; often to be replaced by a successor from the same project.
+<p>In the world of software projects, code lives a lifecycle. It is developed, released, packaged, used, and finally decommissioned<sup class="footnote-ref" id="fnref:decommissioned"><a href="#fn:decommissioned">1</a></sup>; often to be replaced by a successor from the same project.
 Many developer practices that attempt to capture this lifecycle focus on semantics for expressing what occurs between snapshots of a project over time.
 This, done poorly or done well, inevitably leads to Version Hell.</p>
 
@@ -801,8 +806,7 @@ This is still a work in progress and feedback is welcome.</p>
 </span><span style="color:#b84"></span><span style="color:#999;font-weight:bold">#[cfg(feature = </span><span style="color:#b84">&#34;alpha&#34;</span><span style="color:#999;font-weight:bold">)]</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">teleport</span>(h: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Human</span>,<span style="color:#bbb"> </span>l: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Location</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>...<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>Transition of the <code>teleport</code> feature to a beta label.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#b84">/// Lifecycle log
 </span><span style="color:#b84">/// 2017-06-12T05:58:09Z alpha
@@ -810,8 +814,7 @@ This is still a work in progress and feedback is welcome.</p>
 </span><span style="color:#b84"></span><span style="color:#999;font-weight:bold">#[cfg(feature = </span><span style="color:#b84">&#34;beta&#34;</span><span style="color:#999;font-weight:bold">)]</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">teleport</span>(h: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Human</span>,<span style="color:#bbb"> </span>l: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Location</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>...<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <p>Example of what the <code>teleport</code> feature look like having gone through an entire lifecycle thus resulting in it being retired.</p>
 
 <p><strong>Open Question: How to express date to compiler for it to still consider <code>teleport</code> stable until 2019-06-12?</strong></p>
@@ -824,8 +827,7 @@ This is still a work in progress and feedback is welcome.</p>
 </span><span style="color:#b84"></span><span style="color:#999;font-weight:bold">#[cfg(feature = </span><span style="color:#b84">&#34;retired&#34;</span><span style="color:#999;font-weight:bold">)]</span><span style="color:#bbb">
 </span><span style="color:#bbb"></span><span style="font-weight:bold">fn</span> <span style="color:#900;font-weight:bold">teleport</span>(h: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Human</span>,<span style="color:#bbb"> </span>l: <span style="font-weight:bold">&amp;</span><span style="color:#458;font-weight:bold">Location</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>...<span style="color:#bbb">
-</span><span style="color:#bbb"></span>}</code></pre>
-</div>
+</span><span style="color:#bbb"></span>}</code></pre></div>
 <h1 id="faq">FAQ</h1>
 
 <ul>

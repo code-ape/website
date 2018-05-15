@@ -21,5 +21,15 @@
 Introduction In the world of software projects, code lives a lifecycle. It is developed, released, packaged, used, and finally decommissioned1; often to be replaced by a successor from the same project.</description>
     </item>
     
+    <item>
+      <title>Strength in Numbers: Unums and the Quest for Reliable Arithmatic</title>
+      <link>https://ferrisellis.com/talks/unums_strange_loop_2017/</link>
+      <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/talks/unums_strange_loop_2017/</guid>
+      <description>A talk by Ferris Ellis at Strange Loop 2017.
+Abstract In the land of computer arithmetic, a tyrant has ruled since its very beginning: the floating point number. Under its rule we have all endured countless hardships and cruelties. To this very day the floating point number still denies 0.1 + 0.2 == 0.3 and returns insidious infinities to software developers everywhere. But a new hero has entered fray: the universal number (unum).</description>
+    </item>
+    
   </channel>
 </rss>

@@ -439,6 +439,11 @@ ga('send', 'pageview');
 	  <li><a href="https://ferrisellis.com/projects">Projects</a></li>
           
         
+          
+          
+	  <li><a href="https://ferrisellis.com/talks">Talks</a></li>
+          
+        
       </ul>
       <ul>
           <li style="padding: 0 10px;">
@@ -582,10 +587,10 @@ eBPF verifier statically determines that the program terminates and is safe to e
 &hellip; programs may call into in-kernel helper functions which may, for example, dump stack, do trace_printk or other forms of live kernel debugging.</p>
 </blockquote>
 
-<p>In diving into this syscall one would expect to look where documentation for Linux syscalls usually resides: in a section 2 man page.[<sup class="footnote-ref" id="fnref:section-2-man-page"><a rel="footnote" href="#fn:section-2-man-page">1</a></sup>]
+<p>In diving into this syscall one would expect to look where documentation for Linux syscalls usually resides: in a section 2 man page.[<sup class="footnote-ref" id="fnref:section-2-man-page"><a href="#fn:section-2-man-page">1</a></sup>]
 This syscall, as with most Linux syscalls, does have <a href="http://man7.org/linux/man-pages/man2/bpf.2.html">a man page</a>.
 Sadly, however, some aspects of it are vastly out of date as of this writing.
-In fact, from the git logs for the <a href="https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git">Linux man pages</a> it appears that the last notable contribution of new information to the man page was on <strong>July 30, 2015</strong>, over a year and nine months ago.[<sup class="footnote-ref" id="fnref:last-bpf-man-addition"><a rel="footnote" href="#fn:last-bpf-man-addition">2</a></sup>]
+In fact, from the git logs for the <a href="https://git.kernel.org/pub/scm/docs/man-pages/man-pages.git">Linux man pages</a> it appears that the last notable contribution of new information to the man page was on <strong>July 30, 2015</strong>, over a year and nine months ago.[<sup class="footnote-ref" id="fnref:last-bpf-man-addition"><a href="#fn:last-bpf-man-addition">2</a></sup>]
 Thankfully, however, the majority of the outdated information is related to the types of eBPF programs and eBPF-maps that exist.
 These missing details do, of course, exist in the Linux kernel code and thus this article makes references to the kernel code at times since it is the source of truth for eBPF&rsquo;s implementation.
 For reference, this article will use the code of the most recent Linux kernel release, version <a href="https://github.com/torvalds/linux/tree/v4.11">4.11</a>.</p>
@@ -604,8 +609,7 @@ The <code>bpf</code> header file for assisting in using the <code>bpf</code> sys
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#998;font-style:italic">// From the macro expansion of the following code:
 </span><span style="color:#998;font-style:italic">// https://github.com/torvalds/linux/blob/v4.11/kernel/bpf/syscall.c#L1031
 </span><span style="color:#998;font-style:italic"></span>
-<span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">bpf</span>(<span style="color:#458;font-weight:bold">int</span> cmd, <span style="font-weight:bold">union</span> bpf_attr <span style="font-weight:bold">*</span>attr, <span style="color:#458;font-weight:bold">unsigned</span> <span style="color:#458;font-weight:bold">int</span> size);</code></pre>
-</div>
+<span style="color:#458;font-weight:bold">int</span> <span style="color:#900;font-weight:bold">bpf</span>(<span style="color:#458;font-weight:bold">int</span> cmd, <span style="font-weight:bold">union</span> bpf_attr <span style="font-weight:bold">*</span>attr, <span style="color:#458;font-weight:bold">unsigned</span> <span style="color:#458;font-weight:bold">int</span> size);</code></pre></div>
 <p>Note the use of the <code>bpf_attr</code> union.
 This is a C union which allows for different C structs to be passed to the <code>bpf</code> syscall depending on which command is being used.
 The code for it can be found in the <a href="https://github.com/torvalds/linux/blob/v4.11/include/uapi/linux/bpf.h#L148"><code>include/uapi/linux/bpf.h</code></a> file of the Linux kernel.
@@ -633,8 +637,7 @@ All together this gives us the following 10 commands.</p>
     BPF_OBJ_GET,
     BPF_PROG_ATTACH,
     BPF_PROG_DETACH,
-};</code></pre>
-</div>
+};</code></pre></div>
 <p><em>These calls form the basis of what is possible for a user to do with the eBPF system by itself. Of course, this isn&rsquo;t super useful without the context of the other systems eBPF can be used with.
 The third article in this series will be devoted to that topic, the systems eBPF can be used with, and this article will be updated to reference it when it is published.</em></p>
 
@@ -678,8 +681,7 @@ These types correspond to different uses of eBPF and, as stated above, will be c
     };
 
     <span style="font-weight:bold">return</span> bpf(BPF_PROG_LOAD, <span style="font-weight:bold">&amp;</span>attr, <span style="font-weight:bold">sizeof</span>(attr));
-}</code></pre>
-</div>
+}</code></pre></div>
 <h2 id="bpf-map-create"><code>BPF_MAP_CREATE</code></h2>
 
 <p>Next, there are the five map operations.
@@ -691,7 +693,7 @@ This article will use the term &ldquo;eBPF-map&rdquo; to refer to the all of the
 
 <p>Creating a map only requires the type of eBPF-map desired, the size of a key, the size of a value, the maximum number of entries, and whether or not to pre-allocate the map in memory.</p>
 
-<p>Again, the Linux <code>bpf</code> syscall does offer an <a href="http://man7.org/linux/man-pages/man2/bpf.2.html">example of a function in C</a> which does this.
+<p>Again, the Linux <code>bpf</code> syscall man page does offer an <a href="http://man7.org/linux/man-pages/man2/bpf.2.html">example of a function in C</a> which does this.
 Though this example isn&rsquo;t helpful in providing context for how to create some eBPF-map types.
 The clearest example of this is for eBPF-map types that are arrays where it seems counter-intuitive to specify the key size.
 The creation and lookup of the eBPF-map types will be covered in their respective sections later on in this article.</p>
@@ -719,15 +721,14 @@ The creation and lookup of the eBPF-map types will be covered in their respectiv
     };
 
    <span style="font-weight:bold">return</span> bpf(BPF_MAP_CREATE, <span style="font-weight:bold">&amp;</span>attr, <span style="font-weight:bold">sizeof</span>(attr));
-}</code></pre>
-</div>
+}</code></pre></div>
 <p>The <code>BPF_MAP_CREATE</code> variant of the <code>bpf_attr</code> union has five fields but the context of them is missing some information, specifically for <code>map_entries</code> and <code>map_flags</code>.</p>
 
 <p>It&rsquo;s not stated what the cap on <code>max_entries</code> is, however, since it is represented by an unsigned 32 bit integer it can&rsquo;t be more than 2^32 which is 4,294,967,296.
 Some examples of using eBPF, found in the Linux kernel repository, <a href="https://github.com/torvalds/linux/blob/v4.11/samples/bpf/tracex4_kern.c#L21">create a 1,000,000 entry map</a>, which is likely larger than most users will ever need.
 However this still leaves a multiple of ~4,300 between the largest example I could find of an eBPF-map and the theoretical max.
 For reference, use of super high capacity eBPF-maps should be used carefully  due to memory consumption.
-The memory foot print for 2^32 pairs of 64 bit keys and 64 bit values comes out to 64GiB![<sup class="footnote-ref" id="fnref:max-ebpf-memory"><a rel="footnote" href="#fn:max-ebpf-memory">3</a></sup>]</p>
+The memory foot print for 2^32 pairs of 64 bit keys and 64 bit values comes out to 64GiB![<sup class="footnote-ref" id="fnref:max-ebpf-memory"><a href="#fn:max-ebpf-memory">3</a></sup>]</p>
 
 <p>The size of an eBPF-map also relates to the <code>map_flags</code> option.
 This flag appears to have been added in version 4.6 of the Linux kernel which was released in May 2016.
@@ -778,8 +779,7 @@ Here is an example function from the man page for functions that lookup and dele
     };
 
     <span style="font-weight:bold">return</span> bpf(BPF_MAP_DELETE_ELEM, <span style="font-weight:bold">&amp;</span>attr, <span style="font-weight:bold">sizeof</span>(attr));
-}</code></pre>
-</div>
+}</code></pre></div>
 <p>The <code>BPF_MAP_UPDATE_ELEM</code> command also allows a flag to be specified which communicates the desired action relative to if a key does or doesn&rsquo;t already exist when the update action is called.
 As you can see from the comments in the code block below, this command really is three: set value if no prior value exists, set value only if prior value exists, or set value regardless of if prior value exists.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#998;font-style:italic">//// From https://github.com/torvalds/linux/blob/v4.11/include/uapi/linux/bpf.h#L134
@@ -801,8 +801,7 @@ As you can see from the comments in the code block below, this command really is
     };
 
     <span style="font-weight:bold">return</span> bpf(BPF_MAP_UPDATE_ELEM, <span style="font-weight:bold">&amp;</span>attr, <span style="font-weight:bold">sizeof</span>(attr));
-}</code></pre>
-</div>
+}</code></pre></div>
 <h2 id="bpf-map-get-next-key"><code>BPF_MAP_GET_NEXT_KEY</code></h2>
 
 <p>As with most all data structures, iterating through the elements of a eBPF-hash table is an essential aspect of using them.
@@ -831,13 +830,12 @@ A value of -1 is returned and errno is set to ENOENT.</li>
         };
 
     <span style="font-weight:bold">return</span> bpf(BPF_MAP_GET_NEXT_KEY, <span style="font-weight:bold">&amp;</span>attr, <span style="font-weight:bold">sizeof</span>(attr));
-}</code></pre>
-</div>
+}</code></pre></div>
 <h2 id="bpf-obj-pin-and-bpf-obj-get"><code>BPF_OBJ_PIN</code> and <code>BPF_OBJ_GET</code></h2>
 
 <p>This brings us to the first two of the four currently undocumented commands: <code>BPF_OBJ_PIN</code> and <code>BPF_OBJ_GET</code>.
-Tracing through the history in the repository, one can find that <code>BPF_OBJ_PIN</code> and <code>BPF_OBJ_GET</code> were added in  version 4.4 of the Linux kernel.[<sup class="footnote-ref" id="fnref:ebpf-pin-commit"><a rel="footnote" href="#fn:ebpf-pin-commit">4</a></sup>]
-The release notes for version 4.4 state that two eBPF features were added: &ldquo;unprivileged eBPF&rdquo; and &ldquo;persistent eBPF programs&rdquo;.[<sup class="footnote-ref" id="fnref:linux-4-4-release-notes"><a rel="footnote" href="#fn:linux-4-4-release-notes">5</a></sup>]
+Tracing through the history in the repository, one can find that <code>BPF_OBJ_PIN</code> and <code>BPF_OBJ_GET</code> were added in  version 4.4 of the Linux kernel.[<sup class="footnote-ref" id="fnref:ebpf-pin-commit"><a href="#fn:ebpf-pin-commit">4</a></sup>]
+The release notes for version 4.4 state that two eBPF features were added: &ldquo;unprivileged eBPF&rdquo; and &ldquo;persistent eBPF programs&rdquo;.[<sup class="footnote-ref" id="fnref:linux-4-4-release-notes"><a href="#fn:linux-4-4-release-notes">5</a></sup>]
 The <code>BPF_OBJ_PIN</code> command relates to the persistent eBPF programs feature of version 4.4 of the Linux kernel.
 With this the Linux kernel features a new minimum file system located at <code>/sys/fs/bpf</code> which can hold eBPF-maps or eBPF programs.</p>
 
@@ -850,8 +848,8 @@ This command thus only needs the file descriptor of what to pin and the path to 
 <h2 id="bpf-prog-attach-and-bpf-prog-detach"><code>BPF_PROG_ATTACH</code> and <code>BPF_PROG_DETACH</code></h2>
 
 <p>Finally, we have the last two, currently undocumented, commands <code>BPF_PROG_ATTACH</code> and <code>BPF_PROG_DETACH</code>.
-These commands were actually just added with version 4.10 of the Linux kernel in February of 2017, only three months ago as of this writing, though they appear to have been written in November of 2016.[<sup class="footnote-ref" id="fnref:ebpf-attach-detach-commit"><a rel="footnote" href="#fn:ebpf-attach-detach-commit">6</a></sup>]
-The release notes for version 4.10 explain that this is used for attaching eBPF programs to cgroups.[<sup class="footnote-ref" id="fnref:linux-4-10-release-notes"><a rel="footnote" href="#fn:linux-4-10-release-notes">7</a></sup>]
+These commands were actually just added with version 4.10 of the Linux kernel in February of 2017, only three months ago as of this writing, though they appear to have been written in November of 2016.[<sup class="footnote-ref" id="fnref:ebpf-attach-detach-commit"><a href="#fn:ebpf-attach-detach-commit">6</a></sup>]
+The release notes for version 4.10 explain that this is used for attaching eBPF programs to cgroups.[<sup class="footnote-ref" id="fnref:linux-4-10-release-notes"><a href="#fn:linux-4-10-release-notes">7</a></sup>]
 For those not familiar with them, cgroups are a Linux kernel feature used on processes for resource limiting and isolation.
 The primary use case for eBPF with cgroups is that filters can be used to accept or drop traffic either to or from processes of a cgroup.
 It is worth noting that the eBPF program type <code>BPF_PROG_TYPE_CGROUP_SOCK</code> also exists which appears to allow control over which device <code>AF_INET</code> and <code>AF_INET6</code> sockets are attached to for processes in the designated cgroup.</p>
@@ -877,12 +875,11 @@ Presumably, this is in case zero, with it&rsquo;s many forms in C, does not acci
     BPF_MAP_TYPE_LRU_HASH,
     BPF_MAP_TYPE_LRU_PERCPU_HASH,
     BPF_MAP_TYPE_LPM_TRIE,
-};</code></pre>
-</div>
+};</code></pre></div>
 <h2 id="bpf-map-type-hash-and-bpf-map-type-array"><code>BPF_MAP_TYPE_HASH</code> and <code>BPF_MAP_TYPE_ARRAY</code></h2>
 
 <p>The eBPF-map hash-table, represented by the value <code>BPF_MAP_TYPE_HASH</code> in the <code>bpf_map_type</code> C enum, was one of the first two map types to be added.
-It made its debut only one minor release after eBPF with version 3.19 of the Linux kernel.[<sup class="footnote-ref" id="fnref:ebpf-map-hash-commit"><a rel="footnote" href="#fn:ebpf-map-hash-commit">8</a></sup>]
+It made its debut only one minor release after eBPF with version 3.19 of the Linux kernel.[<sup class="footnote-ref" id="fnref:ebpf-map-hash-commit"><a href="#fn:ebpf-map-hash-commit">8</a></sup>]
 Oddly, however, <a href="https://kernelnewbies.org/Linux_3.19">the release notes</a> make no mention of it.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#998;font-style:italic">// Creates an eBPF-map hash-table which associates a `long long` key 
 </span><span style="color:#998;font-style:italic">// with a `long-long` value and supports 256 entries.
@@ -891,8 +888,7 @@ Oddly, however, <a href="https://kernelnewbies.org/Linux_3.19">the release notes
 <span style="color:#458;font-weight:bold">long</span> <span style="color:#458;font-weight:bold">long</span> key, value;
 
 map_fd <span style="font-weight:bold">=</span> bpf_create_map(BPF_MAP_TYPE_HASH, <span style="font-weight:bold">sizeof</span>(key),
-                        <span style="font-weight:bold">sizeof</span>(value), <span style="color:#099">256</span>);</code></pre>
-</div>
+                        <span style="font-weight:bold">sizeof</span>(value), <span style="color:#099">256</span>);</code></pre></div>
 <p>The other eBPF-map type to be added with release 3.19 of the Linux kernel was <code>BPF_MAP_TYPE_ARRAY</code>.
 This function like the hash-table type above except it indexes the entries like an array, meaning for a map with <code>n</code> elements you can only use indexes <code>0</code> to <code>n-1</code>.</p>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#998;font-style:italic">// Creates an eBPF-map array which associates an `int` key 
@@ -902,8 +898,7 @@ This function like the hash-table type above except it indexes the entries like 
 <span style="color:#458;font-weight:bold">long</span> <span style="color:#458;font-weight:bold">long</span> value;
 
 map_fd <span style="font-weight:bold">=</span> bpf_create_map(BPF_MAP_TYPE_ARRAY, <span style="font-weight:bold">sizeof</span>(key),
-                        <span style="font-weight:bold">sizeof</span>(value), <span style="color:#099">256</span>);</code></pre>
-</div>
+                        <span style="font-weight:bold">sizeof</span>(value), <span style="color:#099">256</span>);</code></pre></div>
 <h2 id="bpf-map-type-prog-array"><code>BPF_MAP_TYPE_PROG_ARRAY</code></h2>
 
 <p>With it&rsquo;s release in August 2015, version 4.2 of the Linux kernel added the eBPF-map type <code>BPF_MAP_TYPE_PROG_ARRAY</code>.
@@ -973,7 +968,7 @@ The user is expected to populate a BPF_MAP_TYPE_CGROUP_ARRAY
 which will be used by the bpf_skb_in_cgroup.&rdquo;</em></p>
 
 <p>This can be seen in the example Lau provides in <a href="https://github.com/torvalds/linux/blob/v4.11/samples/bpf/test_current_task_under_cgroup_kern.c"><code>samples/bpf/test_current_task_under_cgroup_kern.c</code></a> with commit <code>a3f74617340b598dbc7eb5b68d4ed53b4a70f5eb</code> which contains the following code:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="font-weight:bold">struct</span> bpf_elf_map <span style="color:#900;font-weight:bold">SEC</span>(<span style="color:#b84"></span><span style="color:#b84">&#34;maps&#34;</span>) test_cgrp2_array_pin <span style="font-weight:bold">=</span> {
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="font-weight:bold">struct</span> bpf_elf_map <span style="color:#900;font-weight:bold">SEC</span>(<span style="color:#b84">&#34;maps&#34;</span>) test_cgrp2_array_pin <span style="font-weight:bold">=</span> {
    .type       <span style="font-weight:bold">=</span> BPF_MAP_TYPE_CGROUP_ARRAY,
    .size_key   <span style="font-weight:bold">=</span> <span style="font-weight:bold">sizeof</span>(uint32_t),
    .size_value <span style="font-weight:bold">=</span> <span style="font-weight:bold">sizeof</span>(uint32_t),
@@ -985,8 +980,7 @@ which will be used by the bpf_skb_in_cgroup.&rdquo;</em></p>
 
     } <span style="font-weight:bold">else</span> <span style="font-weight:bold">if</span> (bpf_skb_in_cgroup(skb, <span style="font-weight:bold">&amp;</span>test_cgrp2_array_pin, <span style="color:#099">0</span>) <span style="font-weight:bold">!=</span> <span style="color:#099">1</span>) {
 
-... </code></pre>
-</div>
+... </code></pre></div>
 <p>This code checks that the the socket of the <code>skb</code>, which is a Linux socket buffer for the frame being processed, belongs to a descendant of any of the cgroup contained in the <code>test_cgrp2_array_pin</code> eBPF-map which is of type <code>BPF_MAP_TYPE_CGROUP_ARRAY</code>.
 This function, as documented in the code, returns <code>1</code> if the <code>skb</code>&rsquo;s socket does belong to a cgroup in the eBPF-map.</p>
 
