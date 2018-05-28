@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Poem on FerrisEllis.com</title>
+    <link>https://ferrisellis.com/tags/poem/</link>
+    <description>Recent content in Poem on FerrisEllis.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 26 May 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/poem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Canopy</title>
+      <link>https://ferrisellis.com/writings/canopy/</link>
+      <pubDate>Sat, 26 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/writings/canopy/</guid>
+      <description>Written by Ferris Ellis on May 26th, 2018. All rights reserved.
+A rainless space among a storm, What you&amp;rsquo;ll wish for when the sun is too warm, A fact of a forrest, or the few we have left, Beneath it naps are aften slept.</description>
+    </item>
+    
+  </channel>
+</rss>

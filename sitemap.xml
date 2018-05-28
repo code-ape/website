@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ferrisellis.com/writings/other_days/</loc>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ferrisellis.com/writings/canopy/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/posts/lifecycle_versioning_v1_alpha/</loc>
     <lastmod>2018-02-02T00:00:00+00:00</lastmod>
   </url>
@@ -48,6 +58,12 @@
   </url>
   
   <url>
+    <loc>https://ferrisellis.com/tags/abstract/</loc>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/tags/bpf/</loc>
     <lastmod>2017-05-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -72,8 +88,14 @@
   </url>
   
   <url>
+    <loc>https://ferrisellis.com/tags/essay/</loc>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/</loc>
-    <lastmod>2018-02-02T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -96,6 +118,12 @@
   </url>
   
   <url>
+    <loc>https://ferrisellis.com/tags/poem/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/posts/</loc>
     <lastmod>2018-02-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -114,6 +142,12 @@
   </url>
   
   <url>
+    <loc>https://ferrisellis.com/tags/riddle/</loc>
+    <lastmod>2018-05-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://ferrisellis.com/tags/rust-language/</loc>
     <lastmod>2017-03-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -127,7 +161,7 @@
   
   <url>
     <loc>https://ferrisellis.com/tags/</loc>
-    <lastmod>2017-05-11T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -140,6 +174,12 @@
   <url>
     <loc>https://ferrisellis.com/tags/unums/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ferrisellis.com/writings/</loc>
+    <lastmod>2018-05-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
