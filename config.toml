@@ -26,8 +26,8 @@ pygmentsCodefences  = true
     name = "About"
     url  = "/about"
 [[menu.main]]
-    name = "Projects"
-    url  = "/projects"
+    name = "Writings"
+    url  = "/writings"
 [[menu.main]]
     name = "Talks"
     url  = "/talks"

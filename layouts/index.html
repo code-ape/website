@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
 
 <section id=content>
-  <h3 style="text-align:center;">(most recent posts and projects)</h3>
+  <h3 style="text-align:center;">(most recent posts, talks, and writings)</h3>
   <ul class=posts_listing>
     {{ range $.Data.Pages.ByPublishDate.Reverse }}
       <li>
