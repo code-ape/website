@@ -20,7 +20,7 @@ pygmentsCodefences  = true
   google_analytics = "UA-93318303-1"
 
 [[menu.main]]
-    name = "Posts"
+    name = "Technical Posts"
     url  = "/posts"
 [[menu.main]]
     name = "About"
