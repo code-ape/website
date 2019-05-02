@@ -32,7 +32,7 @@ The Extended Berkeley Packet Filter, or eBPF for short, is difficult to explain 
 This is partially due to how different it is from prior efforts to solve the problems eBPF solves.
 Arguably, however, the biggest reason is its name.
 When someone first learns of eBPF they likely don't know what BPF is or what it means for it to be "extended".
-The world "Berkely" also isn't helpful apart from referring to Berkeley, California, USA.
+The world "Berkeley" also isn't helpful apart from referring to Berkeley, California, USA.
 The only words in eBPF's name likely to have meaning to someone seeing them for the first time are "packet filter".
 This gives no indication of the many things eBPF can be used for other than network filtering.
 Though, the Linux community didn't realized how far eBPF would spread when it was named.
@@ -179,7 +179,7 @@ For those looking for more information in the mean time, please see the [Further
 
 2. **Loading the program into the kernel and creating necessary eBPF-maps.**
 This is done using the `bpf` syscall in Linux.
-This syscall allows for the byte code to be loaded along with a declaration of the the type of eBPF program that's being loaded.
+This syscall allows for the byte code to be loaded along with a declaration of the type of eBPF program that's being loaded.
 As of this writing, eBPF has program types for usage as a socket filter, kprobe handler, traffic control scheduler, traffic control action, tracepoint handler, eXpress Data Path (XDP), performance monitor, cgroup restriction, and light weight tunnel.
 The syscall is also used for initializing eBPF-maps.
 This series second installment explains the options and implementation detail of this syscall with the article ["eBPF part 2: Syscall and Map Types"]({{< ref "ebpf_syscall_and_maps.md" >}}).
@@ -256,7 +256,7 @@ We'll simply have to wait to see if eBPF becomes the champion of that change.
 
 
 [^deconstructing_process_isolation]: Research done by Mark Aiken, Manuel Fähndrich, Chris Hawblitzel, Galen Hunt, and James Larus for Microsoft found that "hardware-based isolation incurs non-trivial performance costs (up to 25-33%) and complicates system implementation", source: [https://www.microsoft.com/en-us/research/publication/deconstructing-process-isolation/](https://www.microsoft.com/en-us/research/publication/deconstructing-process-isolation/)
-[^user_space_speedup_math]: This is number may seem unintuitive considering that it was just stated that hardware isolation incurs a 33% performance penalty, not a 50%. The reason is because this is the inverse. If something runs at 67% of it's maximum speed then it's maximum speed is 1 divided by 0.67 of it's current speed, or 50% more.
+[^user_space_speedup_math]: This is number may seem unintuitive considering that it was just stated that hardware isolation incurs a 33% performance penalty, not a 50%. The reason is because this is the inverse. If something runs at 67% of it's maximum speed then its maximum speed is 1 divided by 0.67 of its current speed, or 50% more.
 
 
 
