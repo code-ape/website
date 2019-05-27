@@ -1,0 +1,47 @@
+<section id=nav>
+    <h1><a href="/">{{ .Site.Title }}</a></h1>
+    {{ if not .IsHome }}
+    <h3>{{ .Site.Params.description }}</h1>
+    {{ end }}
+    <ul>
+      {{/* Create scratch */}}
+      {{ $scratch := newScratch }}
+
+      {{/* Get the first category for the page, if it exists */}}
+      {{ if isset .Params "categories" }}
+        {{ if gt (len .Params.categories) 0 }}
+          {{ range first 1 .Params.categories }}
+            {{ $scratch.Set "category" (. | singularize | humanize) }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+
+      {{/* Save section and category of page */}}
+      {{ $section := .Section }}
+      {{ $category := ($scratch.Get "category") }}
+      {{ range .Site.Menus.main }}
+        {{ $path1 := printf "/%s/" $section}}
+        {{ $path2 := printf "/categories/%s" $category}}
+        {{ if or (eq .URL $path1) (eq (.Name | lower | singularize) (lower $category)) }}
+      <li><u><a href="{{ .URL }}">{{ .Name }}</a></u></li>
+        {{ else }}
+      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+    <ul>
+        <li style="padding: 0 10px;">
+            <a href="https://twitter.com/{{ .Site.Params.twitter_handle }}">
+                <i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+        </li>
+        <li style="padding: 0 10px;">
+            <a href="https://github.com/{{ .Site.Params.github_handle }}">
+                <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+        </li>
+        <li style="padding: 0 10px;">
+            <a href="{{ with .Site.Home.OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}">
+                <i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</section>

@@ -1,32 +1,21 @@
-{{ partial "header.html" . }}
+{{ partial "html_header.html" . }}
+{{ partial "nav_header.html" . }}
+
 
 <section id=content>
-  <h3 style="text-align:center;">(most recent posts, talks, and writings)</h3>
+
+  <div class="entry-content" style="text-align: center;">
+    {{ .Content }}
+  </div>
+
+  {{ partial "newsletter_subscribe_full.html" . }}
+
+  <h3 style="text-align:center;">(most recent content)</h3>
   <ul class=posts_listing>
-    {{ range $.Data.Pages.ByPublishDate.Reverse }}
-      <li>
-        <h2><a href="{{ .Permalink }}"><u>{{ .Section | singularize | humanize }}:</u> {{ .Title }}</a></h2>
-        <div id=date>
-          {{ if (isset .Params "talk_length_minutes" )}}
-          <time>{{ .Date.Format $.Site.Params.dateform }} | {{ .Params.talk_length_minutes }} minute talk |
-          {{ else }}
-          <time>{{ .Date.Format $.Site.Params.dateform }} | {{ .ReadingTime }} minute read |
-          {{ end }}
-           {{ $num_tags := len .Params.tags }}
-           {{ if eq 0 $num_tags }}
-             Tags: None
-           {{ else }}
-             Tags:
-             {{ range $index, $tag := .Params.tags }}
-               <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
-             {{ end }}
-           {{ end }}
-           </time>
-        </div>
-      </li>
+    {{ range first 3 $.Data.Pages.ByPublishDate.Reverse }}
+      {{ partial "content_listing.html" .}}
     {{ end }}
   </ul>
 </section>
 
 {{ partial "footer.html" . }}
-

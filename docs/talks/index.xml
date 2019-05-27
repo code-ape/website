@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Talks on Ferris Ellis</title>
+    <link>https://ferrisellis.com/talks/</link>
+    <description>Recent content in Talks on Ferris Ellis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
+    
+	<atom:link href="https://ferrisellis.com/talks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://ferrisellis.com/talks/unums_strange_loop_2017/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/talks/unums_strange_loop_2017/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

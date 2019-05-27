@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust Language on Ferris Ellis</title>
+    <link>https://ferrisellis.com/tags/rust-language/</link>
+    <description>Recent content in Rust Language on Ferris Ellis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 08 Mar 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/rust-language/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Math with distances in Rust: safety and correctness across units</title>
+      <link>https://ferrisellis.com/content/rust-implementing-units-for-types/</link>
+      <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/rust-implementing-units-for-types/</guid>
+      <description>Computers weren&amp;rsquo;t designed to have outside concepts, such as units of length, expressed in their function.
+Because of this Rust, being a systems language, also has no concept of it.
+But just because the computer runtime has no concept of length or units of length doesn&amp;rsquo;t mean we can&amp;rsquo;t teach them to the compiler.
+In this article I&amp;rsquo;ll walk through using a generic struct to represent the concept of a length, extend that length to allow any units, and show how to create a system to cleanly and safely do arithmetic with lengths.</description>
+    </item>
+    
+  </channel>
+</rss>

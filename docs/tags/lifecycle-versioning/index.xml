@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lifecycle Versioning on Ferris Ellis</title>
+    <link>https://ferrisellis.com/tags/lifecycle-versioning/</link>
+    <description>Recent content in Lifecycle Versioning on Ferris Ellis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 02 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/lifecycle-versioning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Lifecycle Versioning (v01, alpha)</title>
+      <link>https://ferrisellis.com/content/lifecycle_versioning_v1_alpha/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/lifecycle_versioning_v1_alpha/</guid>
+      <description>A descriptoin of what Lifecycle Versioning is, its value as a software development practice, and how to implement it. Currently in alpha form of version 1, feedback welcome.</description>
+    </item>
+    
+  </channel>
+</rss>

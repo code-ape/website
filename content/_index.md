@@ -1,0 +1,1 @@
+### Hello. I write and give talks on design, cities, software, and more. Here you can view my [published essays](/categories/essays/), [technical writings](/categories/technical-writings/), [recorded talks](/categories/talks/), and [other writings](/categories/etc/). You can also [contact me](/about/) to give talks, do research, etc.

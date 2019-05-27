@@ -4,6 +4,7 @@ set -e
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 repo_dir="$(dirname $script_dir)"
+hugo_binary="$script_dir/hugo_0.55.1"
 
 CMD="$1"
 
@@ -20,21 +21,32 @@ cd "$repo_dir"
 
 case "$CMD" in
 	serve)
-		cmd="./bin/hugo server -w --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
+		cmd="$hugo_binary server -w --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	serve_drafts)
-		cmd="./bin/hugo server -w -D --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
+		cmd="$hugo_binary server -w -D --renderToDisk -b ${HOST}/${SITE_PATH} -p $PORT"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build)
-		cmd="./bin/hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_gh_pages)
+		HOST="ferrisellis.com"
+		PROTOCOL="https"
+		SITE_PATH=""
+		PORT_WITH_COLON=""
+		echo "Removing docs/"
+		rm -rf "$repo_dir/docs/" || true 
+		cmd="$hugo_binary -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH} -d '$repo_dir/docs/'"
+		echo "Running: $cmd"
+		eval $cmd
+		;;
+	build_gh_pages_old)
 		HOST="ferrisellis.com"
 		PROTOCOL="https"
 		SITE_PATH=""
@@ -45,17 +57,17 @@ case "$CMD" in
 		git worktree prune
 		echo "Adding git worktree of gh-pages at public/"
 		git worktree add -B gh-pages public origin/gh-pages
-		cmd="./bin/hugo -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_watch)
-		cmd="./bin/hugo -w -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -w -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_watch_drafts)
-		cmd="./bin/hugo -w -D -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -w -D -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
 		echo "Running: $cmd"
 		eval $cmd
 		;;

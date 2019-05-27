@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project Management on Ferris Ellis</title>
+    <link>https://ferrisellis.com/tags/project-management/</link>
+    <description>Recent content in Project Management on Ferris Ellis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 20 May 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/project-management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Remote Project Lead: Thoughts and Learnings</title>
+      <link>https://ferrisellis.com/content/project_lead_thoughts/</link>
+      <pubDate>Sat, 20 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/project_lead_thoughts/</guid>
+      <description>Remotely running a project with a distributed team can be challenging.
+When that team is mostly from the client who you&amp;rsquo;re doing said project for, it can increase those challenges.
+This article shares a few niche lessons I&amp;rsquo;ve learned from being in such a position.</description>
+    </item>
+    
+  </channel>
+</rss>

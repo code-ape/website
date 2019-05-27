@@ -1,0 +1,17 @@
+{{ partial "html_header.html" . }}
+{{ partial "nav_header.html" . }}
+
+<section id=content>
+  
+  <div class="entry-content">
+    {{ .Content }}
+  </div>
+
+  {{ partial "newsletter_subscribe_full.html" . }}
+
+
+</section>
+
+{{ partial "footer.html" . }}
+
+

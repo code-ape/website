@@ -1,4 +1,5 @@
-{{ partial "header.html" . }}
+{{ partial "html_header.html" . }}
+{{ partial "nav_header.html" . }}
 
 <section id=content>
   <h1>{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</h1>
@@ -20,6 +21,7 @@
   <div class="entry-content">
     {{ .TableOfContents }}
     {{ .Content }}
+    {{ partial "newsletter_subscribe_full.html" . }}
   </div>
 
   <div id=links>

@@ -1,38 +1,22 @@
-+++
-date = "2017-03-06"
-title = "About FerrisEllis.com"
+# About the author
 
-+++
+An experienced visionary and technical lead in software systems and urban design with a life mission to improve quality of life for all, Ferris Ellis brings a track record of driving innovative solutions which bridge technical and business needs that span from Global Fortune 100 companies to regional non-profits.
 
-# This website
-
-The world is full of questions, or it is to me at least.
-I've made this website to share my occasional thoughts on some of the questions I ponder.
-Many of my writings on this site are about software and technology, but many also are not.
-To me software has no meaning without the people who use it.
-And in a way, that is what the thoughts on this website are really devoted to: humanity.
-I've only recently started this site but over time it will likely hold thoughts on software, ethics, economics, food, literature, travel, and many other topics.
-I hope that whoever finds them many use them to make their life, and the world, a bit better.
-
-Cheers,<br>
-Ferris
+- Driven innovation in uptime, cost, operations, and security for global software system and infrastructure projects.
+- Strategic thinker with passion for risk analysis and intelligent adoption of emerging technologies which cause paradigm shifts and disruption in business sectors.
+- Emphasis on sustainability, maximizing solution life spans, and minimizing material usage through economic incentives.
+- Speaker and panelist for industry conferences (Strangeloop, etc).
+- Experience communicating with entire management chain, from CEO's to entry engineers.
 
 
-# Myself
+# Engaging Ferris
 
-Professionally, I could be catagoized as a software engineer.
-But practically, I would simply say I think really hard about difficult problems. 
-Some of my past personal projects include conceiving TEDxEHC and being one of the head organizers for its first event in 2016.
-
-If you're looking for more information about me please contact me as described below.
-Otherwise, it is my preference to express myself through my work rather than an oddly written self description via a third person soliloquy.
-
-If you wish to reach me for professional reasons, such as requesting me to speak at events or for a copy of my CV,  please refer to the contact section below.
+If you wish to reach Ferris for professional reasons, such as invitations me to speak at events or be part of panels, please refer to the contact section below.
 
 
 # Contact
 
-I can be reached at [info@ferrisellis.com](mailto:info@ferrisellis.com) or, more casually, via Twitter ([@im_ferris](https://twitter.com/im_ferris)).
+Ferris can be reached at [info@ferrisellis.com](mailto:info@ferrisellis.com) or, more casually, via Twitter ([@im_ferris](https://twitter.com/im_ferris)).
 
 # Writing style guide
 

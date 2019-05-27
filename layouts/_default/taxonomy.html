@@ -1,16 +1,12 @@
-{{ partial "header.html" . }}
+{{ partial "html_header.html" . }}
+{{ partial "nav_header.html" . }}
 
 <section id=content>
   <h1>{{ .Data.Singular | humanize }}: {{ .Title }} </h1>
-  <p><a href="/{{ urlize .Data.Plural }}">View all {{ .Data.Plural }}</a></p>
+  <p><a href="/{{ urlize .Data.Plural }}/">View all {{ .Data.Plural }}</a></p>
   <ul class=posts_listing>
-    {{ range .Data.Pages.ByPublishDate }}
-      <li>
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <div id=date>
-          <time>{{ .Date.Format .Site.Params.dateform }} | {{ .ReadingTime }} minute read</time>
-        </div>
-      </li>
+    {{ range .Data.Pages.ByPublishDate.Reverse }}
+      {{ partial "content_listing.html" .}}
     {{ end }}
   </ul>
 </section>

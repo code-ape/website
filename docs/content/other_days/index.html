@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    
+    <meta name="description" content="Design, cities, and software.">
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com/">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+
+    <title>
+      
+      
+         FerrisEllis.com 
+      
+    </title>
+    <link rel="canonical" href="https://ferrisellis.com/content/other_days/">
+    
+    <link rel="stylesheet" href="https://ferrisellis.com//font-awesome.min.css">
+    <style> 
+        @font-face {
+            font-family: sansation;
+	    src: url(https://ferrisellis.com//fontawesome-webfont.woff);
+        }
+    </style> 
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+  }
+
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:700px;
+    margin:auto;
+  }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  h1 code {
+    font-size: 24px;
+    padding: inherit;
+  }
+
+  h2 code {
+    font-size: 20px;
+    padding: inherit;
+  }
+
+  h3 code {
+    font-size: 18px;
+    padding: inherit;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3,h4 {
+    font-family:"Old Standard TT",serif;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration: underline;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:15px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:20px 0 20px;
+  }
+
+  #footer {
+    text-align:center;
+    width:100%;
+    font-size:15px;
+    padding:20px 0 20px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    float: left;
+    font-size:15px;
+    padding: 0 20px;
+    margin-left: 0;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    <link rel="shortcut icon" href="https://ferrisellis.com/favicon.ico">
+
+    <link rel="alternate" type="application/rss+xml" href="https://ferrisellis.com/index.xml" title="Ferris Ellis" />
+    </head>
+
+  <body>
+
+
+<section id=nav>
+    <h1><a href="https://ferrisellis.com/">Ferris Ellis</a></h1>
+    
+    <h3>Design, cities, and software.</h1>
+    
+    <ul>
+      
+      
+
+      
+      
+        
+          
+            
+          
+        
+      
+
+
+      
+      
+      
+      
+        
+        
+        
+      <li><a href="https://ferrisellis.com/about/">About</a></li>
+        
+      
+        
+        
+        
+      <li><a href="https://ferrisellis.com/newsletter/">Newsletter</a></li>
+        
+      
+        
+        
+        
+      <li><a href="https://ferrisellis.com/categories/essays/">Essays</a></li>
+        
+      
+        
+        
+        
+      <li><a href="https://ferrisellis.com/categories/technical-writings/">Technical Writings</a></li>
+        
+      
+        
+        
+        
+      <li><a href="https://ferrisellis.com/categories/talks/">Talks</a></li>
+        
+      
+        
+        
+        
+      <li><u><a href="https://ferrisellis.com/categories/etc/">Etc</a></u></li>
+        
+      
+    </ul>
+    <ul>
+        <li style="padding: 0 10px;">
+            <a href="https://twitter.com/im_ferris">
+                <i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+        </li>
+        <li style="padding: 0 10px;">
+            <a href="https://github.com/code-ape">
+                <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
+        </li>
+        <li style="padding: 0 10px;">
+            <a href="https://ferrisellis.com/index.xml">
+                <i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</section>
+
+
+<section id=content>
+  <h1> Other Days </h1>
+
+  <div id=sub-header>
+    May 27, 2018 · 3 minute read
+  </div>
+  <div id=sub-header>
+  
+  
+    Tags: 
+    <u><a href="https://ferrisellis.com/tags/essay">Essay</a></u>,
+    
+    <u><a href="https://ferrisellis.com/tags/abstract">Abstract</a></u>
+    
+  
+  </div>
+
+  <div class="entry-content">
+    
+    <p><em>Written by Ferris Ellis on May 27th, 2018. All rights reserved.</em></p>
+
+<p>Some days are the Other Days. The days that aren’t really days, because a day must exist as a whole. On such days, the Other Days, I find myself looking at it. Not throughout the Other Days, as they aren’t really days. In fact it is because of this that they aren’t days. These hour long moments of looking at it, or rather, looking into it. But of course there is nothing of it to see within it, within itself. Like looking into a hall or mirrors, you can’t “see” the mirrors, only their effect, only yourself. And so I cast my gaze into it and it loops around so I witness myself in unyielding moments. The sort that intersect and bisect a day, like unneeded punctuations these moments in a day are such that it is no longer “a day” but one of the “Other Days”.</p>
+
+<p>Not any day may be an Other Day. They require vast amounts of space which has zero “room”. A rip in the continuum, when its pulse misses a beat, and you&rsquo;re engulfed in it such that all you might do is look at it, into it, through it, through myself, through the void.</p>
+
+<p>And you know, and you know that you know, what you’re seeing isn’t what is. The distortion is too palpable to ignore, to exaggerated to overlook. Regardless, when you’re perceiving yourself in these unending moments you reflect upon the reflection. And you’d think, reflecting upon your reflection, a reflection you know to not be true, that you’d find resolution. And resolution would be nice, especially during the Other Days. But no, because all you know is that what you’re perceiving is not what is and you see this in the most uncomfortable of ways. Perceiving that you can’t perceive much anything you question what you’re able to perceive at all. But in these moments, these consuming moments, you have nothing to evict you from your concerns. You’re simply there, on the event horizon of life watching time exist as you search for any evidence that you may surmount yourself as anything else. But you can’t, really, you realize that after a while and after a while longer it comforts you. After a while you learn that it means this moment, and all that it never was, is almost to an end.</p>
+
+<p>When it passes you do not carry it with you. Ideas may be durable but a moments memory may as well be a ghost. Its only evidence is not of itself but of the other things which are not quite as you recall them being. Things which you remember a certain way from certain days gone past. But such is the nature of Other Days, not the good days or the bad days but the other days, which we do not live within and whose memories do not last.</p>
+
+    
+<style type="text/css">
+	 
+    input, select, textarea {
+        background-color: #fff;
+        color: #000;
+        font-weight: 400;
+        padding: 8px 16px;
+        width: 100%;
+        color: #ababab;
+    }
+    .page-embed-form {
+        box-sizing: border-box;
+        display: block;
+        text-align: left;
+        padding: 10px;
+        margin: 50px;
+        background: rgba(0,0,0,.05);
+    }
+    .page-embed-form h3 {
+        text-align: center;
+    }
+    .page-embed-form .intro {
+        text-align: center;
+    }
+    #mc_embed_signup_scroll {
+        text-align: center;
+    }
+    .page-embed-form .mc-field-email {
+        max-width: 250px;
+        margin: 0 10px 10px 10px;
+        display: inline-block;
+        text-align: left;
+    }
+    .page-embed-form .mc-email-button {
+        display: inline-block;
+    }
+    .page-embed-form input.email {
+        color: black;
+        box-sizing: border-box;
+        min-height: 36px;
+        text-align: left;
+    }
+    .page-embed-form .button {
+        background-color: transparent;
+        color: #000000;
+        border: 1px solid #000000;
+        min-height: 36px;
+        width: 120px;
+        margin: 0 10px 20px 10px;
+    }
+</style>
+<div class="content-section">
+    <div id="mc_embed_signup" class="dm-well page-embed-form">
+        <form action="https://ferrisellis.us20.list-manage.com/subscribe/post?u=2d3b0cff2520d95e8fa1ae386&amp;id=a5a2641232" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="" _lpchecked="1">
+            <h3>Subscribe to the monthly newsletter for new content.</h3>
+            <p></p>
+            <div id="mc_embed_signup_scroll">
+                <div class="mc-field-email">
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required="">
+                </div>
+                <div class="mc-email-button">
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+                </div>
+                
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2d3b0cff2520d95e8fa1ae386_a5a2641232" tabindex="-1" value=""></div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="https://ferrisellis.com/content/canopy/">&laquo; Canopy</a>
+    
+    
+      <a class="basic-alignment left" href="https://ferrisellis.com/content/local_excellence/">Local Excellence &raquo;</a>
+    
+  </div>
+</section>
+
+
+<section id=footer>
+    <h4 style="text-align:center;">© Ferris Ellis 2017-2019. All rights reserved.</h4>
+</section>
+
+</body>
+</html>
+
+
+

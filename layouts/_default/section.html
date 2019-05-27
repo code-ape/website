@@ -1,4 +1,5 @@
-{{ partial "header.html" . }}
+{{ partial "html_header.html" . }}
+{{ partial "nav_header.html" . }}
 
 <section id=content>
   <ul class=posts_listing>
@@ -8,15 +9,15 @@
         <div id=date>
           <time>{{ .Date.Format .Site.Params.dateform }} | 
             {{ .ReadingTime }} minute read | 
-            {{$num_tags := len .Params.tags}}
-            {{ if eq 0 $num_tags }}
-              Tags: None
-            {{ else }}
-              Tags: {{ range $index, $tag := .Params.tags }}
-              <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
+            {{if isset .Params "tags" }}
+              {{$num_tags := len .Params.tags}}
+              {{ if gt $num_tags 0 }}
+                Tags: {{ range $index, $tag := .Params.tags }}
+                <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
+                {{ end }}
               {{ end }}
+              Tags: None
             {{ end }}
-
         </time>
         </div>
       </li>

@@ -1,10 +1,9 @@
-baseurl = "https://ferrisellis.com/"
-title = "FerrisEllis.com"
-author = "Ferris Ellis"
+baseURL = "https://ferrisellis.com/"
+title = "Ferris Ellis"
 canonifyurls = true
-languagecode = "en"
+languageCode = "en-us"
+copyright = "Copyright Ferris Ellis 2017-2019. All rights reserved."
 theme = "black-and-light"
-
 
 pygmentsStyle       = "trac"
 #pygmentsUseClasses  = true
@@ -12,27 +11,44 @@ pygmentsCodefences  = true
 
 [params]
   sitename = "FerrisEllis.com"
+  copyright = "Ferris Ellis"
   twitter_handle = "im_ferris"
   github_handle  = "code-ape"
 
   dateform = "January 2, 2006"
-  description = '''Posts and projects on software, technology, economics, etc.'''
-  google_analytics = "UA-93318303-1"
+  description = '''Design, cities, and software.'''
 
 [[menu.main]]
-    name = "Technical Posts"
-    url  = "/posts"
-[[menu.main]]
     name = "About"
-    url  = "/about"
+    url  = "/about/"
+    weight = 1
+
 [[menu.main]]
-    name = "Writings"
-    url  = "/writings"
+    name = "Newsletter"
+    url  = "/newsletter/"
+    weight = 2
+
+[[menu.main]]
+    name = "Essays"
+    url  = "/categories/essays/"
+    weight = 3
+
+[[menu.main]]
+    name  = "Technical Writings"
+    url   = "/categories/technical-writings/"
+    weight = 4
+
 [[menu.main]]
     name = "Talks"
-    url  = "/talks"
+    url  = "/categories/talks/"
+    weight = 5
+
+[[menu.main]]
+    name = "Etc"
+    url  = "/categories/etc/"
+    weight = 6
 
 [taxonomies]
 tag = "tags"
-#category = "categories"
+category = "categories"
 #series = "series"
