@@ -13,10 +13,17 @@ pygmentsCodefences  = true
   sitename = "FerrisEllis.com"
   copyright = "Ferris Ellis"
   twitter_handle = "im_ferris"
+  linkedin_handle = "ferrisellis"
   github_handle  = "code-ape"
 
   dateform = "January 2, 2006"
-  description = '''Design, cities, and software.'''
+  description = '''Sustainability, cities, technology, and more.'''
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+    ordered = false
 
 [[menu.main]]
     name = "About"

@@ -1,0 +1,53 @@
+{{ partial "html_header.html" . }}
+{{ partial "nav_header.html" . }}
+
+<article id=content>
+  <h1>{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</h1>
+
+  <div id=sub-header>
+    {{ .Date.Format .Site.Params.dateform }} · {{ .ReadingTime }} minute read
+  </div>
+  <div id=sub-header>
+  {{if isset .Params "tags" }}
+    {{$num_tags := len .Params.tags}}
+    {{ if gt $num_tags 0 }}
+      Tags: {{ range $index, $tag := .Params.tags }}
+      <u><a href="/tags/{{ urlize . }}">{{ . }}</a></u>{{ if ne $index (sub $num_tags 1) }},{{ end }}
+      {{ end }}
+    {{ end }}
+    Tags: None
+  {{ end }}
+  </div>
+
+  <div class="entry-content">
+    {{ if isset .Params "version" }} 
+    {{ if gt .Params.version 1 }} 
+    <p><strong>Revision: </strong>{{ sub (int .Params.version) 1 }}, view <a href="{{ .Params.version_history}}">history here</a>.</p>
+    {{ end }}
+    {{ end }}
+    {{ if isset .Params "repository" }} 
+    <p><strong>Repository <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>: </strong><a href="{{ .Params.repository }}">{{ .Params.repository }}</a></p>
+    {{ end }}
+    {{ .Content }}
+    <br>
+    <a href="#nav">Return to top</a>
+    <p style="text-align: center;"><em>
+      For those wishing to share feedback or comments with me on this article please refer to <a href="/about#contact">the Contact section on the About page</a>.
+    </em></p>
+  </div>
+
+
+  <div id=links>
+    {{ $pages := where .Site.Pages ".Params.categories" "intersect" .Params.categories }}
+    {{ with $pages.ByDate.Next . }}
+      <a class="basic-alignment left" href="{{.Permalink}}">&laquo; {{.Title}}</a>
+    {{ end }}
+    {{ with $pages.ByDate.Prev . }}
+      <a class="basic-alignment left" href="{{.Permalink}}">{{.Title}} &raquo;</a>
+    {{ end }}
+  </div>
+</article>
+
+{{ partial "footer.html" . }}
+
+

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Ferris Ellis</title>
@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ferrisellis.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,45 @@
     <item>
       <title>Dreams</title>
       <link>https://ferrisellis.com/tags/dreams/</link>
-      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/dreams/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Haiku</title>
+      <link>https://ferrisellis.com/tags/haiku/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/haiku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Poem</title>
+      <link>https://ferrisellis.com/tags/poem/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/poem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Centers</title>
+      <link>https://ferrisellis.com/tags/data-centers/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/data-centers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sustainability</title>
+      <link>https://ferrisellis.com/tags/sustainability/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/sustainability/</guid>
       <description></description>
     </item>
     
@@ -36,15 +72,6 @@
       <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/hope/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Poem</title>
-      <link>https://ferrisellis.com/tags/poem/</link>
-      <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://ferrisellis.com/tags/poem/</guid>
       <description></description>
     </item>
     
@@ -166,6 +193,15 @@
     </item>
     
     <item>
+      <title>eBPF</title>
+      <link>https://ferrisellis.com/tags/ebpf/</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/tags/ebpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux</title>
       <link>https://ferrisellis.com/tags/linux/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
@@ -180,15 +216,6 @@
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
       <guid>https://ferrisellis.com/tags/networking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>eBPF</title>
-      <link>https://ferrisellis.com/tags/ebpf/</link>
-      <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://ferrisellis.com/tags/ebpf/</guid>
       <description></description>
     </item>
     

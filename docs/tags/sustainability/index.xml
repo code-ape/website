@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sustainability on Ferris Ellis</title>
+    <link>https://ferrisellis.com/tags/sustainability/</link>
+    <description>Recent content in Sustainability on Ferris Ellis</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://ferrisellis.com/tags/sustainability/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DCD Building at Scale 2020, Panel: How have sustainability requirements changed where and how we build data centers?</title>
+      <link>https://ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</guid>
+      <description>A panel with Ferris Ellis at DCD Building at Scale 2020.
+I am sorry to say this panel discussion requires viewers to register before getting access. To do this and view the panel, go to the DCD page for the panel.
+Abstract The global climate emergency may have taken a back seat in recent months, but it remains the biggest challenge to face the industry and humanity as a whole.</description>
+    </item>
+    
+  </channel>
+</rss>

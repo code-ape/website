@@ -1,22 +1,23 @@
 # About the author
 
-An experienced visionary and technical lead in software systems and urban design with a life mission to improve quality of life for all, Ferris Ellis brings a track record of driving innovative solutions which bridge technical and business needs that span from Global Fortune 100 companies to regional non-profits.
+An experienced visionary and technical lead in software systems and sustainable urban design with a life mission to improve quality of life for all, Ferris Ellis brings a track record of driving innovative solutions which bridge technical and business needs.
+His prior experience spans from Global Fortune 10 companies to startups and regional non-profits.
 
 - Driven innovation in uptime, cost, operations, and security for global software system and infrastructure projects.
 - Strategic thinker with passion for risk analysis and intelligent adoption of emerging technologies which cause paradigm shifts and disruption in business sectors.
 - Emphasis on sustainability, maximizing solution life spans, and minimizing material usage through economic incentives.
-- Speaker and panelist for industry conferences (Strangeloop, etc).
-- Experience communicating with entire management chain, from CEO's to entry engineers.
+- Speaker and panelist for industry conferences (Strangeloop, Data Center Dynamics).
+- Experience communicating with entire management chain, from CEO's to entry engineers. 
 
 
 # Engaging Ferris
 
-If you wish to reach Ferris for professional reasons, such as invitations me to speak at events or be part of panels, please refer to the contact section below.
+If you wish to reach Ferris for professional reasons, such as invitations to speak at events or be part of projects, please refer to the contact section below.
 
 
 # Contact
 
-Ferris can be reached at [info@ferrisellis.com](mailto:info@ferrisellis.com) or, more casually, via Twitter ([@im_ferris](https://twitter.com/im_ferris)).
+Ferris can be reached by emailing [info@ferrisellis.com](mailto:info@ferrisellis.com); messaging him on [Linkedin](https://www.linkedin.com/in/ferrisellis/); or, more casually, via Twitter ([@im_ferris](https://twitter.com/im_ferris)).
 
 # Writing style guide
 

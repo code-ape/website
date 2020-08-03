@@ -10,7 +10,7 @@ A descriptoin of what Lifecycle Versioning is, its value as a software developme
 
 repository = "https://github.com/code-ape/website/blob/master/content/posts/lifecycle_versioning_v1_alpha.md"
 
-version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/lifecycle_versioning_v1_alpha/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/lifecycle_versioning_v1_alpha.md"
 +++
 
 *The following document is versioned as alpha v1 by it's own definition of such terms. If you are interested in contributing please either submit an issue to [the repository for this blog](https://github.com/code-ape/website) or email me as detailed on [the contact section of the about page](/about/#contact).*

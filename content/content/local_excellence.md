@@ -4,7 +4,7 @@ date = "2018-06-16"
 categories = ["Essays"]
 tags = ["Manifesto", "Local Excellence", "Rural Excellence", "Society"]
 
-version_history = "https://github.com/code-ape/website/commits/gh-pages/writings/local_excellence/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/local_excellence.md"
 +++
 
 *Written by Ferris Ellis on June 16th, 2018. All rights reserved.*
