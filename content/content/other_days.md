@@ -4,7 +4,7 @@ date = "2018-05-27"
 tags = ["Essay", "Abstract"]
 categories = ["Etc"]
 
-version_history = "https://github.com/code-ape/website/commits/gh-pages/writings/other_days/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/other_days.md"
 +++
 
 *Written by Ferris Ellis on May 27th, 2018. All rights reserved.*

@@ -3,7 +3,7 @@ title = "eBPF, part 2: Syscall and Map Types"
 date = "2017-05-11"
 categories = ["Technical Writings"]
 version = 1
-version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/ebpf_syscall_and_maps/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/ebpf_syscall_and_maps.md"
 tags = ["eBPF", "BPF", "Networking", "Linux", "Data Structures"] 
 
 summary = '''

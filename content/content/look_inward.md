@@ -4,7 +4,7 @@ date = "2017-12-11"
 tags = ["Poem"]
 categories = ["Etc"]
 
-version_history = "https://github.com/code-ape/website/commits/gh-pages/writings/look_inward/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/look_inward.md"
 +++
 
 *Written by Ferris Ellis on December 11th, 2017. All rights reserved.*

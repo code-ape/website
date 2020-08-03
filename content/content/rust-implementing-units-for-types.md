@@ -14,7 +14,7 @@ In this article I'll walk through using a generic struct to represent the concep
 repository = "https://github.com/code-ape/rust_length_arithmetic_example"
 
 version = 3
-version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/rust-implementing-units-for-types/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/rust-implementing-units-for-types.md"
 +++
 
 Recently [Jasper Schulz](https://github.com/jaheba) wrote an excellent short article titled *[Communicating Intent](https://github.com/jaheba/stuff/blob/master/communicating_intent.md)*.

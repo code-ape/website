@@ -3,15 +3,14 @@ title = "Strength in Numbers: Unums and the Quest for Reliable Arithmetic"
 date = "2017-09-28"
 categories = ["Talks"]
 tags = ["Software Development", "Unums"]
+layout = "talk"
 
 youtube_id = "nVNYjmj_qbY"
 cover_image_name = "unums_strange_loop_2017.jpg"
 
 talk_length_minutes = "40"
 
-repository = "https://github.com/code-ape/website/blob/master/content/talks/unums_strange_loop_2018.md"
-
-version_history = "https://github.com/code-ape/website/commits/gh-pages/talks/unums_strange_loop_2018/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/unums_strange_loop_2018.md"
 +++
 
 {{< youtube nVNYjmj_qbY >}}

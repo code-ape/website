@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Contents on Ferris Ellis</title>
@@ -7,10 +7,33 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ferrisellis.com/content/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dreams Burn Bright</title>
+      <link>https://ferrisellis.com/content/dreams_burn_bright/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/dreams_burn_bright/</guid>
+      <description>Written by Ferris Ellis on July 26th, 2019. All rights reserved.
+Let your dreams burn bright,
+They are like a comet’s tail,
+Our fleeting essence.</description>
+    </item>
+    
+    <item>
+      <title>DCD Building at Scale 2020, Panel: How have sustainability requirements changed where and how we build data centers?</title>
+      <link>https://ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</link>
+      <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</guid>
+      <description>A panel with Ferris Ellis at DCD Building at Scale 2020.
+I am sorry to say this panel discussion requires viewers to register before getting access. To do this and view the panel, go to the DCD page for the panel.
+Abstract The global climate emergency may have taken a back seat in recent months, but it remains the biggest challenge to face the industry and humanity as a whole.</description>
+    </item>
     
     <item>
       <title>A Life of Dreams</title>
@@ -19,7 +42,19 @@
       
       <guid>https://ferrisellis.com/content/a_life_of_dreams/</guid>
       <description>Written by Ferris Ellis on December 14th, 2018. All rights reserved.
-Oceans suspended. Forever in churning motion. Captive to my many moons drifting through space. A luminous army, making light of night. Forever cycling the sky; forever denying yesterday; unlike the lines on my face. But tonight is different. Tonight is a life of dreams. No moons, no tide. Engulfed in tranquil darkness; I watch a miracle of dance; by diamonds of light.</description>
+Oceans suspended.
+Forever in churning motion.
+Captive to my many moons drifting through space.
+A luminous army, making light of night.
+Forever cycling the sky;
+forever denying yesterday;
+unlike the lines on my face.
+But tonight is different.
+Tonight is a life of dreams.
+No moons, no tide.
+Engulfed in tranquil darkness;
+I watch a miracle of dance;
+by diamonds of light.</description>
     </item>
     
     <item>
@@ -60,7 +95,10 @@ Some days are the Other Days. The days that aren’t really days, because a day 
       
       <guid>https://ferrisellis.com/content/canopy/</guid>
       <description>Written by Ferris Ellis on May 26th, 2018. All rights reserved.
-A rainless space among a storm, What you&amp;rsquo;ll wish for when the sun is too warm, A fact of a forrest, or the few we have left, Beneath it naps are aften slept.</description>
+A rainless space among a storm,
+What you&amp;rsquo;ll wish for when the sun is too warm,
+A fact of a forrest, or the few we have left,
+Beneath it naps are aften slept.</description>
     </item>
     
     <item>
@@ -84,6 +122,18 @@ of cognitive space,
 starved of time,
 a forgotten reprieve,
 a silenced place.</description>
+    </item>
+    
+    <item>
+      <title>Little Bird</title>
+      <link>https://ferrisellis.com/content/little_bird/</link>
+      <pubDate>Sat, 28 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/little_bird/</guid>
+      <description>Written by Ferris Ellis in April 2018. All rights reserved.
+Hello little bird,
+That door was open for the wind,
+But glad you came in.</description>
     </item>
     
     <item>

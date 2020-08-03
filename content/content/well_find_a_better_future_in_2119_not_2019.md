@@ -5,7 +5,7 @@ tags = ["Essay", "Society", "Hope"]
 categories =  ["Essays"]
 
 version = 1
-version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/well_find_a_better_future_in_2119_not_2019/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/well_find_a_better_future_in_2119_not_2019.md"
 
 description = "In a time of frustration we should look think long term about how we chart our future."
 +++

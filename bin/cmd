@@ -4,7 +4,7 @@ set -e
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 repo_dir="$(dirname $script_dir)"
-hugo_binary="$script_dir/hugo_0.55.1"
+hugo_binary="$script_dir/hugo_extended_0.74.3_macOS-64bit"
 
 CMD="$1"
 

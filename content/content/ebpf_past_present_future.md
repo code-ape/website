@@ -3,7 +3,7 @@ title = "eBPF, part 1: Past, Present, and Future"
 date = "2017-04-28"
 categories = ["Technical Writings"]
 version = 2
-version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/ebpf_past_present_future/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/ebpf_past_present_future.md"
 revision_date = "2017-05-03"
 tags = ["eBPF", "BPF", "Networking", "Linux", "Chronology"] 
 
@@ -92,11 +92,11 @@ Importantly, BPF employs a buffer between the filter and user-space to avoid hav
 
 Perhaps the most important thing that McCanne and Jacobson did was to define the design of the virtual machine by the following five statement:
 
-> 1. It must be protocol independent. The kernel should not have to be modified to add new protocol support.
-2. It must be general. The instruction set should be rich enough to handle unforeseen uses.
-3. Packet data references should be minimized.
-4. Decoding an instruction should consist of a single C switch statement.
-5. The abstract machine registers[[^abstract_machine]] should reside in physical registers.
+1. "It must be protocol independent. The kernel should not have to be modified to add new protocol support."
+2. "It must be general. The instruction set should be rich enough to handle unforeseen uses."
+3. "Packet data references should be minimized."
+4. "Decoding an instruction should consist of a single C switch statement."
+5. "The abstract machine registers[[^abstract_machine]] should reside in physical registers."
 
 [^abstract_machine]: "Abstract machine" in the phrase the paper uses to refer to BPF's virtual machine.
 

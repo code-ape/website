@@ -3,7 +3,7 @@ title = "Remote Project Lead: Thoughts and Learnings"
 date = "2017-05-20"
 categories = ["Essays"]
 version = 1
-version_history = "https://github.com/code-ape/website/commits/gh-pages/posts/project_lead_thoughts/index.html"
+version_history = "https://github.com/code-ape/website/commits/master/content/content/project_lead_thoughts.md"
 tags = ["Project Management", "Remote Work"] 
 
 summary = '''

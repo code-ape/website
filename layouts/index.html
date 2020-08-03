@@ -12,9 +12,9 @@
 
   <h3 style="text-align:center;">(most recent content)</h3>
   <ul class=posts_listing>
-    {{ range first 3 $.Data.Pages.ByPublishDate.Reverse }}
+    {{- range ( site.RegularPages | first 5 ) }}
       {{ partial "content_listing.html" .}}
-    {{ end }}
+    {{- end}}
   </ul>
 </section>
 

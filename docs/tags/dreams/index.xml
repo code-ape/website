@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dreams on Ferris Ellis</title>
@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://ferrisellis.com/tags/dreams/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dreams Burn Bright</title>
+      <link>https://ferrisellis.com/content/dreams_burn_bright/</link>
+      <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://ferrisellis.com/content/dreams_burn_bright/</guid>
+      <description>Written by Ferris Ellis on July 26th, 2019. All rights reserved.
+Let your dreams burn bright,
+They are like a comet’s tail,
+Our fleeting essence.</description>
+    </item>
     
     <item>
       <title>A Life of Dreams</title>
@@ -19,7 +31,19 @@
       
       <guid>https://ferrisellis.com/content/a_life_of_dreams/</guid>
       <description>Written by Ferris Ellis on December 14th, 2018. All rights reserved.
-Oceans suspended. Forever in churning motion. Captive to my many moons drifting through space. A luminous army, making light of night. Forever cycling the sky; forever denying yesterday; unlike the lines on my face. But tonight is different. Tonight is a life of dreams. No moons, no tide. Engulfed in tranquil darkness; I watch a miracle of dance; by diamonds of light.</description>
+Oceans suspended.
+Forever in churning motion.
+Captive to my many moons drifting through space.
+A luminous army, making light of night.
+Forever cycling the sky;
+forever denying yesterday;
+unlike the lines on my face.
+But tonight is different.
+Tonight is a life of dreams.
+No moons, no tide.
+Engulfed in tranquil darkness;
+I watch a miracle of dance;
+by diamonds of light.</description>
     </item>
     
   </channel>
