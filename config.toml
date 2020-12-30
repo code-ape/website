@@ -1,8 +1,8 @@
-baseURL = "https://ferrisellis.com/"
+baseURL = "https://www.ferrisellis.com/"
 title = "Ferris Ellis"
 canonifyurls = true
 languageCode = "en-us"
-copyright = "Copyright Ferris Ellis 2017-2019. All rights reserved."
+copyright = "Copyright Ferris Ellis 2017-2021. All rights reserved."
 theme = "black-and-light"
 
 pygmentsStyle       = "trac"

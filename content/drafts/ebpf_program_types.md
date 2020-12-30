@@ -14,7 +14,7 @@ TODO
 # eBPF, part 3
 
 This article is the second in a series on eBPF.
-It builds upon the previous article, ["eBPF, part 1: Past, Present, and Future"]({{< ref "ebpf_past_present_future.md" >}}), by diving into the depths of eBPF's current functionality.
+It builds upon the previous article, ["eBPF, part 1: Past, Present, and Future"]({{< ref "../posts/ebpf_past_present_future.md" >}}), by diving into the depths of eBPF's current functionality.
 In doing so I hope to offer a completely fleshed out depiction of what eBPF can do with strong context to the systems which use it.
 As I mentioned in the prior article, eBPF has rapidly been integrated into many Linux kernel components.
 Due to this sprawling state of eBPF, this article is fairly lengthly and reads like a compendium at parts.
@@ -26,7 +26,7 @@ Due to this sprawling state of eBPF, this article is fairly lengthly and reads l
 
 # Intro
 
-In the previous and first article, ["eBPF, part 1: Past, Present, and Future"]({{< ref "ebpf_past_present_future.md" >}}), the process of using an eBPF program was summarized into three steps.
+In the previous and first article, ["eBPF, part 1: Past, Present, and Future"]({{< ref "../posts/ebpf_past_present_future.md" >}}), the process of using an eBPF program was summarized into three steps.
 
 1. Creation of the eBPF program as byte code.
 2. Loading the program into the kernel and creating necessary eBPF-maps.
@@ -52,14 +52,14 @@ It is the "hub" because it still must have context for
 This article maintains the same stance on clarifications, terms, and corrections as the first in its series.
 Thus, for concision, this article will not repeat it.
 For those looking to for more information on such matters please refer to 
-section titled ["Clarifications, Terms, and Corrections" from the first article]({{< ref "ebpf_past_present_future.md#clarifications-terms-and-corrections" >}}).
+section titled ["Clarifications, Terms, and Corrections" from the first article]({{< ref "../posts/ebpf_past_present_future.md#clarifications-terms-and-corrections" >}}).
 
 
 ## Terms
 
-This article builds on the terms from the subsection titled ["Terms" from the first article]({{< ref "ebpf_past_present_future.md#terms" >}}).
+This article builds on the terms from the subsection titled ["Terms" from the first article]({{< ref "../posts/ebpf_past_present_future.md#terms" >}}).
 For those looking for clarification on terms not defined below, please check with the section from the original article.
-If you feel that a term is missing please request a clarification as outlined in the ["Clarifications, Terms, and Corrections" from the first article]({{< ref "ebpf_past_present_future.md#clarifications-terms-and-corrections" >}}).
+If you feel that a term is missing please request a clarification as outlined in the ["Clarifications, Terms, and Corrections" from the first article]({{< ref "../posts/ebpf_past_present_future.md#clarifications-terms-and-corrections" >}}).
 
 
 # Walking through the details of eBPF's implementation

@@ -6,7 +6,8 @@ script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 repo_dir="$(dirname $script_dir)"
 
 # download hugo (currently hardcoded to Linux)
-hugo_source_address='https://github.com/gohugoio/hugo/releases/download/v0.40.3/hugo_0.40.3_Linux-64bit.tar.gz'
+hugo_version='0.79.1'
+hugo_source_address="https://github.com/gohugoio/hugo/releases/download/v${hugo_version}/hugo_extended_${hugo_version}_Linux-64bit.tar.gz"
 wget -O "$repo_dir/hugo.tar.gz" "$hugo_source_address"
 
 # remove prior hugo if it exists

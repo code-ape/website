@@ -21,7 +21,7 @@ There are two variations, MPLS without a net_device at all and VXLAN with a mast
 # eBPF, part 2
 
 This article is the second in my series on eBPF.
-This one builds on the previous, ["eBPF, part 1: Past, Present, and Future"]({{< ref "ebpf_past_present_future.md" >}}), by diving into the depths of eBPF's current implementation.
+This one builds on the previous, ["eBPF, part 1: Past, Present, and Future"]({{< ref "../posts/ebpf_past_present_future.md" >}}), by diving into the depths of eBPF's current implementation.
 
 TODO
 

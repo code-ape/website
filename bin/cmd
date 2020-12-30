@@ -4,7 +4,7 @@ set -e
 
 script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 repo_dir="$(dirname $script_dir)"
-hugo_binary="$script_dir/hugo_extended_0.74.3_macOS-64bit"
+hugo_binary="$script_dir/hugo"
 
 CMD="$1"
 
@@ -31,43 +31,24 @@ case "$CMD" in
 		eval $cmd
 		;;
 	build)
-		cmd="$hugo_binary -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_gh_pages)
-		HOST="ferrisellis.com"
-		PROTOCOL="https"
-		SITE_PATH=""
-		PORT_WITH_COLON=""
 		echo "Removing docs/"
 		rm -rf "$repo_dir/docs/" || true 
-		cmd="$hugo_binary -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH} -d '$repo_dir/docs/'"
-		echo "Running: $cmd"
-		eval $cmd
-		;;
-	build_gh_pages_old)
-		HOST="ferrisellis.com"
-		PROTOCOL="https"
-		SITE_PATH=""
-		PORT_WITH_COLON=""
-		echo "Removing public/"
-		rm -rf public || true 
-		echo "Pruning git worktree"
-		git worktree prune
-		echo "Adding git worktree of gh-pages at public/"
-		git worktree add -B gh-pages public origin/gh-pages
-		cmd="$hugo_binary -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -d '$repo_dir/docs/'"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_watch)
-		cmd="$hugo_binary -w -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -w"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
 	build_watch_drafts)
-		cmd="$hugo_binary -w -D -b ${PROTOCOL}://${HOST}${PORT_WITH_COLON}/${SITE_PATH}"
+		cmd="$hugo_binary -w -D"
 		echo "Running: $cmd"
 		eval $cmd
 		;;
