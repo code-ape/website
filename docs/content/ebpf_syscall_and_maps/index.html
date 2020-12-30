@@ -20,13 +20,13 @@
          FerrisEllis.com 
       
     </title>
-    <link rel="canonical" href="https://ferrisellis.com/content/ebpf_syscall_and_maps/">
+    <link rel="canonical" href="https://www.ferrisellis.com/content/ebpf_syscall_and_maps/">
     
-    <link rel="stylesheet" href="https://ferrisellis.com//font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.ferrisellis.com//font-awesome.min.css">
     <style> 
         @font-face {
             font-family: sansation;
-	    src: url(https://ferrisellis.com//fontawesome-webfont.woff);
+	    src: url(https://www.ferrisellis.com//fontawesome-webfont.woff);
         }
     </style> 
 
@@ -412,16 +412,16 @@
 </style>
 
 
-    <link rel="shortcut icon" href="https://ferrisellis.com/favicon.ico">
+    <link rel="shortcut icon" href="https://www.ferrisellis.com/favicon.ico">
 
-    <link rel="alternate" type="application/rss+xml" href="https://ferrisellis.com/index.xml" title="Ferris Ellis" />
+    <link rel="alternate" type="application/rss+xml" href="https://www.ferrisellis.com/index.xml" title="Ferris Ellis" />
     </head>
 
   <body>
 
 
 <section id=nav>
-    <h1><a href="https://ferrisellis.com/">Ferris Ellis</a></h1>
+    <h1><a href="https://www.ferrisellis.com/">Ferris Ellis</a></h1>
     
     <h3>Sustainability, cities, technology, and more.</h1>
     
@@ -446,37 +446,37 @@
         
         
         
-      <li><a href="https://ferrisellis.com/about/">About</a></li>
+      <li><a href="https://www.ferrisellis.com/about/">About</a></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/newsletter/">Newsletter</a></li>
+      <li><a href="https://www.ferrisellis.com/newsletter/">Newsletter</a></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/categories/essays/">Essays</a></li>
+      <li><a href="https://www.ferrisellis.com/categories/essays/">Essays</a></li>
         
       
         
         
         
-      <li><u><a href="https://ferrisellis.com/categories/technical-writings/">Technical Writings</a></u></li>
+      <li><u><a href="https://www.ferrisellis.com/categories/technical-writings/">Technical Writings</a></u></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/categories/talks/">Talks</a></li>
+      <li><a href="https://www.ferrisellis.com/categories/talks/">Talks</a></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/categories/etc/">Etc</a></li>
+      <li><a href="https://www.ferrisellis.com/categories/etc/">Etc</a></li>
         
       
     </ul>
@@ -494,7 +494,7 @@
                 <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
         </li>
         <li style="padding: 0 10px;">
-            <a href="https://ferrisellis.com/index.xml">
+            <a href="https://www.ferrisellis.com/index.xml">
                 <i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
         </li>
     </ul>
@@ -511,15 +511,15 @@
   
   
     Tags: 
-    <u><a href="https://ferrisellis.com/tags/ebpf">eBPF</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/ebpf">eBPF</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/bpf">BPF</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/bpf">BPF</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/networking">Networking</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/networking">Networking</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/linux">Linux</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/linux">Linux</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/data-structures">Data Structures</a></u>
+    <u><a href="https://www.ferrisellis.com/tags/data-structures">Data Structures</a></u>
     
   
   </div>
@@ -566,11 +566,11 @@
 </nav>
     <h1 id="ebpf-part-2">eBPF, part 2</h1>
 <p>This article is the second in a series on eBPF.
-It builds upon the previous article, <a href="https://ferrisellis.com/content/ebpf_past_present_future/">&ldquo;eBPF, part 1: Past, Present, and Future&rdquo;</a>, by diving into the core of using eBPF: the Linux <code>bpf</code> syscall.
+It builds upon the previous article, <a href="https://www.ferrisellis.com/content/ebpf_past_present_future/">&ldquo;eBPF, part 1: Past, Present, and Future&rdquo;</a>, by diving into the core of using eBPF: the Linux <code>bpf</code> syscall.
 In doing so this article hopes to offer a completely fleshed out depiction of the core machinery one must use for utilizing eBPF.</p>
 <p><em>This article also references future articles that will be written for this series. For those who may cite this article, it will be updated to reference said articles when they are posted. However, previous versions of this article will be accessible for reference and links to them will be posted on this page.</em></p>
 <h1 id="intro">Intro</h1>
-<p>In the previous article, <a href="https://ferrisellis.com/content/ebpf_past_present_future/">&ldquo;eBPF, part 1: Past, Present, and Future&rdquo;</a>, the process of using an eBPF program was summarized into three steps.</p>
+<p>In the previous article, <a href="https://www.ferrisellis.com/content/ebpf_past_present_future/">&ldquo;eBPF, part 1: Past, Present, and Future&rdquo;</a>, the process of using an eBPF program was summarized into three steps.</p>
 <ol>
 <li>Creation of the eBPF program as byte code.</li>
 <li>Loading the program into the kernel and creating necessary eBPF-maps.</li>
@@ -584,11 +584,11 @@ This is all done by the Linux <code>bpf</code> syscall.</p>
 <p>This article maintains the same stance on clarifications, terms, and corrections as the first in its series.
 Thus, for concision, this article will not repeat it.
 For those looking to for more information on such matters please refer to
-section titled <a href="https://ferrisellis.com/content/ebpf_past_present_future/#clarifications-terms-and-corrections">&ldquo;Clarifications, Terms, and Corrections&rdquo; from the first article</a>.</p>
+section titled <a href="https://www.ferrisellis.com/content/ebpf_past_present_future/#clarifications-terms-and-corrections">&ldquo;Clarifications, Terms, and Corrections&rdquo; from the first article</a>.</p>
 <h2 id="terms">Terms</h2>
-<p>This article builds on the terms from the subsection titled <a href="https://ferrisellis.com/content/ebpf_past_present_future/#terms">&ldquo;Terms&rdquo; from the first article in this series</a>.
+<p>This article builds on the terms from the subsection titled <a href="https://www.ferrisellis.com/content/ebpf_past_present_future/#terms">&ldquo;Terms&rdquo; from the first article in this series</a>.
 For those looking for clarification on terms not defined below, please check with the section from the original article.
-If you feel that a term is missing then please request a clarification as outlined in the <a href="https://ferrisellis.com/content/ebpf_past_present_future/#clarifications-terms-and-corrections">&ldquo;Clarifications, Terms, and Corrections&rdquo; from the first article</a>.</p>
+If you feel that a term is missing then please request a clarification as outlined in the <a href="https://www.ferrisellis.com/content/ebpf_past_present_future/#clarifications-terms-and-corrections">&ldquo;Clarifications, Terms, and Corrections&rdquo; from the first article</a>.</p>
 <ul>
 <li><strong>Syscall:</strong> Common shorthand for &ldquo;system call&rdquo;. It refers to the programmatic interface that user programs use to make requests to the operating system. This article prefers to use &ldquo;syscall&rdquo; over &ldquo;system call&rdquo; due to it being the more standard term in current writing.</li>
 <li><strong>Linux <code>bpf</code> syscall:</strong> The syscall found in the Linux operating system for using eBPF.</li>
@@ -963,7 +963,7 @@ which will be used by the bpf_skb_in_cgroup.&quot;</em></p>
 
 ... 
 </code></pre></div><p>This code checks that the the socket of the <code>skb</code>, which is a Linux socket buffer for the frame being processed, belongs to a descendant of any of the cgroup contained in the <code>test_cgrp2_array_pin</code> eBPF-map which is of type <code>BPF_MAP_TYPE_CGROUP_ARRAY</code>.
-This function, as documented in the code, returns <code>1</code> if the <code>skb</code>'s socket does belong to a cgroup in the eBPF-map.</p>
+This function, as documented in the code, returns <code>1</code> if the <code>skb</code>&rsquo;s socket does belong to a cgroup in the eBPF-map.</p>
 <p><strong>Initial commits related to <code>BPF_MAP_TYPE_CGROUP_ARRAY</code>:</strong></p>
 <ul>
 <li>Commit <a href="https://github.com/torvalds/linux/commit/1f3fe7ebf6136c341012db9f554d4caa566fcbaa"><code>1f3fe7ebf6136c341012db9f554d4caa566fcbaa</code></a></li>
@@ -1104,7 +1104,7 @@ In the next week the third installment of this series should be released on the 
     <br>
     <a href="#nav">Return to top</a>
     <p style="text-align: center;"><em>
-      For those wishing to share feedback or comments with me on this article please refer to <a href="https://ferrisellis.com/about#contact">the Contact section on the About page</a>.
+      For those wishing to share feedback or comments with me on this article please refer to <a href="https://www.ferrisellis.com/about#contact">the Contact section on the About page</a>.
     </em></p>
 
   </div>
@@ -1112,10 +1112,10 @@ In the next week the third installment of this series should be released on the 
   <div id=links>
     
     
-      <a class="basic-alignment left" href="https://ferrisellis.com/content/ebpf_past_present_future/">&laquo; eBPF, part 1: Past, Present, and Future</a>
+      <a class="basic-alignment left" href="https://www.ferrisellis.com/content/ebpf_past_present_future/">&laquo; eBPF, part 1: Past, Present, and Future</a>
     
     
-      <a class="basic-alignment left" href="https://ferrisellis.com/content/lifecycle_versioning_v1_alpha/">Lifecycle Versioning (v01, alpha) &raquo;</a>
+      <a class="basic-alignment left" href="https://www.ferrisellis.com/content/lifecycle_versioning_v1_alpha/">Lifecycle Versioning (v01, alpha) &raquo;</a>
     
   </div>
 </section>

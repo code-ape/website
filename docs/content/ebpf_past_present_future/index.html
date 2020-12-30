@@ -20,13 +20,13 @@
          FerrisEllis.com 
       
     </title>
-    <link rel="canonical" href="https://ferrisellis.com/content/ebpf_past_present_future/">
+    <link rel="canonical" href="https://www.ferrisellis.com/content/ebpf_past_present_future/">
     
-    <link rel="stylesheet" href="https://ferrisellis.com//font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.ferrisellis.com//font-awesome.min.css">
     <style> 
         @font-face {
             font-family: sansation;
-	    src: url(https://ferrisellis.com//fontawesome-webfont.woff);
+	    src: url(https://www.ferrisellis.com//fontawesome-webfont.woff);
         }
     </style> 
 
@@ -412,16 +412,16 @@
 </style>
 
 
-    <link rel="shortcut icon" href="https://ferrisellis.com/favicon.ico">
+    <link rel="shortcut icon" href="https://www.ferrisellis.com/favicon.ico">
 
-    <link rel="alternate" type="application/rss+xml" href="https://ferrisellis.com/index.xml" title="Ferris Ellis" />
+    <link rel="alternate" type="application/rss+xml" href="https://www.ferrisellis.com/index.xml" title="Ferris Ellis" />
     </head>
 
   <body>
 
 
 <section id=nav>
-    <h1><a href="https://ferrisellis.com/">Ferris Ellis</a></h1>
+    <h1><a href="https://www.ferrisellis.com/">Ferris Ellis</a></h1>
     
     <h3>Sustainability, cities, technology, and more.</h1>
     
@@ -446,37 +446,37 @@
         
         
         
-      <li><a href="https://ferrisellis.com/about/">About</a></li>
+      <li><a href="https://www.ferrisellis.com/about/">About</a></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/newsletter/">Newsletter</a></li>
+      <li><a href="https://www.ferrisellis.com/newsletter/">Newsletter</a></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/categories/essays/">Essays</a></li>
+      <li><a href="https://www.ferrisellis.com/categories/essays/">Essays</a></li>
         
       
         
         
         
-      <li><u><a href="https://ferrisellis.com/categories/technical-writings/">Technical Writings</a></u></li>
+      <li><u><a href="https://www.ferrisellis.com/categories/technical-writings/">Technical Writings</a></u></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/categories/talks/">Talks</a></li>
+      <li><a href="https://www.ferrisellis.com/categories/talks/">Talks</a></li>
         
       
         
         
         
-      <li><a href="https://ferrisellis.com/categories/etc/">Etc</a></li>
+      <li><a href="https://www.ferrisellis.com/categories/etc/">Etc</a></li>
         
       
     </ul>
@@ -494,7 +494,7 @@
                 <i class="fa fa-github fa-lg" aria-hidden="true"></i></a>
         </li>
         <li style="padding: 0 10px;">
-            <a href="https://ferrisellis.com/index.xml">
+            <a href="https://www.ferrisellis.com/index.xml">
                 <i class="fa fa-rss fa-lg" aria-hidden="true"></i></a>
         </li>
     </ul>
@@ -511,15 +511,15 @@
   
   
     Tags: 
-    <u><a href="https://ferrisellis.com/tags/ebpf">eBPF</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/ebpf">eBPF</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/bpf">BPF</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/bpf">BPF</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/networking">Networking</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/networking">Networking</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/linux">Linux</a></u>,
+    <u><a href="https://www.ferrisellis.com/tags/linux">Linux</a></u>,
     
-    <u><a href="https://ferrisellis.com/tags/chronology">Chronology</a></u>
+    <u><a href="https://www.ferrisellis.com/tags/chronology">Chronology</a></u>
     
   
   </div>
@@ -605,7 +605,7 @@ In the paper, McCanne and Jacobson describe the BSD Packet Filter, or BPF for sh
 By this, BPF filters can do traffic filtering in an efficient manner while still maintaining a boundary between the filter code and the kernel.</p>
 <p>In their paper, McCanne and Jacobson&rsquo;s offer the following diagram to help visualize this.
 Importantly, BPF employs a buffer between the filter and user-space to avoid having to make the expensive context switch between user-space and kernel-space for every packet the filter matches on.</p>
-<p><img src="https://ferrisellis.com/images/bpf_layout_diagram.png" alt="bpf_layout_diagram" title="BPF layout diagram from McCanne and Jacobson's paper."></p>
+<p><img src="https://www.ferrisellis.com/images/bpf_layout_diagram.png" alt="bpf_layout_diagram" title="BPF layout diagram from McCanne and Jacobson's paper."></p>
 <p>Perhaps the most important thing that McCanne and Jacobson did was to define the design of the virtual machine by the following five statement:</p>
 <ol>
 <li>&ldquo;It must be protocol independent. The kernel should not have to be modified to add new protocol support.&rdquo;</li>
@@ -663,7 +663,7 @@ The process eBPF programs go through can be broken down into three distinct part
 <p><strong>Creation of the eBPF program as byte code.</strong>
 Currently the standard way of creating eBPF programs is to write them as C code and then have LLVM compile them into eBPF byte code which resides in an ELF file.
 However, the eBPF virtual machine&rsquo;s design is well documented and the code for it and much of the tooling around it is open source.
-Thus, for <a href="https://ferrisellis.com/images/but_we_are_initiated.jpeg"><em>the initiated</em></a>, it is entirely possible to either craft the register code for an eBPF program by hand or write a custom compiler for eBPF.
+Thus, for <a href="https://www.ferrisellis.com/images/but_we_are_initiated.jpeg"><em>the initiated</em></a>, it is entirely possible to either craft the register code for an eBPF program by hand or write a custom compiler for eBPF.
 Because of eBPF&rsquo;s extremely simple design all functions for an eBPF program, other than the entry point function, must be inlined for LLVM to compile it.
 This series will work through this in more detail with it&rsquo;s third installment which hasn&rsquo;t been posted yet.
 For those looking for more information in the mean time, please see the <a href="#further-reading%22">Further Reading section</a> of this article.</p>
@@ -674,7 +674,7 @@ This is done using the <code>bpf</code> syscall in Linux.
 This syscall allows for the byte code to be loaded along with a declaration of the the type of eBPF program that&rsquo;s being loaded.
 As of this writing, eBPF has program types for usage as a socket filter, kprobe handler, traffic control scheduler, traffic control action, tracepoint handler, eXpress Data Path (XDP), performance monitor, cgroup restriction, and light weight tunnel.
 The syscall is also used for initializing eBPF-maps.
-This series second installment explains the options and implementation detail of this syscall with the article <a href="https://ferrisellis.com/content/ebpf_syscall_and_maps/">&ldquo;eBPF part 2: Syscall and Map Types&rdquo;</a>.
+This series second installment explains the options and implementation detail of this syscall with the article <a href="https://www.ferrisellis.com/content/ebpf_syscall_and_maps/">&ldquo;eBPF part 2: Syscall and Map Types&rdquo;</a>.
 The third installment works through using current Linux tools, mainly <code>tc</code> and <code>ip</code> from iproute2, for this purpose and ones following that will work through the low level operations of this in detail.
 For those looking for more information in the mean time, please see the <a href="#further-reading">Further Reading section</a> of this article.</p>
 </li>
@@ -749,7 +749,7 @@ This compilation, which he continues to update, can be found <a href="https://qm
 A brief writeup on the intentions of the reference guide can be found in a <a href="https://www.cilium.io/blog/2017/4/24/launch-of-bpf-xdp-documentation">blog post on Cilium&rsquo;s website</a>.</p>
 </li>
 </ol>
-<p>For those looking to continue reading this series, please check out the next installment, <a href="https://ferrisellis.com/content/ebpf_syscall_and_maps/">&ldquo;eBPF part 2: Syscall and Map Types&rdquo;</a></p>
+<p>For those looking to continue reading this series, please check out the next installment, <a href="https://www.ferrisellis.com/content/ebpf_syscall_and_maps/">&ldquo;eBPF part 2: Syscall and Map Types&rdquo;</a></p>
 <section class="footnotes" role="doc-endnotes">
 <hr>
 <ol>
@@ -873,7 +873,7 @@ A brief writeup on the intentions of the reference guide can be found in a <a hr
     <br>
     <a href="#nav">Return to top</a>
     <p style="text-align: center;"><em>
-      For those wishing to share feedback or comments with me on this article please refer to <a href="https://ferrisellis.com/about#contact">the Contact section on the About page</a>.
+      For those wishing to share feedback or comments with me on this article please refer to <a href="https://www.ferrisellis.com/about#contact">the Contact section on the About page</a>.
     </em></p>
 
   </div>
@@ -881,10 +881,10 @@ A brief writeup on the intentions of the reference guide can be found in a <a hr
   <div id=links>
     
     
-      <a class="basic-alignment left" href="https://ferrisellis.com/content/rust-implementing-units-for-types/">&laquo; Math with distances in Rust: safety and correctness across units</a>
+      <a class="basic-alignment left" href="https://www.ferrisellis.com/content/rust-implementing-units-for-types/">&laquo; Math with distances in Rust: safety and correctness across units</a>
     
     
-      <a class="basic-alignment left" href="https://ferrisellis.com/content/ebpf_syscall_and_maps/">eBPF, part 2: Syscall and Map Types &raquo;</a>
+      <a class="basic-alignment left" href="https://www.ferrisellis.com/content/ebpf_syscall_and_maps/">eBPF, part 2: Syscall and Map Types &raquo;</a>
     
   </div>
 </section>

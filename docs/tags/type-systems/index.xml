@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Type Systems on Ferris Ellis</title>
-    <link>https://ferrisellis.com/tags/type-systems/</link>
+    <link>https://www.ferrisellis.com/tags/type-systems/</link>
     <description>Recent content in Type Systems on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 Mar 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ferrisellis.com/tags/type-systems/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 08 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://www.ferrisellis.com/tags/type-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Math with distances in Rust: safety and correctness across units</title>
-      <link>https://ferrisellis.com/content/rust-implementing-units-for-types/</link>
+      <link>https://www.ferrisellis.com/content/rust-implementing-units-for-types/</link>
       <pubDate>Wed, 08 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/content/rust-implementing-units-for-types/</guid>
+      <guid>https://www.ferrisellis.com/content/rust-implementing-units-for-types/</guid>
       <description>Computers weren&amp;rsquo;t designed to have outside concepts, such as units of length, expressed in their function.
 Because of this Rust, being a systems language, also has no concept of it.
 But just because the computer runtime has no concept of length or units of length doesn&amp;rsquo;t mean we can&amp;rsquo;t teach them to the compiler.

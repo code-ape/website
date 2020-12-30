@@ -2,14 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ferris Ellis</title>
-    <link>https://ferrisellis.com/about/</link>
+    <link>https://www.ferrisellis.com/about/</link>
     <description>Recent content on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    
-	<atom:link href="https://ferrisellis.com/about/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright><atom:link href="https://www.ferrisellis.com/about/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

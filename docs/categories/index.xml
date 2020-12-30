@@ -2,49 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Ferris Ellis</title>
-    <link>https://ferrisellis.com/categories/</link>
+    <link>https://www.ferrisellis.com/categories/</link>
     <description>Recent content in Categories on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ferrisellis.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.ferrisellis.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Etc</title>
-      <link>https://ferrisellis.com/categories/etc/</link>
+      <link>https://www.ferrisellis.com/categories/etc/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/categories/etc/</guid>
+      <guid>https://www.ferrisellis.com/categories/etc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Talks</title>
-      <link>https://ferrisellis.com/categories/talks/</link>
+      <link>https://www.ferrisellis.com/categories/talks/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/categories/talks/</guid>
+      <guid>https://www.ferrisellis.com/categories/talks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Essays</title>
-      <link>https://ferrisellis.com/categories/essays/</link>
+      <link>https://www.ferrisellis.com/categories/essays/</link>
       <pubDate>Fri, 01 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/categories/essays/</guid>
+      <guid>https://www.ferrisellis.com/categories/essays/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Technical Writings</title>
-      <link>https://ferrisellis.com/categories/technical-writings/</link>
+      <link>https://www.ferrisellis.com/categories/technical-writings/</link>
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/categories/technical-writings/</guid>
+      <guid>https://www.ferrisellis.com/categories/technical-writings/</guid>
       <description></description>
     </item>
     

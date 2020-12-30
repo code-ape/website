@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks on Ferris Ellis</title>
-    <link>https://ferrisellis.com/categories/talks/</link>
+    <link>https://www.ferrisellis.com/categories/talks/</link>
     <description>Recent content in Talks on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ferrisellis.com/categories/talks/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 10 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.ferrisellis.com/categories/talks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DCD Building at Scale 2020, Panel: How have sustainability requirements changed where and how we build data centers?</title>
-      <link>https://ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</link>
+      <link>https://www.ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</link>
       <pubDate>Fri, 10 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</guid>
+      <guid>https://www.ferrisellis.com/content/dcd_building_at_scale_2020_sustainability_requirements/</guid>
       <description>A panel with Ferris Ellis at DCD Building at Scale 2020.
 I am sorry to say this panel discussion requires viewers to register before getting access. To do this and view the panel, go to the DCD page for the panel.
 Abstract The global climate emergency may have taken a back seat in recent months, but it remains the biggest challenge to face the industry and humanity as a whole.</description>
@@ -25,10 +21,10 @@ Abstract The global climate emergency may have taken a back seat in recent month
     
     <item>
       <title>Strength in Numbers: Unums and the Quest for Reliable Arithmetic</title>
-      <link>https://ferrisellis.com/content/unums_strange_loop_2017/</link>
+      <link>https://www.ferrisellis.com/content/unums_strange_loop_2017/</link>
       <pubDate>Thu, 28 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/content/unums_strange_loop_2017/</guid>
+      <guid>https://www.ferrisellis.com/content/unums_strange_loop_2017/</guid>
       <description>A talk by Ferris Ellis at Strange Loop 2017.
 Abstract In the land of computer arithmetic, a tyrant has ruled since its very beginning: the floating point number. Under its rule we have all endured countless hardships and cruelties. To this very day the floating point number still denies 0.1 + 0.2 == 0.3 and returns insidious infinities to software developers everywhere. But a new hero has entered fray: the universal number (unum).</description>
     </item>

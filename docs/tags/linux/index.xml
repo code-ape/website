@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on Ferris Ellis</title>
-    <link>https://ferrisellis.com/tags/linux/</link>
+    <link>https://www.ferrisellis.com/tags/linux/</link>
     <description>Recent content in Linux on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://ferrisellis.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 11 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://www.ferrisellis.com/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>eBPF, part 2: Syscall and Map Types</title>
-      <link>https://ferrisellis.com/content/ebpf_syscall_and_maps/</link>
+      <link>https://www.ferrisellis.com/content/ebpf_syscall_and_maps/</link>
       <pubDate>Thu, 11 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/content/ebpf_syscall_and_maps/</guid>
+      <guid>https://www.ferrisellis.com/content/ebpf_syscall_and_maps/</guid>
       <description>Due to the its fast adoption, using eBPF is different for each system it has been integrated with.
 However, the common denominator for all uses is the syscall for eBPF.
 This syscall, the &lt;code&gt;bpf&lt;/code&gt; syscall in Linux, allows eBPF programs to be loaded into the kernel and eBPF-maps to be created and manipulated.
@@ -26,10 +22,10 @@ As the second installment in the eBPF series, this article works through all the
     
     <item>
       <title>eBPF, part 1: Past, Present, and Future</title>
-      <link>https://ferrisellis.com/content/ebpf_past_present_future/</link>
+      <link>https://www.ferrisellis.com/content/ebpf_past_present_future/</link>
       <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/content/ebpf_past_present_future/</guid>
+      <guid>https://www.ferrisellis.com/content/ebpf_past_present_future/</guid>
       <description>The Extended Berkeley Packet Filter, or eBPF, has rapidly been adopted into a number of Linux kernel systems since its introduction into the Linux kernel in late 2014.
 Understanding eBPF, however, can be difficult as many try to explain it via a use of eBPF as opposed to its design.
 Indeed eBPF&amp;rsquo;s name indicates that it is for packet filtering even though it now has uses which have nothing to do with networking.

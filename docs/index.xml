@@ -1,25 +1,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
   <channel>
     <title>Ferris Ellis</title>
-    <link>https://ferrisellis.com/</link>
+    <link>https://www.ferrisellis.com/</link>
     <description>Recent content on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright>
     <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-        <atom:link href="https://ferrisellis.com/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://www.ferrisellis.com/index.xml" rel="self" type="application/rss+xml" />
     
     <category>TEST</category>
     
     <item>
       <title>Contents</title>
       <itunes:subtitle>Contents</itunes:subtitle>
-      <link>https://ferrisellis.com/content/</link>
+      <link>https://www.ferrisellis.com/content/</link>
       <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
       <author></author>
       <itunes:author></itunes:author>
-      <guid>https://ferrisellis.com/content/</guid>
+      <guid>https://www.ferrisellis.com/content/</guid>
       
       <description type="html"><![CDATA[]]></description>
       <itunes:summary type="html"><![CDATA[]]></itunes:summary>
@@ -29,11 +29,11 @@
     <item>
       <title></title>
       <itunes:subtitle></itunes:subtitle>
-      <link>https://ferrisellis.com/about/</link>
+      <link>https://www.ferrisellis.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author></author>
       <itunes:author></itunes:author>
-      <guid>https://ferrisellis.com/about/</guid>
+      <guid>https://www.ferrisellis.com/about/</guid>
       
         
       
@@ -47,11 +47,11 @@
     <item>
       <title></title>
       <itunes:subtitle></itunes:subtitle>
-      <link>https://ferrisellis.com/newsletter/</link>
+      <link>https://www.ferrisellis.com/newsletter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author></author>
       <itunes:author></itunes:author>
-      <guid>https://ferrisellis.com/newsletter/</guid>
+      <guid>https://www.ferrisellis.com/newsletter/</guid>
       
         
       
@@ -63,11 +63,11 @@
     <item>
       <title>Posts</title>
       <itunes:subtitle>Posts</itunes:subtitle>
-      <link>https://ferrisellis.com/posts/</link>
+      <link>https://www.ferrisellis.com/posts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author></author>
       <itunes:author></itunes:author>
-      <guid>https://ferrisellis.com/posts/</guid>
+      <guid>https://www.ferrisellis.com/posts/</guid>
       
       <description type="html"><![CDATA[]]></description>
       <itunes:summary type="html"><![CDATA[]]></itunes:summary>
@@ -77,11 +77,11 @@
     <item>
       <title>Talks</title>
       <itunes:subtitle>Talks</itunes:subtitle>
-      <link>https://ferrisellis.com/talks/</link>
+      <link>https://www.ferrisellis.com/talks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author></author>
       <itunes:author></itunes:author>
-      <guid>https://ferrisellis.com/talks/</guid>
+      <guid>https://www.ferrisellis.com/talks/</guid>
       
       <description type="html"><![CDATA[]]></description>
       <itunes:summary type="html"><![CDATA[]]></itunes:summary>
@@ -91,11 +91,11 @@
     <item>
       <title>Writings</title>
       <itunes:subtitle>Writings</itunes:subtitle>
-      <link>https://ferrisellis.com/writings/</link>
+      <link>https://www.ferrisellis.com/writings/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author></author>
       <itunes:author></itunes:author>
-      <guid>https://ferrisellis.com/writings/</guid>
+      <guid>https://www.ferrisellis.com/writings/</guid>
       
       <description type="html"><![CDATA[]]></description>
       <itunes:summary type="html"><![CDATA[]]></itunes:summary>

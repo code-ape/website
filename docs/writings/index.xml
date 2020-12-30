@@ -2,75 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Writings on Ferris Ellis</title>
-    <link>https://ferrisellis.com/writings/</link>
+    <link>https://www.ferrisellis.com/writings/</link>
     <description>Recent content in Writings on Ferris Ellis</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright Ferris Ellis 2017-2019. All rights reserved.</copyright>
-    
-	<atom:link href="https://ferrisellis.com/writings/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Copyright Ferris Ellis 2017-2021. All rights reserved.</copyright><atom:link href="https://www.ferrisellis.com/writings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/a_life_of_dreams/</link>
+      <link>https://www.ferrisellis.com/writings/a_life_of_dreams/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/a_life_of_dreams/</guid>
+      <guid>https://www.ferrisellis.com/writings/a_life_of_dreams/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/canopy/</link>
+      <link>https://www.ferrisellis.com/writings/canopy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/canopy/</guid>
+      <guid>https://www.ferrisellis.com/writings/canopy/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/local_excellence/</link>
+      <link>https://www.ferrisellis.com/writings/local_excellence/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/local_excellence/</guid>
+      <guid>https://www.ferrisellis.com/writings/local_excellence/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/look_inward/</link>
+      <link>https://www.ferrisellis.com/writings/look_inward/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/look_inward/</guid>
+      <guid>https://www.ferrisellis.com/writings/look_inward/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/noise/</link>
+      <link>https://www.ferrisellis.com/writings/noise/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/noise/</guid>
+      <guid>https://www.ferrisellis.com/writings/noise/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/other_days/</link>
+      <link>https://www.ferrisellis.com/writings/other_days/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/other_days/</guid>
+      <guid>https://www.ferrisellis.com/writings/other_days/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://ferrisellis.com/writings/well_find_a_better_future_in_2119_not_2019/</link>
+      <link>https://www.ferrisellis.com/writings/well_find_a_better_future_in_2119_not_2019/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ferrisellis.com/writings/well_find_a_better_future_in_2119_not_2019/</guid>
+      <guid>https://www.ferrisellis.com/writings/well_find_a_better_future_in_2119_not_2019/</guid>
       <description></description>
     </item>
     
